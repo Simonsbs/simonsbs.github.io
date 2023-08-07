@@ -148,9 +148,9 @@ function Header({ toggleHeader, toggleHandler }) {
               )}
             </ul>
 
-            <span className="copyright">
+            {/* <span className="copyright">
               &copy; {new Date().getFullYear()} Bako Template
-            </span>
+            </span> */}
           </div>
         </div>
       </header>

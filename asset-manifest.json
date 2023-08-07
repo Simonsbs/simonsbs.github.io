@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d85cbfaf.css",
+    "main.js": "/static/js/main.db8be7b0.js",
+    "static/js/260.439033d5.chunk.js": "/static/js/260.439033d5.chunk.js",
+    "static/js/310.b64b0608.chunk.js": "/static/js/310.b64b0608.chunk.js",
+    "static/js/321.7bb7ae30.chunk.js": "/static/js/321.7bb7ae30.chunk.js",
+    "static/js/787.41b0658d.chunk.js": "/static/js/787.41b0658d.chunk.js",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/how-to-become-better-with-ui-design.md": "/static/media/how-to-become-better-with-ui-design.cb9cebf5eef6a2607c19.md",
+    "static/media/the-ugly-truth-about-design.md": "/static/media/the-ugly-truth-about-design.a6c056dee77182ce5a0b.md",
+    "static/media/the-truth-about-design.md": "/static/media/the-truth-about-design.2f0caa6bb7e2d9e7888d.md",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.d85cbfaf.css.map": "/static/css/main.d85cbfaf.css.map",
+    "main.db8be7b0.js.map": "/static/js/main.db8be7b0.js.map",
+    "787.41b0658d.chunk.js.map": "/static/js/787.41b0658d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d85cbfaf.css",
+    "static/js/main.db8be7b0.js"
+  ]
+}

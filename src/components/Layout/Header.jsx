@@ -48,6 +48,7 @@ function Header({ toggleHeader, toggleHandler }) {
           <img
             src={headerData.imageThumb}
             width={70}
+            height={70}
             className="rounded"
             alt={headerData.name}
           />
@@ -77,6 +78,7 @@ function Header({ toggleHeader, toggleHandler }) {
             <img
               src={headerData.imageThumb}
               width={70}
+              height={70}
               alt={headerData.name}
               className="rounded"
             />

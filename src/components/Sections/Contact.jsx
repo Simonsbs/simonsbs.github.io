@@ -62,7 +62,9 @@ function Contact() {
           <div className="details">
             <h5>Phone</h5>
             {contactData.phone.map((singlePhone, index) => (
-              <span key={index}>{singlePhone}</span>
+              <span key={index}>
+                <a href={"tel:" + singlePhone}>{singlePhone}</a>
+              </span>
             ))}
           </div>
         </div>
@@ -71,7 +73,9 @@ function Contact() {
           <div className="details">
             <h5>Email address</h5>
             {contactData.email.map((singleEmail, index) => (
-              <span key={index}>{singleEmail}</span>
+              <span key={index}>
+                <a href={"mailto:" + singleEmail}>{singleEmail}</a>
+              </span>
             ))}
           </div>
         </div>
@@ -79,7 +83,11 @@ function Contact() {
           <i className="icon-location-pin"></i>
           <div className="details">
             <h5>Location</h5>
-            <span>{contactData.location}</span>
+            <span>
+              <a href="https://goo.gl/maps/gfC2nXNBBeEfcy57A">
+                {contactData.location}
+              </a>
+            </span>
           </div>
         </div>
       </div>

@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Simon B. Stirling - Developer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Welcome to my personal profile and resume. I'm Simon B. Stirling, a developer with a passion for coding and creativity. Feel free to explore my portfolio and get to know more about my work and experience.
 
-In the project directory, you can run:
+## Contact Information
 
-### `yarn start`
+- **Phone:** +972545841058
+- **Email:** simonsbs@gmail.com
+- **Location:** Hadera, Israel
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Sections
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. **[Home](https://simonsbs.github.io/)**: Introduction and welcome.
+2. **[About](https://simonsbs.github.io/about)**: Learn more about me and my background.
+3. **[Services](https://simonsbs.github.io/services)**: Overview of the services I offer.
+4. **[Resume](https://simonsbs.github.io/resume)**: Detailed look at my professional experience and skills.
+5. **[Works](https://simonsbs.github.io/works)**: A showcase of my projects and accomplishments.
+6. **[Blog](https://simonsbs.github.io/blog)**: My thoughts, insights, and writings on various topics.
+7. **[Contact](https://simonsbs.github.io/contact)**: Get in touch with me.
 
-### `yarn test`
+## Portfolio
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You can view my portfolio and hire me for your next project. Explore my work and see how I can contribute to your success.
 
-### `yarn build`
+## Conclusion
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for visiting my personal profile. Feel free to reach out to me via email or phone. I look forward to connecting with you!

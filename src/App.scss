@@ -34,6 +34,24 @@ Description: Personal Portfolio & Resume HTML Template
 @import "./sass/slick";
 @import "./sass/responsive";
 
+.fade-in {
+  transition: opacity 1.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.service-container {
+  display: flex;
+  align-items: stretch; /* This will make all items the same height */
+}
+
+.service-item {
+  flex: 1; /* This will make all items take up equal width */
+}
+
 // Demo Css - Please remove when it's unnecessary.
 
 .demosection {

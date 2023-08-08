@@ -8,10 +8,19 @@ import {
   FaYoutube,
   FaDribbble,
 } from "react-icons/fa";
+import { TextCarousel } from "../Items/TextCarousel";
 
 const headerData = {
   name: "Simon B.Stirling",
-  designation: "Developer",
+  designations: [
+    "CTO",
+    "R&D Manager",
+    "Solution Architect",
+    "Project Manager",
+    "Team Leader",
+    "Instructor",
+    "Full Stack Developer",
+  ],
   imageThumb: "/images/logo.png",
   social: {
     facebook: "https://facebook.com",
@@ -87,7 +96,9 @@ function Header({ toggleHeader, toggleHandler }) {
             {headerData.name}
           </Link>
 
-          <span className="site-slogan">{headerData.designation}</span>
+          <span className="site-slogan">
+            <TextCarousel phrases={headerData.designations} />
+          </span>
 
           <nav>
             <ul className="vertical-menu scrollspy">

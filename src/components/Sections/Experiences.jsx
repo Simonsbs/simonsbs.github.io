@@ -4,24 +4,32 @@ import Experience from "../Items/Experience";
 const experiencesData = [
   {
     id: 1,
-    year: "2019 - Present",
-    degree: "Academic Degree",
+    year: "2005 - Present",
+    degree: "Manager and Co-Partner in 2 Technology Companies",
     content:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.",
+      "Lead and manage software and electronics projects at Flame-Ware Solutions and Brama, overseeing project lifecycles, team coordination, and client support.",
   },
   {
     id: 2,
-    year: "2018 - 2015",
-    degree: "Bachelor’s Degree",
+    year: "2023 - Present",
+    degree: "Technology and Programming Lecturer, Hacker-U College",
     content:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.",
+      "Teach and mentor students in various technologies and development environments, engaging in curriculum development and improvement.",
   },
   {
     id: 3,
-    year: "2015 - 2012",
-    degree: "Honours Degree",
+    year: "2004 - 2005",
+    degree: "CoolVision - Head of Development Team",
     content:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.",
+      "Analyzed and characterized a global social networking site using live video broadcasting technology, leading a team of developers and database experts.",
+  },
+  {
+    id: 4,
+    year: "2000 - 2004",
+    degree:
+      "Military Service (IDF) - Medical Corps - Development Team leader And Head of Systems Analysis and Development",
+    content:
+      "Analyzed, characterized, and developed client/server systems for human resources, office management, and unit/personnel deployment, and instructed computer applications and system usage.",
   },
 ];
 

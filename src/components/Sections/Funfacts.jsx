@@ -2,29 +2,47 @@ import React from "react";
 import TrackVisibility from "react-on-screen";
 import Funfact from "../Items/Funfact";
 
+function daysSince1988() {
+  const startDate = new Date("1988-01-01");
+  const currentDate = new Date();
+  const differenceInTime = currentDate - startDate;
+  const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+  return Math.floor(differenceInDays);
+}
+
+function coffeeConsumedSince1988() {
+  const startDate = new Date("1988-01-01");
+  const currentDate = new Date();
+  const differenceInTime = currentDate - startDate;
+  const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+  const averageCupsPerDay = 5;
+  const totalCups = Math.floor(differenceInDays) * averageCupsPerDay;
+  return totalCups;
+}
+
 const funfactData = [
   {
     id: 1,
-    title: "Projects completed",
-    count: 157,
+    title: "Days as a developer",
+    count: daysSince1988(),
     icon: "icon-like",
   },
   {
     id: 2,
     title: "Cup of coffee",
-    count: 2765,
+    count: coffeeConsumedSince1988(),
     icon: "icon-cup",
   },
   {
     id: 3,
     title: "Happy customers",
-    count: 350,
+    count: 383,
     icon: "icon-emotsmile",
   },
   {
     id: 4,
-    title: "Awards won",
-    count: 29,
+    title: "Projects",
+    count: 853,
     icon: "icon-trophy",
   },
 ];

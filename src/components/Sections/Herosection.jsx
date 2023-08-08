@@ -4,15 +4,12 @@ import { Link as ScrollLink } from "react-scroll";
 const herosectionData = {
   name: "Simon B.Stirling",
   aboutMe:
-    "He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.",
+    "Over 20 years of experience in system analysis, development, and management across various industries. Seeking a senior technology or management position to drive innovation and success.",
 };
 
 function Herosection() {
   return (
-    <section
-      className="hero background parallax shadow-dark d-flex align-items-center"
-      style={{ backgroundImage: "url(/images/hero.jpg)" }}
-    >
+    <section className="hero background parallax shadow-dark d-flex align-items-center">
       <div className="cta mx-auto mt-2">
         <h1 className="mt-0 mb-4">I’m {herosectionData.name}</h1>
         <p className="mb-4">{herosectionData.aboutMe}</p>

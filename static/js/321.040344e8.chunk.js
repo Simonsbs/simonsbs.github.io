@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksimonsbs_github_io=self.webpackChunksimonsbs_github_io||[]).push([[321],{8321:function(s,e,t){s.exports=t.p+"static/media/the-ugly-truth-about-design.a6c056dee77182ce5a0b.md"}}]);

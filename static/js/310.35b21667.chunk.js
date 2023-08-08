@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksimonsbs_github_io=self.webpackChunksimonsbs_github_io||[]).push([[310],{1310:function(s,t,e){s.exports=e.p+"static/media/the-truth-about-design.2f0caa6bb7e2d9e7888d.md"}}]);

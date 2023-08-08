@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkbestdev=self.webpackChunkbestdev||[]).push([[260],{7260:function(e,t,s){e.exports=s.p+"static/media/how-to-become-better-with-ui-design.cb9cebf5eef6a2607c19.md"}}]);

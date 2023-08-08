@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Layout2 from "../components/Layout/Layout2";
 import SectionHeading from "../components/Items/SectionHeading";
 import ContactSection from "../components/Sections/Contact";

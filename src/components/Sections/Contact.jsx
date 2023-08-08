@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  GoogleReCaptchaProvider,
-  useGoogleReCaptcha,
-} from "react-google-recaptcha-v3";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const contactData = {
   phone: ["+972545841058"],
@@ -70,113 +67,111 @@ function Contact() {
   };
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey="6LeuFo4nAAAAAB2ILmBF5dmQMr2vgm6QAv4nqdiZ">
-      <div className="row">
-        <div className="col-md-4 mb-4 mb-md-0">
-          <div className="contact-info mb-5">
-            <i className="icon-phone"></i>
-            <div className="details">
-              <h5>Phone</h5>
-              {contactData.phone.map((singlePhone, index) => (
-                <span key={index}>
-                  <a href={"tel:" + singlePhone}>{singlePhone}</a>
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="contact-info mb-5">
-            <i className="icon-envelope"></i>
-            <div className="details">
-              <h5>Email address</h5>
-              {contactData.email.map((singleEmail, index) => (
-                <span key={index}>
-                  <a href={"mailto:" + singleEmail}>{singleEmail}</a>
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="contact-info">
-            <i className="icon-location-pin"></i>
-            <div className="details">
-              <h5>Location</h5>
-              <span>
-                <a href="https://goo.gl/maps/gfC2nXNBBeEfcy57A">
-                  {contactData.location}
-                </a>
+    <div className="row">
+      <div className="col-md-4 mb-4 mb-md-0">
+        <div className="contact-info mb-5">
+          <i className="icon-phone"></i>
+          <div className="details">
+            <h5>Phone</h5>
+            {contactData.phone.map((singlePhone, index) => (
+              <span key={index}>
+                <a href={"tel:" + singlePhone}>{singlePhone}</a>
               </span>
-            </div>
+            ))}
           </div>
         </div>
-
-        <div className="col-md-8">
-          <form className="contact-form" onSubmit={submitHandler}>
-            <div className="row">
-              <div className="column col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="name"
-                    placeholder="Your name"
-                    onChange={handleChange}
-                    value={formdata.name}
-                  />
-                </div>
-              </div>
-
-              <div className="column col-md-6">
-                <div className="form-group">
-                  <input
-                    type="email"
-                    className="form-control"
-                    name="email"
-                    placeholder="Email address"
-                    onChange={handleChange}
-                    value={formdata.email}
-                  />
-                </div>
-              </div>
-
-              <div className="column col-md-12">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="subject"
-                    placeholder="Subject"
-                    onChange={handleChange}
-                    value={formdata.subject}
-                  />
-                </div>
-              </div>
-
-              <div className="column col-md-12">
-                <div className="form-group">
-                  <textarea
-                    name="message"
-                    className="form-control"
-                    rows="5"
-                    placeholder="Message"
-                    onChange={handleChange}
-                    value={formdata.message}
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              name="submit"
-              value="Submit"
-              className="btn btn-default"
-            >
-              <i className="icon-paper-plane"></i>Send Message
-            </button>
-          </form>
-          {handleAlerts()}
+        <div className="contact-info mb-5">
+          <i className="icon-envelope"></i>
+          <div className="details">
+            <h5>Email address</h5>
+            {contactData.email.map((singleEmail, index) => (
+              <span key={index}>
+                <a href={"mailto:" + singleEmail}>{singleEmail}</a>
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="contact-info">
+          <i className="icon-location-pin"></i>
+          <div className="details">
+            <h5>Location</h5>
+            <span>
+              <a href="https://goo.gl/maps/gfC2nXNBBeEfcy57A">
+                {contactData.location}
+              </a>
+            </span>
+          </div>
         </div>
       </div>
-    </GoogleReCaptchaProvider>
+
+      <div className="col-md-8">
+        <form className="contact-form" onSubmit={submitHandler}>
+          <div className="row">
+            <div className="column col-md-6">
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="name"
+                  placeholder="Your name"
+                  onChange={handleChange}
+                  value={formdata.name}
+                />
+              </div>
+            </div>
+
+            <div className="column col-md-6">
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  placeholder="Email address"
+                  onChange={handleChange}
+                  value={formdata.email}
+                />
+              </div>
+            </div>
+
+            <div className="column col-md-12">
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="subject"
+                  placeholder="Subject"
+                  onChange={handleChange}
+                  value={formdata.subject}
+                />
+              </div>
+            </div>
+
+            <div className="column col-md-12">
+              <div className="form-group">
+                <textarea
+                  name="message"
+                  className="form-control"
+                  rows="5"
+                  placeholder="Message"
+                  onChange={handleChange}
+                  value={formdata.message}
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            name="submit"
+            value="Submit"
+            className="btn btn-default"
+          >
+            <i className="icon-paper-plane"></i>Send Message
+          </button>
+        </form>
+        {handleAlerts()}
+      </div>
+    </div>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import emailjs from "emailjs-com";
 
 const contactData = {
   phone: ["+972545841058"],
@@ -25,7 +26,9 @@ function Contact() {
 
     const token = await executeRecaptcha("contact_form");
 
-    if (!token) {
+    const isDevelopment = process.env.NODE_ENV === "development";
+
+    if (!isDevelopment && !token) {
       setError(true);
       setMessage("reCAPTCHA verification failed");
       return;
@@ -45,6 +48,30 @@ function Contact() {
       setMessage("Message is required");
     } else {
       setError(false);
+      emailjs
+        .send(
+          "service_lf0ynhs",
+          "template_lpolee3",
+          formdata,
+          "us0gunYAFcwPMgsWj"
+        )
+        .then(
+          (response) => {
+            setError(false);
+            setMessage("Your message has been sent!!!");
+          },
+          (err) => {
+            setError(true);
+            setMessage("Something went wrong. Please try again.");
+          }
+        );
+
+      setFormdata({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
       setMessage("You message has been sent!!!");
     }
   };

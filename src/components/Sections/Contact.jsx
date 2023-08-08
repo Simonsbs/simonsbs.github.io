@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const contactData = {
   phone: ["+972545841058"],
@@ -16,9 +18,17 @@ function Contact() {
 
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
+
+  const isDevelopment = process.env.NODE_ENV === "development";
 
   const submitHandler = (event) => {
     event.preventDefault();
+    if (!isDevelopment && !recaptchaValue) {
+      setError(true);
+      setMessage("Please verify you are not a robot.");
+      return;
+    }
     if (!formdata.name) {
       setError(true);
       setMessage("Name is required");
@@ -33,8 +43,28 @@ function Contact() {
       setMessage("Message is required");
     } else {
       setError(false);
-      setMessage("You message has been sent!!!");
+      emailjs
+        .send(
+          "service_lf0ynhs",
+          "template_lpolee3",
+          formdata,
+          "us0gunYAFcwPMgsWj"
+        )
+        .then(
+          (response) => {
+            setError(false);
+            setMessage("Your message has been sent!!!");
+          },
+          (err) => {
+            setError(true);
+            setMessage("Something went wrong. Please try again.");
+          }
+        );
     }
+  };
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value); // Update reCAPTCHA value
   };
 
   const handleChange = (event) => {
@@ -147,7 +177,12 @@ function Contact() {
               </div>
             </div>
           </div>
-
+          {!isDevelopment && (
+            <ReCAPTCHA
+              sitekey="6LeuFo4nAAAAAB2ILmBF5dmQMr2vgm6QAv4nqdiZ"
+              onChange={handleRecaptchaChange}
+            />
+          )}
           <button
             type="submit"
             name="submit"

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksimonsbs_github_io=self.webpackChunksimonsbs_github_io||[]).push([[260],{7260:function(e,s,i){e.exports=i.p+"static/media/how-to-become-better-with-ui-design.cb9cebf5eef6a2607c19.md"}}]);

@@ -1,27 +1,21 @@
 {
   "files": {
     "main.css": "/static/css/main.425d5e6c.css",
-    "main.js": "/static/js/main.7cea5aad.js",
-    "static/js/260.57d1afba.chunk.js": "/static/js/260.57d1afba.chunk.js",
-    "static/js/310.35b21667.chunk.js": "/static/js/310.35b21667.chunk.js",
-    "static/js/321.040344e8.chunk.js": "/static/js/321.040344e8.chunk.js",
+    "main.js": "/static/js/main.2178f120.js",
     "static/js/787.dc43f7ef.chunk.js": "/static/js/787.dc43f7ef.chunk.js",
     "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
     "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/how-to-become-better-with-ui-design.md": "/static/media/how-to-become-better-with-ui-design.cb9cebf5eef6a2607c19.md",
-    "static/media/the-ugly-truth-about-design.md": "/static/media/the-ugly-truth-about-design.a6c056dee77182ce5a0b.md",
-    "static/media/the-truth-about-design.md": "/static/media/the-truth-about-design.2f0caa6bb7e2d9e7888d.md",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.425d5e6c.css.map": "/static/css/main.425d5e6c.css.map",
-    "main.7cea5aad.js.map": "/static/js/main.7cea5aad.js.map",
+    "main.2178f120.js.map": "/static/js/main.2178f120.js.map",
     "787.dc43f7ef.chunk.js.map": "/static/js/787.dc43f7ef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.425d5e6c.css",
-    "static/js/main.7cea5aad.js"
+    "static/js/main.2178f120.js"
   ]
 }

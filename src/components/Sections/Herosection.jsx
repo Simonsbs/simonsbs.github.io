@@ -15,14 +15,14 @@ function Herosection() {
         <p className="mb-4">{herosectionData.aboutMe}</p>
         <ScrollLink
           activeClass="active"
-          to="section-portfolios"
+          to="section-services"
           spy={true}
           smooth={true}
           duration={500}
           offset={50}
           className="btn btn-default btn-lg me-3"
         >
-          <i className="icon-grid"></i>View Portfolio
+          <i className="icon-grid"></i>Services
         </ScrollLink>
         <div
           className="spacer d-md-none d-lg-none d-sm-none"
@@ -37,7 +37,7 @@ function Herosection() {
           offset={50}
           className="btn btn-border-light btn-lg"
         >
-          <i className="icon-envelope"></i>Hire me
+          <i className="icon-envelope"></i>Contact me
         </ScrollLink>
       </div>
       <div className="overlay"></div>

@@ -57,7 +57,7 @@ function About() {
           offset={50}
           className="btn btn-alt mt-2 mt-md-0 mt-xs-2"
         >
-          <i className="icon-envelope"></i>Hire me
+          <i className="icon-envelope"></i>Contact me
         </ScrollLink>
       </div>
     </div>

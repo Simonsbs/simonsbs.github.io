@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaYoutube,
   FaDribbble,
+  FaGithub,
 } from "react-icons/fa";
 import { TextCarousel } from "../Items/TextCarousel";
 
@@ -23,11 +24,10 @@ const headerData = {
   ],
   imageThumb: "/images/logo.png",
   social: {
-    facebook: "https://facebook.com",
-    twitter: "https://twitter.com",
-    instagram: "https://www.instagram.com/",
-    youtue: "https://www.youtube.com/",
-    dribbble: "https://dribbble.com/",
+    facebook: "https://www.facebook.com/simonsbs",
+    twitter: "https://twitter.com/simonsbs",
+    instagram: "https://www.instagram.com/simonsbs/",
+    github: "https://github.com/Simonsbs/",
   },
 };
 
@@ -174,7 +174,7 @@ function Header({ toggleHeader, toggleHandler }) {
                   </Link>
                 )}
               </li>
-              <li>
+              {/* <li>
                 {currentPath === "/" ? (
                   <ScrollLink
                     activeClass="active"
@@ -191,7 +191,7 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-grid"></i>Works
                   </Link>
                 )}
-              </li>
+              </li> */}
               <li>
                 {currentPath === "/" ? (
                   <ScrollLink
@@ -205,7 +205,7 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-pencil"></i>Blog
                   </ScrollLink>
                 ) : (
-                  <Link to="/">
+                  <Link to="/blogs">
                     <i className="icon-pencil"></i>Blog
                   </Link>
                 )}
@@ -254,10 +254,10 @@ function Header({ toggleHeader, toggleHandler }) {
                   </a>
                 </li>
               )}
-              {!headerData.social.youtue ? null : (
+              {!headerData.social.github ? null : (
                 <li className="list-inline-item">
-                  <a href={headerData.social.youtue}>
-                    <FaYoutube />
+                  <a href={headerData.social.github}>
+                    <FaGithub />
                   </a>
                 </li>
               )}

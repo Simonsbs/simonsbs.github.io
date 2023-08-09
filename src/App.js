@@ -8,21 +8,20 @@ import "./App.scss";
 import { HashRouter, Routes, Route } from "react-router-dom"; // Import HashRouter instead of BrowserRouter
 import Homepage from "./pages/Homepage";
 import Bloglist from "./pages/Bloglist";
-import Bloglist2 from "./pages/Bloglist2";
 import BlogDetails from "./pages/BlogDetails";
-import BlogDetails2 from "./pages/BlogDetails2";
+import { BlogProvider } from "./contexts/BlogContext";
 
 function App() {
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} exact />
-        <Route path="/blogs" element={<Bloglist />} exact />
-        <Route path="/bloglist" element={<Bloglist2 />} exact />
-        <Route path="/blogs/:id/:title" element={<BlogDetails />} />
-        <Route path="/blog-details/:id/:title" element={<BlogDetails2 />} />
-      </Routes>
-    </HashRouter>
+    <BlogProvider>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />} exact />
+          <Route path="/blogs" element={<Bloglist />} exact />
+          <Route path="/blogs/:id/:title" element={<BlogDetails />} />
+        </Routes>
+      </HashRouter>
+    </BlogProvider>
   );
 }
 

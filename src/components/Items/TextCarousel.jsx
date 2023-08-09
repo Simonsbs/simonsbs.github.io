@@ -33,7 +33,7 @@ export const TextCarousel = ({ phrases }) => {
     }, WORD_CHANGE_INTERVAL_MS);
 
     return () => clearInterval(wordTimeout);
-  }, []);
+  }, [phrases.length]);
 
   return <span className={fade}>{phrases[wordOrder]}</span>;
 };

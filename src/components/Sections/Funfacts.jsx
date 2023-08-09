@@ -29,7 +29,7 @@ const funfactData = [
   },
   {
     id: 2,
-    title: "Cup of coffee",
+    title: "Cups of coffee",
     count: coffeeConsumedSince1988(),
     icon: "icon-cup",
   },

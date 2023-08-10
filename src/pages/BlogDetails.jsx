@@ -25,7 +25,6 @@ function BlogDetails() {
   const nav = useNavigate();
 
   const shareUrl = window.location.href;
-  const title = blog.title;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -97,11 +96,11 @@ function BlogDetails() {
           dangerouslySetInnerHTML={{ __html: content }}
         />
         <div className="share-buttons mt-4">
-          <FacebookShareButton url={shareUrl} quote={title}>
+          <FacebookShareButton url={shareUrl} quote={blog.title}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>
 
-          <TwitterShareButton url={shareUrl} title={title}>
+          <TwitterShareButton url={shareUrl} title={blog.title}>
             <TwitterIcon size={32} round />
           </TwitterShareButton>
 

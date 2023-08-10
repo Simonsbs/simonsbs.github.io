@@ -96,15 +96,27 @@ function BlogDetails() {
           dangerouslySetInnerHTML={{ __html: content }}
         />
         <div className="share-buttons mt-4">
-          <FacebookShareButton url={shareUrl} quote={blog.title}>
+          <FacebookShareButton
+            url={shareUrl}
+            quote={blog.title}
+            title={blog.title}
+          >
             <FacebookIcon size={32} round />
           </FacebookShareButton>
 
-          <TwitterShareButton url={shareUrl} title={blog.title}>
+          <TwitterShareButton
+            url={shareUrl}
+            quote={blog.title}
+            title={blog.title}
+          >
             <TwitterIcon size={32} round />
           </TwitterShareButton>
 
-          <LinkedinShareButton url={shareUrl}>
+          <LinkedinShareButton
+            url={shareUrl}
+            quote={blog.title}
+            title={blog.title}
+          >
             <LinkedinIcon size={32} round />
           </LinkedinShareButton>
         </div>

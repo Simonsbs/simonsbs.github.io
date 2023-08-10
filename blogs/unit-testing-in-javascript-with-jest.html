@@ -1,0 +1,15 @@
+﻿<figure class='figure text-center'><img src='./images/blog/3cf6e6c6eb36f7f8843942ce26b9a18b2a078f1a2b91438030b31f5a1dbfec78.jpg' class='figure-img img-fluid rounded' alt='Jest Testing'><figcaption class='figure-caption'>Photo by <a href='https://unsplash.com/@hugofrompluto?utm_source=FindImage&utm_medium=referral'>Hugues de BUYER-MIMEURE</a> on <a href='https://unsplash.com/?utm_source=FindImage&utm_medium=referral'>Unsplash</a></figcaption></figure><h3>Unit Testing in JavaScript with Jest</h3><p>Unit testing is a crucial practice in software development that ensures individual units of code work as intended. Jest is a popular testing framework for JavaScript that makes unit testing efficient and enjoyable. In this article, we'll explore how to get started with Jest and write effective unit tests for your JavaScript code.</p><h4>1. What is Jest?</h4><p>Jest is an open-source testing framework developed by Facebook. It's known for its simplicity, speed, and out-of-the-box features, making it a go-to choice for many JavaScript developers.</p><h4>2. Why Use Jest?</h4><p>Jest offers several advantages, including:</p><ul><li><strong>Zero Configuration</strong>: Easy to set up and use.</li><li><strong>Snapshot Testing</strong>: Capture snapshots of rendered components to detect changes.</li><li><strong>Parallel Test Execution</strong>: Run tests in parallel for faster execution.</li><li><strong>Mocking Support</strong>: Easily mock functions, modules, and timers.</li></ul><h4>3. Getting Started with Jest</h4><p>To start using Jest, you'll need to install it via npm:</p><pre><code>npm install --save-dev jest
+</code></pre><p>Then, add a test script to your package.json file:</p><pre><code>"scripts": {
+  "test": "jest"
+}
+</code></pre><p>Now you can write tests in files with .test.js extension and run them using the following command:</p><pre><code>npm test
+</code></pre><h4>4. Writing Your First Test</h4><p>Here's a simple example of a Jest test for a function that adds two numbers:</p><pre><code>function add(a, b) {
+  return a + b;
+}
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(add(1, 2)).toBe(3);
+});
+</code></pre><h4>5. Using Matchers</h4><p>Jest provides various matchers to assert different things about values. Some common matchers include:</p><ul><li><strong>toBe</strong>: Check strict equality.</li><li><strong>toEqual</strong>: Check deep equality.</li><li><strong>not</strong>: Invert the matcher following it.</li></ul><h4>6. Mocking Functions and Modules</h4><p>Jest allows you to mock functions and modules, making it easier to isolate the code under test. Here's an example of mocking a function:</p><pre><code>const myFunction = jest.fn();
+myFunction.mockReturnValue('value');
+</code></pre><h4>Conclusion</h4><p>Jest offers a powerful and user-friendly way to write and run unit tests in JavaScript. Its rich set of features, ease of use, and strong community support make it a valuable tool for any JavaScript developer looking to ensure the quality and reliability of their code. Happy testing!</p>

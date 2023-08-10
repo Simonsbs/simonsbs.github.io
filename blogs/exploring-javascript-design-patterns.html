@@ -1,4 +1,33 @@
-﻿<fig,ure class='figure text-center'><img src='./images/blog/b5a10f88249a39b1e6d1942f1ddf6dbc456bd1613fe2c86c9339888b5207217f.jpg' class='figure-img img-fluid rounded' alt='JavaScript Design Patterns'><figcaption class='figure-caption'>Photo by <a href='https://unsplash.com/@markusspiske?utm_source=FindImage&utm_medium=referral'>Markus Spiske</a> on <a href='https://unsplash.com/?utm_source=FindImage&utm_medium=referral'>Unsplash</a></figcaption></figure><h3>Exploring JavaScript Design Patterns</h3><p>Design patterns are reusable solutions to common problems in software design. In this article, we'll explore various design patterns in JavaScript and how they can be implemented to create more maintainable and scalable code.</p><h4>1. Singleton Pattern</h4><p>The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance.</p><pre><code>const Singleton = (function () {
+﻿<figure class="figure">
+  <img
+    src="./images/blog/b5a10f88249a39b1e6d1942f1ddf6dbc456bd1613fe2c86c9339888b5207217f.jpg"
+    class="figure-img img-fluid rounded"
+    alt="JavaScript Design Patterns"
+  />
+  <figcaption class="figure-caption">
+    Photo by
+    <a
+      href="https://unsplash.com/@markusspiske?utm_source=FindImage&utm_medium=referral"
+      >Markus Spiske</a
+    >
+    on
+    <a href="https://unsplash.com/?utm_source=FindImage&utm_medium=referral"
+      >Unsplash</a
+    >
+  </figcaption>
+</figure>
+<h3>Exploring JavaScript Design Patterns</h3>
+<p>
+  Design patterns are reusable solutions to common problems in software design.
+  In this article, we'll explore various design patterns in JavaScript and how
+  they can be implemented to create more maintainable and scalable code.
+</p>
+<h4>1. Singleton Pattern</h4>
+<p>
+  The Singleton pattern ensures that a class has only one instance and provides
+  a global point of access to that instance.
+</p>
+<pre><code>const Singleton = (function () {
   let instance;
   function createInstance() {
     return new Object('Instance');
@@ -12,7 +41,13 @@
     }
   };
 })();
-</code></pre><h4>2. Factory Pattern</h4><p>The Factory pattern is used to create objects without specifying the exact class of object that will be created.</p><pre><code>function CarFactory() {
+</code></pre>
+<h4>2. Factory Pattern</h4>
+<p>
+  The Factory pattern is used to create objects without specifying the exact
+  class of object that will be created.
+</p>
+<pre><code>function CarFactory() {
   this.createCar = function (type) {
     let car;
     if (type === 'Sedan') {
@@ -23,7 +58,13 @@
     return car;
   };
 }
-</code></pre><h4>3. Observer Pattern</h4><p>The Observer pattern allows an object to notify other objects about changes without knowing who those objects are.</p><pre><code>class Subject {
+</code></pre>
+<h4>3. Observer Pattern</h4>
+<p>
+  The Observer pattern allows an object to notify other objects about changes
+  without knowing who those objects are.
+</p>
+<pre><code>class Subject {
   constructor() {
     this.observers = [];
   }
@@ -34,7 +75,13 @@
     this.observers.forEach(observer => observer.update(data));
   }
 }
-</code></pre><h4>4. Module Pattern</h4><p>The Module pattern encapsulates private and public members within a single function, providing a clean and organized structure.</p><pre><code>const MyModule = (function () {
+</code></pre>
+<h4>4. Module Pattern</h4>
+<p>
+  The Module pattern encapsulates private and public members within a single
+  function, providing a clean and organized structure.
+</p>
+<pre><code>const MyModule = (function () {
   const privateVar = 'Private';
   function privateMethod() {
     return 'Private Method';
@@ -45,11 +92,23 @@
     }
   };
 })();
-</code></pre><h4>5. Command Pattern</h4><p>The Command pattern encapsulates a request as an object, allowing for parameterization and queuing of requests.</p><pre><code>const Command = function (action, value) {
+</code></pre>
+<h4>5. Command Pattern</h4>
+<p>
+  The Command pattern encapsulates a request as an object, allowing for
+  parameterization and queuing of requests.
+</p>
+<pre><code>const Command = function (action, value) {
   this.action = action;
   this.value = value;
 };
-</code></pre><h4>6. Strategy Pattern</h4><p>The Strategy pattern defines a family of algorithms and makes them interchangeable without altering the client code.</p><pre><code>class StrategyOne {
+</code></pre>
+<h4>6. Strategy Pattern</h4>
+<p>
+  The Strategy pattern defines a family of algorithms and makes them
+  interchangeable without altering the client code.
+</p>
+<pre><code>class StrategyOne {
   execute() {
     return 'Strategy One';
   }
@@ -60,4 +119,12 @@ class StrategyTwo {
     return 'Strategy Two';
   }
 }
-</code></pre><h4>Conclusion</h4><p>Design patterns provide a structured approach to solving common programming challenges. By understanding and implementing these patterns, developers can write more efficient, maintainable, and scalable code. Keep exploring and experimenting with different patterns to find the ones that best fit your specific needs and projects. Happy coding!</p>
+</code></pre>
+<h4>Conclusion</h4>
+<p>
+  Design patterns provide a structured approach to solving common programming
+  challenges. By understanding and implementing these patterns, developers can
+  write more efficient, maintainable, and scalable code. Keep exploring and
+  experimenting with different patterns to find the ones that best fit your
+  specific needs and projects. Happy coding!
+</p>

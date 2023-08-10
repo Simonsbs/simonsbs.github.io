@@ -38,6 +38,27 @@ function BlogDetails() {
         <title>Simon B.Stirling - Blog - {blog.title}</title>
         <meta name="description" content={blog.title} />
       </Helmet>
+      <div className="mb-4 d-flex justify-content-between">
+        {blogIndex > 0 ? (
+          <button
+            className="btn btn-primary me-3"
+            onClick={() => navigateToPost("prev")}
+          >
+            ← Previous
+          </button>
+        ) : (
+          <div style={{ flex: 1 }}></div>
+        )}
+        {blogIndex < blogs.length - 1 && (
+          <button
+            className="btn btn-primary"
+            onClick={() => navigateToPost("next")}
+          >
+            Next →
+          </button>
+        )}
+      </div>
+
       <section className="shadow-blue white-bg padding mt-0">
         <ul className="list-inline portfolio-info mt-0">
           <li className="list-inline-item">
@@ -64,21 +85,23 @@ function BlogDetails() {
           <UtterancesComments term={blog.slug} />
         </div>
       </section>
-      <div className="mt-4">
-        {blogIndex > 0 && (
+      <div className="mt-4 d-flex justify-content-between">
+        {blogIndex > 0 ? (
           <button
             className="btn btn-primary me-3"
             onClick={() => navigateToPost("prev")}
           >
-            Previous
+            ← Previous
           </button>
+        ) : (
+          <div style={{ flex: 1 }}></div>
         )}
         {blogIndex < blogs.length - 1 && (
           <button
             className="btn btn-primary"
             onClick={() => navigateToPost("next")}
           >
-            Next
+            Next →
           </button>
         )}
       </div>

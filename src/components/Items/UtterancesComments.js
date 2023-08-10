@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const UtterancesComments = () => {
+const UtterancesComments = ({ term }) => {
   const ref = useRef();
 
   useEffect(() => {
@@ -9,7 +9,7 @@ const UtterancesComments = () => {
     const config = {
       src: "https://utteranc.es/client.js",
       repo: "simonsbs/simonsbs.github.io",
-      "issue-term": "pathname",
+      "issue-term": { term },
       theme: "github-light",
       crossOrigin: "anonymous",
       defer: true,

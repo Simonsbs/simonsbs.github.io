@@ -44,7 +44,7 @@ function BlogDetails() {
           dangerouslySetInnerHTML={{ __html: blog.content }}
         />
         <div className="mi-blog-details-comments mt-4">
-          <UtterancesComments />
+          <UtterancesComments term={blog.slug} />
         </div>
       </section>
     </Layout>

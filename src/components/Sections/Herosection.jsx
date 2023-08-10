@@ -13,6 +13,10 @@ function Herosection() {
       <div className="cta mx-auto mt-2">
         <h1 className="mt-0 mb-4">I’m {herosectionData.name}</h1>
         <p className="mb-4">{herosectionData.aboutMe}</p>
+        <p className="fs-6 text-muted">
+          CTO | R&D Manager | Solution Architect | Project Manager | Team Leader
+          | Instructor | Full Stack Developer
+        </p>
         <ScrollLink
           activeClass="active"
           to="section-services"

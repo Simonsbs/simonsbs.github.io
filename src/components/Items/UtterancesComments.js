@@ -10,7 +10,7 @@ function UtterancesComments({ term }) {
       return;
     }
 
-    console.log(term);
+    //console.log(term);
 
     const config = {
       src: "https://utteranc.es/client.js",

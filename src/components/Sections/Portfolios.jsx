@@ -104,7 +104,7 @@ function Portfolios() {
   }, [getAllItems]);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     e.preventDefault();
     let targetFilter = e.target.value
       ? e.target.value.toLowerCase()

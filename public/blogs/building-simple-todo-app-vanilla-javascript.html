@@ -1,0 +1,57 @@
+<figure class='figure text-center'><img src='https://images.unsplash.com/photo-1550439062-609e1531270e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NDgzMDl8MHwxfHNlYXJjaHwxfHxUb0RvJTIwQXBwfGVufDB8fHx8MTY5MTU2MjE2N3ww&ixlib=rb-4.0.3&q=80&w=400' class='figure-img img-fluid rounded' alt='To-Do App'><figcaption class='figure-caption'>Photo by <a href='https://unsplash.com/@heftiba?utm_source=FindImage&utm_medium=referral'>Toa Heftiba</a> on <a href='https://unsplash.com/?utm_source=FindImage&utm_medium=referral'>Unsplash</a></figcaption></figure><h3>Building a Simple To-Do App with Vanilla JavaScript</h3><p>Creating a to-do app is a classic project for learning and practicing JavaScript. In this tutorial, we'll build a simple to-do app using only HTML, CSS, and Vanilla JavaScript. No frameworks or libraries, just pure coding fun!</p><h4>1. HTML Structure</h4><p>We'll start by creating the HTML structure for our to-do app. Create an HTML file and add the following code:</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang='en'&gt;
+&lt;head&gt;
+  &lt;meta charset='UTF-8'&gt;
+  &lt;meta name='viewport' content='width=device-width, initial-scale=1.0'&gt;
+  &lt;title&gt;To-Do App&lt;/title&gt;
+  &lt;link rel='stylesheet' href='styles.css'&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id='app'&gt;
+    &lt;h1&gt;My To-Do List&lt;/h1&gt;
+    &lt;input type='text' id='task' placeholder='New Task'&gt;
+    &lt;button onclick='addTask()'&gt;Add Task&lt;/button&gt;
+    &lt;ul id='tasks'&gt;&lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;script src='script.js'&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4>2. CSS Styling</h4><p>Next, we'll add some basic styling to make our app look nice. Create a CSS file named 'styles.css' and add the following code:</p><pre><code>#app {
+  width: 300px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+#task {
+  width: 200px;
+  padding: 5px;
+}
+
+#tasks li {
+  list-style: none;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+}
+</code></pre><h4>3. JavaScript Functionality</h4><p>Now, let's add the JavaScript functionality to manage tasks. Create a JavaScript file named 'script.js' and add the following code:</p><pre><code>function addTask() {
+  const taskInput = document.getElementById('task');
+  const taskText = taskInput.value.trim();
+
+  if (taskText.length &gt; 0) {
+    const taskList = document.getElementById('tasks');
+    const taskItem = document.createElement('li');
+    taskItem.textContent = taskText;
+
+    // Add delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.onclick = function() {
+      taskList.removeChild(taskItem);
+    };
+    taskItem.appendChild(deleteButton);
+
+    taskList.appendChild(taskItem);
+    taskInput.value = '';
+  }
+}
+</code></pre><h4>4. Testing and Improvements</h4><p>Open the HTML file in your browser, and you should see the to-do app working. You can add tasks and delete them using the 'Delete' button.</p><p>Feel free to customize the app further by adding features like task editing, marking tasks as done, or saving tasks to local storage.</p><h4>Conclusion</h4><p>Building a simple to-do app with Vanilla JavaScript is a rewarding project that helps you practice essential web development skills. By following this tutorial, you've created a functional to-do app using only HTML, CSS, and JavaScript. Keep experimenting and happy coding!</p>

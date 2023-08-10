@@ -1,24 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Layout from "../components/Layout/Layout";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useBlogs } from "../contexts/BlogContext";
-import Helmet from "react-helmet"; // For SEO
+import Helmet from "react-helmet";
 import UtterancesComments from "../components/Items/UtterancesComments";
 
 function BlogDetails() {
   const blogs = useBlogs();
   const { id } = useParams();
-  const blog = blogs.find((b) => b.id.toString() === id) || {};
+
+  const blogIndex = blogs.findIndex((b) => b.id.toString() === id);
+  const blog = blogs[blogIndex] || {};
+
+  const [content, setContent] = useState("");
+  const nav = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+
+    fetch(`./blogs/${blog.content}`)
+      .then((response) => response.text())
+      .then((htmlContent) => setContent(htmlContent))
+      .catch((error) => console.error("Error fetching content:", error));
+  }, [blog.content]);
+
+  const navigateToPost = (direction) => {
+    const newIndex = direction === "next" ? blogIndex + 1 : blogIndex - 1;
+    if (newIndex >= 0 && newIndex < blogs.length) {
+      nav(`/blogs/${blogs[newIndex].id}/${blogs[newIndex].slug}`);
+    }
+  };
 
   return (
     <Layout>
       <Helmet>
-        <title>{blog.title}</title>
+        <title>Simon B.Stirling - Blog - {blog.title}</title>
         <meta name="description" content={blog.title} />
       </Helmet>
       <section className="shadow-blue white-bg padding mt-0">
@@ -41,12 +58,30 @@ function BlogDetails() {
         </ul>
         <article
           className="blog-content mt-4"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
         <div className="mi-blog-details-comments mt-4">
           <UtterancesComments term={blog.slug} />
         </div>
       </section>
+      <div className="mt-4">
+        {blogIndex > 0 && (
+          <button
+            className="btn btn-primary me-3"
+            onClick={() => navigateToPost("prev")}
+          >
+            Previous
+          </button>
+        )}
+        {blogIndex < blogs.length - 1 && (
+          <button
+            className="btn btn-primary"
+            onClick={() => navigateToPost("next")}
+          >
+            Next
+          </button>
+        )}
+      </div>
     </Layout>
   );
 }

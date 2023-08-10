@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import Blog from "../components/Items/Blog";
 import Pagination from "../components/Items/Pagination";
@@ -8,8 +9,14 @@ import "./Bloglist.css";
 
 function Bloglist() {
   const blogsData = useBlogs();
+  const { pageNumber } = useParams();
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(8);
+
+  useEffect(() => {
+    setCurrentPage(Number(pageNumber) || 1);
+  }, [pageNumber]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -19,23 +26,21 @@ function Bloglist() {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = blogsData.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (e, pageNumber) => {
-    e.preventDefault();
+  const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+    navigate(`/blogs/page/${pageNumber}`);
   };
 
   return (
     <Layout>
       <Helmet>
-        <title>Blog List</title>
+        <title>Simon B.Stilring - Blog</title>
         <meta name="description" content="A list of our latest blog posts." />
       </Helmet>
       <section className="shadow-blue white-bg padding mt-0">
         <div className="row -mt-50">
           {currentPosts.map((blog) => (
             <div className="col-md-6 mt-50 equal-height" key={blog.id}>
-              {" "}
-              {/* Added class */}
               <Blog blog={blog} />
             </div>
           ))}

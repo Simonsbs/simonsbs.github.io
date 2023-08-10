@@ -1,4 +1,5 @@
 import React from "react";
+import "./Pagination.css";
 
 function Pagination({ itemsPerPage, totalItems, paginate, currentPage }) {
   const pageNumbers = [];
@@ -12,7 +13,10 @@ function Pagination({ itemsPerPage, totalItems, paginate, currentPage }) {
       <ul>
         {currentPage === 1 ? null : (
           <li>
-            <a onClick={(e) => paginate(e, currentPage - 1)} href="#!">
+            <a
+              onClick={() => paginate(currentPage - 1)}
+              href={`#/blogs/page/${currentPage - 1}`}
+            >
               <i className="icon-arrow-left"></i>
             </a>
           </li>
@@ -22,14 +26,17 @@ function Pagination({ itemsPerPage, totalItems, paginate, currentPage }) {
             key={number}
             className={currentPage === number ? "is-active" : null}
           >
-            <a onClick={(e) => paginate(e, number)} href="!#">
+            <a onClick={() => paginate(number)} href={`#/blogs/page/${number}`}>
               {number}
             </a>
           </li>
         ))}
         {currentPage === pageNumbers[pageNumbers.length - 1] ? null : (
           <li>
-            <a onClick={(e) => paginate(e, currentPage + 1)} href="!#">
+            <a
+              onClick={() => paginate(currentPage + 1)}
+              href={`#/blogs/page/${currentPage + 1}`}
+            >
               <i className="icon-arrow-right"></i>
             </a>
           </li>

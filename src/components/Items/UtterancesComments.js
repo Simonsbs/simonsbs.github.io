@@ -25,8 +25,13 @@ function UtterancesComments({ term }) {
       script.setAttribute(key, value);
     });
 
+    // Remove any existing script elements
+    while (ref.current.firstChild) {
+      ref.current.removeChild(ref.current.firstChild);
+    }
+
     setTimeout(() => {
-      ref.current.append(script);
+      ref.current.appendChild(script);
     }, 300);
   }, [term]);
 

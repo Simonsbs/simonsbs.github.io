@@ -19,6 +19,10 @@ function BlogDetails() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
+    if (!blog.content) {
+      return;
+    }
+
     fetch(`./blogs/${blog.content}`)
       .then((response) => response.text())
       .then((htmlContent) => setContent(htmlContent))

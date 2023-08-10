@@ -12,7 +12,7 @@ function Bloglist() {
   const { pageNumber } = useParams();
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
+  const [postsPerPage] = useState(6);
 
   useEffect(() => {
     setCurrentPage(Number(pageNumber) || 1);

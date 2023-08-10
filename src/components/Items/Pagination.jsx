@@ -14,7 +14,10 @@ function Pagination({ itemsPerPage, totalItems, paginate, currentPage }) {
         {currentPage === 1 ? null : (
           <li>
             <a
-              onClick={() => paginate(currentPage - 1)}
+              onClick={(e) => {
+                e.preventDefault();
+                paginate(currentPage - 1);
+              }}
               href={`#/blogs/page/${currentPage - 1}`}
             >
               <i className="icon-arrow-left"></i>
@@ -34,7 +37,10 @@ function Pagination({ itemsPerPage, totalItems, paginate, currentPage }) {
         {currentPage === pageNumbers[pageNumbers.length - 1] ? null : (
           <li>
             <a
-              onClick={() => paginate(currentPage + 1)}
+              onClick={(e) => {
+                e.preventDefault();
+                paginate(currentPage + 1);
+              }}
               href={`#/blogs/page/${currentPage + 1}`}
             >
               <i className="icon-arrow-right"></i>

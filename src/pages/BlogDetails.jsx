@@ -39,8 +39,8 @@ function BlogDetails() {
   return (
     <Layout>
       <Helmet>
-        <title>Simon B.Stirling - Blog - {blog.title}</title>
-        <meta name="description" content={blog.title} />
+        <title>Simon B.Stilring - Blog - {"" + blog.title}</title>
+        <meta name="description" content={"" + blog.title} />
       </Helmet>
       <div className="mb-4 d-flex justify-content-between">
         {blogIndex > 0 ? (

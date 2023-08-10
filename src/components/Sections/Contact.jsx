@@ -108,6 +108,20 @@ function Contact() {
           </div>
         </div>
         <div className="contact-info mb-5">
+          <i className="bi-whatsapp"></i>
+          <div className="details">
+            <h5>WhatsApp</h5>
+            {contactData.phone.map((singlePhone, index) => (
+              <span key={index}>
+                <a href={"https://wa.me/" + singlePhone + "?text=Hey"}>
+                  Send me a message
+                </a>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="contact-info mb-5">
           <i className="icon-envelope"></i>
           <div className="details">
             <h5>Email address</h5>

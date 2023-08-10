@@ -28,6 +28,7 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
+    "react-whatsapp": "^0.3.0",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.64.2",
     "sass-loader": "^13.3.2",

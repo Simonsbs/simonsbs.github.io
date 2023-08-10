@@ -4,6 +4,7 @@ import Layout from "../components/Layout/Layout";
 import { useParams } from "react-router-dom";
 import { useBlogs } from "../contexts/BlogContext";
 import Helmet from "react-helmet"; // For SEO
+import UtterancesComments from "../components/Items/UtterancesComments";
 
 function BlogDetails() {
   const blogs = useBlogs();
@@ -42,6 +43,9 @@ function BlogDetails() {
           className="blog-content mt-4"
           dangerouslySetInnerHTML={{ __html: blog.content }}
         />
+        <div className="mi-blog-details-comments mt-4">
+          <UtterancesComments />
+        </div>
       </section>
     </Layout>
   );

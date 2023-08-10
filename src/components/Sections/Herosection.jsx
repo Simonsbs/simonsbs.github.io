@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 const herosectionData = {
   name: "Simon B.Stirling",
   aboutMe:
-    "Over 20 years of experience in system analysis, development, and management across various industries. Seeking a senior technology or management position to drive innovation and success.",
+    "Over 20 years of experience in system analysis, development, and management across various industries. Seeking to drive innovation and success.",
 };
 
 function Herosection() {

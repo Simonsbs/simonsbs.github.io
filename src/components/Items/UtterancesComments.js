@@ -1,15 +1,21 @@
 import React, { useEffect, useRef } from "react";
 
-const UtterancesComments = ({ term }) => {
+function UtterancesComments({ term }) {
   const ref = useRef();
 
   useEffect(() => {
     const script = document.createElement("script");
 
+    if (!term) {
+      return;
+    }
+
+    console.log(term);
+
     const config = {
       src: "https://utteranc.es/client.js",
       repo: "simonsbs/simonsbs.github.io",
-      "issue-term": { term },
+      "issue-term": term,
       theme: "github-light",
       crossOrigin: "anonymous",
       defer: true,
@@ -22,9 +28,9 @@ const UtterancesComments = ({ term }) => {
     setTimeout(() => {
       ref.current.append(script);
     }, 300);
-  }, []);
+  }, [term]);
 
   return <div ref={ref} />;
-};
+}
 
 export default UtterancesComments;

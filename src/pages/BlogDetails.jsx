@@ -5,6 +5,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useBlogs } from "../contexts/BlogContext";
 import Helmet from "react-helmet";
 import UtterancesComments from "../components/Items/UtterancesComments";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+} from "react-share";
 
 function BlogDetails() {
   const blogs = useBlogs();
@@ -15,6 +23,9 @@ function BlogDetails() {
 
   const [content, setContent] = useState("");
   const nav = useNavigate();
+
+  const shareUrl = window.location.href;
+  const title = blog.title;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -85,6 +96,19 @@ function BlogDetails() {
           className="blog-content mt-4"
           dangerouslySetInnerHTML={{ __html: content }}
         />
+        <div className="share-buttons mt-4">
+          <FacebookShareButton url={shareUrl} quote={title}>
+            <FacebookIcon size={32} round />
+          </FacebookShareButton>
+
+          <TwitterShareButton url={shareUrl} title={title}>
+            <TwitterIcon size={32} round />
+          </TwitterShareButton>
+
+          <LinkedinShareButton url={shareUrl}>
+            <LinkedinIcon size={32} round />
+          </LinkedinShareButton>
+        </div>
         <div className="mi-blog-details-comments mt-4">
           <UtterancesComments term={blog.slug} />
         </div>

@@ -5,7 +5,6 @@ import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
-  FaYoutube,
   FaDribbble,
   FaGithub,
 } from "react-icons/fa";

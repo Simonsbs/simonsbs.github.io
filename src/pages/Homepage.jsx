@@ -88,7 +88,7 @@ function Homepage() {
 
     // Cleanup timer on unmount
     return () => clearTimeout(timer);
-  }, []);
+  });
 
   useEffect(() => {
     scrollToSection(section);

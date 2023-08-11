@@ -29,6 +29,7 @@ function Layout({ children }) {
             &copy; All rights reserved to Simon B.Stirling -&nbsp;
             {new Date().getFullYear()}
           </h6>
+          <img src="./images/guy.png" width={100} alt="Im the BestDev" />
         </footer>
       </main>
     </div>

@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import Header from "./Header";
+import { useEffect } from "react";
+import { animateScroll as scroll } from "react-scroll";
 
 function Layout({ children }) {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      scroll.scrollTo(hash);
+    }
+  }, []);
+
   const [toggleHeader, setToggleHeader] = useState(false);
   const handleToggle = () => {
     setToggleHeader(!toggleHeader);

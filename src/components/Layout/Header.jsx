@@ -38,6 +38,12 @@ function Header({ toggleHeader, toggleHandler }) {
     setCurrentPath(match.pathname);
   }, [match]);
 
+  const checkIfToggleNeeded = (e) => {
+    if (toggleHeader) {
+      toggleHandler(e);
+    }
+  };
+
   return (
     <>
       <div
@@ -52,7 +58,7 @@ function Header({ toggleHeader, toggleHandler }) {
           <span></span>
           <span></span>
         </button>
-        <Link to="/" className="logo me-2">
+        <Link to="/" onClick={toggleHandler} className="logo me-2">
           <img
             src={headerData.imageThumb}
             width={70}
@@ -61,7 +67,7 @@ function Header({ toggleHeader, toggleHandler }) {
             alt={headerData.name}
           />
         </Link>
-        <Link to="/" className="site-title mb-2">
+        <Link to="/" onClick={toggleHandler} className="site-title mb-2">
           {headerData.name}
         </Link>
       </div>
@@ -77,12 +83,12 @@ function Header({ toggleHeader, toggleHandler }) {
           type="button"
           className="close ms-2"
           aria-label="Close"
-          onClick={toggleHandler}
+          onClick={checkIfToggleNeeded}
         >
           <span aria-hidden="true">&times;</span>
         </button>
         <div className="header-inner d-flex align-items-start flex-column">
-          <Link to="/">
+          <Link to="/" onClick={checkIfToggleNeeded}>
             <img
               src={headerData.imageThumb}
               width={70}
@@ -91,7 +97,11 @@ function Header({ toggleHeader, toggleHandler }) {
               className="rounded"
             />
           </Link>
-          <Link to="/" className="site-title mt-3">
+          <Link
+            to="/"
+            onClick={checkIfToggleNeeded}
+            className="site-title mt-3"
+          >
             {headerData.name}
           </Link>
 
@@ -104,6 +114,7 @@ function Header({ toggleHeader, toggleHandler }) {
               <li>
                 {currentPath === "/" ? (
                   <ScrollLink
+                    onClick={checkIfToggleNeeded}
                     activeClass="active"
                     to="section-home"
                     spy={true}
@@ -114,7 +125,7 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-home"></i>Home
                   </ScrollLink>
                 ) : (
-                  <Link to="/">
+                  <Link to="/" onClick={checkIfToggleNeeded}>
                     <i className="icon-home"></i>Home
                   </Link>
                 )}
@@ -122,6 +133,7 @@ function Header({ toggleHeader, toggleHandler }) {
               <li>
                 {currentPath === "/" ? (
                   <ScrollLink
+                    onClick={checkIfToggleNeeded}
                     activeClass="active"
                     to="section-about"
                     spy={true}
@@ -132,7 +144,7 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-user"></i>About
                   </ScrollLink>
                 ) : (
-                  <Link to="/">
+                  <Link to="/" onClick={checkIfToggleNeeded}>
                     <i className="icon-user"></i>About
                   </Link>
                 )}
@@ -140,6 +152,7 @@ function Header({ toggleHeader, toggleHandler }) {
               <li>
                 {currentPath === "/" ? (
                   <ScrollLink
+                    onClick={checkIfToggleNeeded}
                     activeClass="active"
                     to="section-services"
                     spy={true}
@@ -150,7 +163,7 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-bulb"></i>Services
                   </ScrollLink>
                 ) : (
-                  <Link to="/">
+                  <Link to="/" onClick={checkIfToggleNeeded}>
                     <i className="icon-bulb"></i>Services
                   </Link>
                 )}
@@ -158,6 +171,7 @@ function Header({ toggleHeader, toggleHandler }) {
               <li>
                 {currentPath === "/" ? (
                   <ScrollLink
+                    onClick={checkIfToggleNeeded}
                     activeClass="active"
                     to="section-experiences"
                     spy={true}
@@ -168,14 +182,14 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-graduation"></i>Resume
                   </ScrollLink>
                 ) : (
-                  <Link to="/">
+                  <Link to="/" onClick={checkIfToggleNeeded}>
                     <i className="icon-graduation"></i>Resume
                   </Link>
                 )}
               </li>
               {/* <li>
                 {currentPath === "/" ? (
-                  <ScrollLink
+                  <ScrollLink onClick={toggleHandler}
                     activeClass="active"
                     to="section-portfolios"
                     spy={true}
@@ -186,7 +200,7 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-grid"></i>Works
                   </ScrollLink>
                 ) : (
-                  <Link to="/">
+                  <Link to="/" onClick={toggleHandler}">
                     <i className="icon-grid"></i>Works
                   </Link>
                 )}
@@ -194,6 +208,7 @@ function Header({ toggleHeader, toggleHandler }) {
               <li>
                 {currentPath === "/" ? (
                   <ScrollLink
+                    onClick={checkIfToggleNeeded}
                     activeClass="active"
                     to="section-blogs"
                     spy={true}
@@ -204,7 +219,7 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-pencil"></i>Blog
                   </ScrollLink>
                 ) : (
-                  <Link to="/blogs">
+                  <Link to="/" onClick={checkIfToggleNeeded}>
                     <i className="icon-pencil"></i>Blog
                   </Link>
                 )}
@@ -212,6 +227,7 @@ function Header({ toggleHeader, toggleHandler }) {
               <li>
                 {currentPath === "/" ? (
                   <ScrollLink
+                    onClick={checkIfToggleNeeded}
                     activeClass="active"
                     to="section-contact"
                     spy={true}
@@ -222,7 +238,7 @@ function Header({ toggleHeader, toggleHandler }) {
                     <i className="icon-phone"></i>Contact
                   </ScrollLink>
                 ) : (
-                  <Link to="/">
+                  <Link to="/" onClick={checkIfToggleNeeded}>
                     <i className="icon-phone"></i>Contact
                   </Link>
                 )}

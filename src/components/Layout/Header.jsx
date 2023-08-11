@@ -53,7 +53,11 @@ function Header({ toggleHeader, toggleHandler }) {
             : "mobile-header py-2 px-3 mt-4"
         }
       >
-        <button className="menu-icon me-2" onClick={toggleHandler}>
+        <button
+          className="menu-icon me-2"
+          onClick={toggleHandler}
+          aria-label="open navigation"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -154,20 +158,29 @@ function Header({ toggleHeader, toggleHandler }) {
             <ul className="social-icons list-inline">
               {!headerData.social.facebook ? null : (
                 <li className="list-inline-item">
-                  <a href={headerData.social.facebook}>
+                  <a
+                    href={headerData.social.facebook}
+                    aria-label="link to facebook profile"
+                  >
                     <FaFacebookF />
                   </a>
                 </li>
               )}
               {!headerData.social.twitter ? null : (
                 <li className="list-inline-item">
-                  <a href={headerData.social.twitter}>
+                  <a
+                    href={headerData.social.twitter}
+                    aria-label="link to twitter profile"
+                  >
                     <FaTwitter />
                   </a>
                 </li>
               )}
               {!headerData.social.instagram ? null : (
-                <li className="list-inline-item">
+                <li
+                  className="list-inline-item"
+                  aria-label="link to instagram profile"
+                >
                   <a href={headerData.social.instagram}>
                     <FaInstagram />
                   </a>
@@ -175,13 +188,19 @@ function Header({ toggleHeader, toggleHandler }) {
               )}
               {!headerData.social.github ? null : (
                 <li className="list-inline-item">
-                  <a href={headerData.social.github}>
+                  <a
+                    href={headerData.social.github}
+                    aria-label="link to github profile"
+                  >
                     <FaGithub />
                   </a>
                 </li>
               )}
               {!headerData.social.dribbble ? null : (
-                <li className="list-inline-item">
+                <li
+                  className="list-inline-item"
+                  aria-label="link to dribble profile"
+                >
                   <a href={headerData.social.dribbble}>
                     <FaDribbble />
                   </a>

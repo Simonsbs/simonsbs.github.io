@@ -42,7 +42,7 @@ function BlogDetails() {
   const navigateToPost = (direction) => {
     const newIndex = direction === "next" ? blogIndex + 1 : blogIndex - 1;
     if (newIndex >= 0 && newIndex < blogs.length) {
-      nav(`/blogs/${blogs[newIndex].id}/${blogs[newIndex].slug}`);
+      nav(`/blog/${blogs[newIndex].id}/${blogs[newIndex].slug}`);
     }
   };
 

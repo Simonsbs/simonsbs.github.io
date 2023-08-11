@@ -18,7 +18,7 @@ function Pagination({ itemsPerPage, totalItems, paginate, currentPage }) {
                 e.preventDefault();
                 paginate(currentPage - 1);
               }}
-              href={`#/blogs/page/${currentPage - 1}`}
+              href={`#/blog/page/${currentPage - 1}`}
             >
               <i className="icon-arrow-left"></i>
             </a>
@@ -29,7 +29,7 @@ function Pagination({ itemsPerPage, totalItems, paginate, currentPage }) {
             key={number}
             className={currentPage === number ? "is-active" : null}
           >
-            <a onClick={() => paginate(number)} href={`#/blogs/page/${number}`}>
+            <a onClick={() => paginate(number)} href={`#/blog/page/${number}`}>
               {number}
             </a>
           </li>
@@ -41,7 +41,7 @@ function Pagination({ itemsPerPage, totalItems, paginate, currentPage }) {
                 e.preventDefault();
                 paginate(currentPage + 1);
               }}
-              href={`#/blogs/page/${currentPage + 1}`}
+              href={`#/blog/page/${currentPage + 1}`}
             >
               <i className="icon-arrow-right"></i>
             </a>

@@ -4,9 +4,8 @@ import Blog from "../Items/Blog";
 import { useBlogs } from "../../contexts/BlogContext";
 
 function Blogs() {
-  const blogsData = useBlogs(); // Use the hook to get the blogs data
+  const blogsData = useBlogs();
 
-  // Sort the blogs by date and take the first three
   const recentBlogs = blogsData
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 3);
@@ -22,7 +21,7 @@ function Blogs() {
       </div>
       <div className="spacer" data-height="50"></div>
       <div className="text-center">
-        <Link to="/blogs" className="btn btn-default">
+        <Link to="/blog/" className="btn btn-default">
           Show All Blogs
         </Link>
       </div>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
 import { Link, useResolvedPath } from "react-router-dom";
 import {
   FaFacebookF,
@@ -9,6 +8,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { TextCarousel } from "../Items/TextCarousel";
+import { HashLink } from "react-router-hash-link";
 
 const headerData = {
   name: "Simon B.Stirling",
@@ -112,136 +112,40 @@ function Header({ toggleHeader, toggleHandler }) {
           <nav>
             <ul className="vertical-menu scrollspy">
               <li>
-                {currentPath === "/" ? (
-                  <ScrollLink
-                    onClick={checkIfToggleNeeded}
-                    activeClass="active"
-                    to="section-home"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={500}
-                  >
-                    <i className="icon-home"></i>Home
-                  </ScrollLink>
-                ) : (
-                  <Link to="/" onClick={checkIfToggleNeeded}>
-                    <i className="icon-home"></i>Home
-                  </Link>
-                )}
+                <Link to="/" onClick={checkIfToggleNeeded}>
+                  <i className="icon-home"></i>Home
+                </Link>
               </li>
               <li>
-                {currentPath === "/" ? (
-                  <ScrollLink
-                    onClick={checkIfToggleNeeded}
-                    activeClass="active"
-                    to="section-about"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={500}
-                  >
-                    <i className="icon-user"></i>About
-                  </ScrollLink>
-                ) : (
-                  <Link to="/" onClick={checkIfToggleNeeded}>
-                    <i className="icon-user"></i>About
-                  </Link>
-                )}
+                <HashLink to="/about" onClick={checkIfToggleNeeded}>
+                  <i className="icon-user"></i>About
+                </HashLink>
               </li>
               <li>
-                {currentPath === "/" ? (
-                  <ScrollLink
-                    onClick={checkIfToggleNeeded}
-                    activeClass="active"
-                    to="section-services"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={500}
-                  >
-                    <i className="icon-bulb"></i>Services
-                  </ScrollLink>
-                ) : (
-                  <Link to="/" onClick={checkIfToggleNeeded}>
-                    <i className="icon-bulb"></i>Services
-                  </Link>
-                )}
+                <HashLink to="/services" onClick={checkIfToggleNeeded}>
+                  <i className="icon-bulb"></i>Services
+                </HashLink>
               </li>
               <li>
-                {currentPath === "/" ? (
-                  <ScrollLink
-                    onClick={checkIfToggleNeeded}
-                    activeClass="active"
-                    to="section-experiences"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={500}
-                  >
-                    <i className="icon-graduation"></i>Resume
-                  </ScrollLink>
-                ) : (
-                  <Link to="/" onClick={checkIfToggleNeeded}>
-                    <i className="icon-graduation"></i>Resume
-                  </Link>
-                )}
+                <HashLink to="/resume" onClick={checkIfToggleNeeded}>
+                  <i className="icon-graduation"></i>Resume
+                </HashLink>
               </li>
-              {/* <li>
-                {currentPath === "/" ? (
-                  <ScrollLink onClick={toggleHandler}
-                    activeClass="active"
-                    to="section-portfolios"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={500}
-                  >
-                    <i className="icon-grid"></i>Works
-                  </ScrollLink>
-                ) : (
-                  <Link to="/" onClick={toggleHandler}">
-                    <i className="icon-grid"></i>Works
-                  </Link>
-                )}
-              </li> */}
               <li>
-                {currentPath === "/" ? (
-                  <ScrollLink
-                    onClick={checkIfToggleNeeded}
-                    activeClass="active"
-                    to="section-blogs"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={500}
-                  >
+                {currentPath.startsWith("/blog/") ? (
+                  <HashLink to="/blog/" onClick={checkIfToggleNeeded}>
                     <i className="icon-pencil"></i>Blog
-                  </ScrollLink>
+                  </HashLink>
                 ) : (
-                  <Link to="/" onClick={checkIfToggleNeeded}>
+                  <HashLink to="/blogpreview" onClick={checkIfToggleNeeded}>
                     <i className="icon-pencil"></i>Blog
-                  </Link>
+                  </HashLink>
                 )}
               </li>
               <li>
-                {currentPath === "/" ? (
-                  <ScrollLink
-                    onClick={checkIfToggleNeeded}
-                    activeClass="active"
-                    to="section-contact"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={500}
-                  >
-                    <i className="icon-phone"></i>Contact
-                  </ScrollLink>
-                ) : (
-                  <Link to="/" onClick={checkIfToggleNeeded}>
-                    <i className="icon-phone"></i>Contact
-                  </Link>
-                )}
+                <Link to="/contact" onClick={checkIfToggleNeeded}>
+                  <i className="icon-phone"></i>Contact
+                </Link>
               </li>
             </ul>
           </nav>

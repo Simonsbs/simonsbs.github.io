@@ -28,7 +28,7 @@ function Bloglist() {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    navigate(`/blogs/page/${pageNumber}`);
+    navigate(`/blog/page/${pageNumber}`);
   };
 
   return (

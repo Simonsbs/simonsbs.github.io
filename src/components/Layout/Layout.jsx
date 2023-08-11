@@ -24,6 +24,12 @@ function Layout({ children }) {
         }
       >
         {children}
+        <footer className="footer text-center" style={{ height: "100px" }}>
+          <h6>
+            &copy; All rights reserved to Simon B.Stirling -&nbsp;
+            {new Date().getFullYear()}
+          </h6>
+        </footer>
       </main>
     </div>
   );

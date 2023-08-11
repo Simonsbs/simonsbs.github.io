@@ -16,9 +16,10 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Homepage />} exact />
-          <Route path="/blogs" element={<Bloglist />} exact />
-          <Route path="/blogs/page/:pageNumber" element={<Bloglist />} />
-          <Route path="/blogs/:id/:title" element={<BlogDetails />} />
+          <Route path="/blog/" element={<Bloglist />} exact />
+          <Route path="/blog/page/:pageNumber" element={<Bloglist />} />
+          <Route path="/blog/:id/:title" element={<BlogDetails />} />
+          <Route path="/:section" element={<Homepage />} exact />
         </Routes>
       </HashRouter>
     </BlogProvider>

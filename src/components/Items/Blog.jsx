@@ -10,12 +10,12 @@ function Blog({
         <a href="#!">
           <span className="category">{category}</span>
         </a>
-        <Link to={`/blogs/${id}/${slug}`}>
+        <Link to={`/blog/${id}/${slug}`}>
           <img src={featureImage} alt={title} />
         </Link>
       </div>
       <h4 className="mt-4 mb-0">
-        <Link to={`/blogs/${id}/${slug}`}>{title}</Link>
+        <Link to={`/blog/${id}/${slug}`}>{title}</Link>
       </h4>
       <ul className="list-inline meta mb-0 mt-3">
         <li className="list-inline-item">{date}</li>

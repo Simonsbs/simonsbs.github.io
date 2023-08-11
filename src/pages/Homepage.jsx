@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Element } from "react-scroll";
 import Layout from "../components/Layout/Layout";
 import About from "../components/Sections/About";
@@ -10,6 +10,7 @@ import Services from "../components/Sections/Services";
 import Experiences from "../components/Sections/Experiences";
 import Blogs from "../components/Sections/Blogs";
 import Contact from "../components/Sections/Contact";
+import { useParams } from "react-router-dom";
 
 const programmingLanguages = [
   "C",
@@ -64,9 +65,68 @@ const libraries = [
 ];
 
 function Homepage() {
+  const { section } = useParams();
+  const refAbout = useRef(null);
+  const refServices = useRef(null);
+  const refResume = useRef(null);
+  const refBlog = useRef(null);
+  const refContact = useRef(null);
+
+  // useEffect(() => {
+  //   scrollToSection();
+  // }, []);
+  // useEffect(() => {
+  //   scrollToSection(section);
+  // }, [section, refAbout, refServices]);
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Introducing a delay to ensure the page has had a chance to fully render
+    const timer = setTimeout(() => {
+      console.log("scroll to " + section);
+      scrollToSection(section);
+    }, 1000); // 100ms delay, adjust as needed
+
+    // Cleanup timer on unmount
+    return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    scrollToSection(section);
+  }, [section]);
+
+  const scrollToSection = (section) => {
+    let item;
+    switch (section) {
+      case "about":
+        item = refAbout;
+        break;
+      case "services":
+        item = refServices;
+        break;
+      case "resume":
+        item = refResume;
+        break;
+      case "blogpreview":
+        item = refBlog;
+        break;
+      case "contact":
+        item = refContact;
+        break;
+      default:
+        window.scrollTo(0, 0);
+        return;
+    }
+
+    if (!item) {
+      return;
+    }
+
+    window.scrollTo({
+      top: item.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Layout>
       <Element name="section-home">
@@ -74,7 +134,7 @@ function Homepage() {
       </Element>
 
       <Element name="section-about">
-        <section className="shadow-blue white-bg padding">
+        <section className="shadow-blue white-bg padding" ref={refAbout}>
           <SectionHeading title="About Me" />
           <About />
         </section>
@@ -130,15 +190,15 @@ function Homepage() {
       </Element>
 
       <Element name="section-services">
-        <section className="shadow-blue white-bg padding">
+        <section className="shadow-blue white-bg padding" ref={refServices}>
           <SectionHeading title="Services" />
           <Services />
         </section>
       </Element>
 
-      <Element name="section-experiences">
-        <section className="shadow-blue white-bg padding">
-          <SectionHeading title="Experience" />
+      <Element name="section-resume">
+        <section className="shadow-blue white-bg padding" ref={refResume}>
+          <SectionHeading title="Resume" />
           <Experiences />
         </section>
       </Element>
@@ -168,15 +228,15 @@ function Homepage() {
         <Clients />
       </Element> */}
 
-      <Element name="section-blogs">
-        <section className="shadow-blue white-bg padding">
+      <Element name="section-blogpreview">
+        <section className="shadow-blue white-bg padding" ref={refBlog}>
           <SectionHeading title="Recent posts" />
           <Blogs />
         </section>
       </Element>
 
       <Element name="section-contact">
-        <section className="shadow-blue white-bg padding">
+        <section className="shadow-blue white-bg padding" ref={refContact}>
           <SectionHeading title="Get in touch" />
           <Contact />
         </section>

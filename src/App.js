@@ -9,6 +9,8 @@ import Homepage from "./pages/Homepage";
 import Bloglist from "./pages/Bloglist";
 import BlogDetails from "./pages/BlogDetails";
 import { BlogProvider } from "./contexts/BlogContext";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Homepage />} exact />
+          <Route path="/privacy/" element={<PrivacyPolicy />} exact />
+          <Route path="/terms/" element={<Terms />} exact />
           <Route path="/blog/" element={<Bloglist />} exact />
           <Route path="/blog/page/:pageNumber" element={<Bloglist />} />
           <Route path="/blog/:id/:title" element={<BlogDetails />} />

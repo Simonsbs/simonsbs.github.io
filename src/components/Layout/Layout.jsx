@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import { useEffect } from "react";
 import { animateScroll as scroll } from "react-scroll";
+import Footer from "./Footer";
 
 function Layout({ children }) {
   useEffect(() => {
@@ -24,13 +25,7 @@ function Layout({ children }) {
         }
       >
         {children}
-        <footer className="footer text-center" style={{ height: "100px" }}>
-          <h6>
-            &copy; All rights reserved to Simon B.Stirling -&nbsp;
-            {new Date().getFullYear()}
-          </h6>
-          <img src="./images/guy.png" width={100} alt="Im the BestDev" />
-        </footer>
+        <Footer />
       </main>
     </div>
   );

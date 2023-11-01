@@ -15,8 +15,8 @@ function ProjectsList() {
   return (
     <Layout>
       <Helmet>
-        <title>Simon B.Stilring - Blog</title>
-        <meta name="description" content="A list of my blog posts." />
+        <title>Simon B.Stilring - Projects</title>
+        <meta name="description" content="A list of my projects." />
       </Helmet>
       <section className="shadow-blue white-bg padding mt-0">
         <div className="row -mt-50">

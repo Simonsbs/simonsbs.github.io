@@ -11,6 +11,7 @@ import Experiences from "../components/Sections/Experiences";
 import Blogs from "../components/Sections/Blogs";
 import Contact from "../components/Sections/Contact";
 import { useParams } from "react-router-dom";
+import Projects from "../components/Sections/Projects";
 
 const programmingLanguages = [
   "C",
@@ -193,6 +194,13 @@ function Homepage() {
         <section className="shadow-blue white-bg padding" ref={refServices}>
           <SectionHeading title="Services" />
           <Services />
+        </section>
+      </Element>
+
+      <Element name="section-projects">
+        <section className="shadow-blue white-bg padding">
+          <SectionHeading title="Featured Projects" />
+          <Projects />
         </section>
       </Element>
 

@@ -43,11 +43,19 @@ function Certificate({ certificate }) {
       <div className="card-body">
         <a
           href={certificate.Url}
-          className="btn btn-outline-primary btn-sm w-100"
+          className="btn btn-outline-primary btn-sm w-100 mb-2"
           target="_blank"
           rel="noopener noreferrer"
         >
           <i className="bi bi-box-arrow-up-right"></i> View Online
+        </a>
+        <a
+          href={certificate.FileUrl}
+          className="btn btn-outline-primary btn-sm w-100"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="bi bi-box-arrow-up-right"></i> Download PDF
         </a>
       </div>
     </div>

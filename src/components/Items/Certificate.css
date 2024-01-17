@@ -1,0 +1,8 @@
+.pdf-page-container {
+  width: 100%;
+}
+
+.pdf-page-container canvas {
+  width: 100% !important;
+  height: auto !important;
+}

@@ -147,6 +147,11 @@ function Header({ toggleHeader, toggleHandler }) {
                 )}
               </li>
               <li>
+                <Link to="/certificates" onClick={checkIfToggleNeeded}>
+                  <i className="icon-graduation"></i>Certificates
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" onClick={checkIfToggleNeeded}>
                   <i className="icon-phone"></i>Contact
                 </Link>

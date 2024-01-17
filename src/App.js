@@ -13,23 +13,28 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import ProjectsList from "./pages/ProjectsList";
 import { ProjectProvider } from "./contexts/ProjectContext";
+import Certificates from "./pages/Certificates";
+import { CertificatesProvider } from "./contexts/CertificatesContext";
 
 function App() {
   return (
     <BlogProvider>
       <ProjectProvider>
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<Homepage />} exact />
-            <Route path="/privacy/" element={<PrivacyPolicy />} exact />
-            <Route path="/terms/" element={<Terms />} exact />
-            <Route path="/projects/" element={<ProjectsList />} exact />
-            <Route path="/blog/" element={<Bloglist />} exact />
-            <Route path="/blog/page/:pageNumber" element={<Bloglist />} />
-            <Route path="/blog/:id/:title" element={<BlogDetails />} />
-            <Route path="/:section" element={<Homepage />} exact />
-          </Routes>
-        </HashRouter>
+        <CertificatesProvider>
+          <HashRouter>
+            <Routes>
+              <Route path="/" element={<Homepage />} exact />
+              <Route path="/privacy/" element={<PrivacyPolicy />} exact />
+              <Route path="/terms/" element={<Terms />} exact />
+              <Route path="/projects/" element={<ProjectsList />} exact />
+              <Route path="/certificates/" element={<Certificates />} exact />
+              <Route path="/blog/" element={<Bloglist />} exact />
+              <Route path="/blog/page/:pageNumber" element={<Bloglist />} />
+              <Route path="/blog/:id/:title" element={<BlogDetails />} />
+              <Route path="/:section" element={<Homepage />} exact />
+            </Routes>
+          </HashRouter>
+        </CertificatesProvider>
       </ProjectProvider>
     </BlogProvider>
   );

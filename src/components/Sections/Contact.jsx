@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import emailjs from "emailjs-com";
-
-const contactData = {
-  phone: ["+972545841058"],
-  email: ["simonsbs@gmail.com"],
-  location: "Hadera, Israel",
-};
+import GeneralInfo from "../../contexts/GeneralInfo";
 
 function Contact() {
   const [formdata, setFormdata] = useState({
@@ -100,7 +95,7 @@ function Contact() {
           <i className="icon-phone"></i>
           <div className="details">
             <h5>Phone</h5>
-            {contactData.phone.map((singlePhone, index) => (
+            {GeneralInfo.phone.map((singlePhone, index) => (
               <span key={index}>
                 <a href={"tel:" + singlePhone}>{singlePhone}</a>
               </span>
@@ -111,7 +106,7 @@ function Contact() {
           <i className="bi-whatsapp"></i>
           <div className="details">
             <h5>WhatsApp</h5>
-            {contactData.phone.map((singlePhone, index) => (
+            {GeneralInfo.phone.map((singlePhone, index) => (
               <span key={index}>
                 <a href={"https://wa.me/" + singlePhone + "?text=Hey"}>
                   Send me a message
@@ -125,7 +120,7 @@ function Contact() {
           <i className="icon-envelope"></i>
           <div className="details">
             <h5>Email address</h5>
-            {contactData.email.map((singleEmail, index) => (
+            {GeneralInfo.email.map((singleEmail, index) => (
               <span key={index}>
                 <a href={"mailto:" + singleEmail}>{singleEmail}</a>
               </span>
@@ -138,7 +133,7 @@ function Contact() {
             <h5>Location</h5>
             <span>
               <a href="https://goo.gl/maps/gfC2nXNBBeEfcy57A">
-                {contactData.location}
+                {GeneralInfo.location}
               </a>
             </span>
           </div>

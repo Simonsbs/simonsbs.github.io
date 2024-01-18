@@ -8,7 +8,7 @@ export const CertificatesProvider = ({ children }) => {
       id: 1,
       title: "Google Project Management: Professional Certificate",
       FileUrl: "./certificates/coursera/Coursera TA6NTYVHP43P.pdf",
-      date: "17-01-2024",
+      date: "2024-01-17",
       skills: [],
       Url: "https://coursera.org/verify/professional-cert/TA6NTYVHP43P",
       description:
@@ -18,7 +18,7 @@ export const CertificatesProvider = ({ children }) => {
       id: 2,
       title: "University of Michigan - Digital Twins",
       FileUrl: "./certificates/coursera/Coursera XY3WVKHQZNK8.pdf",
-      date: "17-12-2023",
+      date: "2023-12-17",
       skills: [
         "Information technology infrastructure",
         "Business",
@@ -33,7 +33,7 @@ export const CertificatesProvider = ({ children }) => {
       id: 3,
       title: "Google Project Execution: Running the Project",
       FileUrl: "./certificates/coursera/Coursera JQYVQJCKD49J.pdf",
-      date: "15-01-2024",
+      date: "2024-01-15",
       skills: [
         "Project Management",
         "Risk Management",
@@ -50,7 +50,7 @@ export const CertificatesProvider = ({ children }) => {
       title:
         "Google Professional Workspace Administrator Professional Certificate",
       FileUrl: "./certificates/coursera/Coursera 7BGR3HYYALWB.pdf",
-      date: "17-02-2019",
+      date: "2019-02-17",
       skills: ["Gmail", "Google", "Google Cloud Platform", "Google Services"],
       Url: "https://coursera.org/verify/7BGR3HYYALWB",
       description:
@@ -60,7 +60,7 @@ export const CertificatesProvider = ({ children }) => {
       id: 5,
       title: "Google Foundations of Project Management",
       FileUrl: "./certificates/coursera/Coursera JEW3AJ2EVATY.pdf",
-      date: "13-12-2023",
+      date: "2023-12-13",
       skills: [
         "Project Management",
         "Change Management",
@@ -76,7 +76,7 @@ export const CertificatesProvider = ({ children }) => {
       id: 6,
       title: "Google Project Planning: Putting It All Together",
       FileUrl: "./certificates/coursera/Coursera F44CJCASFM3K.pdf",
-      date: "24-12-2023",
+      date: "2023-12-24",
       skills: [
         "Procurement",
         "Risk Management",
@@ -92,7 +92,7 @@ export const CertificatesProvider = ({ children }) => {
       id: 7,
       title: "Google Capstone: Applying Project Management in the Real World",
       FileUrl: "./certificates/coursera/Coursera QFC74LUMKSDL.pdf",
-      date: "17-01-2024",
+      date: "2024-01-17",
       skills: [
         "Project Management",
         "Problem Solving",
@@ -108,7 +108,7 @@ export const CertificatesProvider = ({ children }) => {
       id: 8,
       title: "Google Agile Project Management",
       FileUrl: "./certificates/coursera/Coursera GG94WNVZ9MLU.pdf",
-      date: "15-01-2024",
+      date: "2024-01-15",
       skills: [
         "Agile Management",
         "Problem Solving",
@@ -124,7 +124,7 @@ export const CertificatesProvider = ({ children }) => {
       id: 9,
       title: "Google Project Initiation: Starting a Successful Project",
       FileUrl: "./certificates/coursera/Coursera WTKQRTS4AEXR.pdf",
-      date: "16-12-2023",
+      date: "2023-12-16",
       skills: [
         "Project Management",
         "Strategic Thinking",

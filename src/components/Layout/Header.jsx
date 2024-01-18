@@ -6,29 +6,11 @@ import {
   FaInstagram,
   FaDribbble,
   FaGithub,
+  FaLinkedin,
 } from "react-icons/fa";
 import { TextCarousel } from "../Items/TextCarousel";
 import { HashLink } from "react-router-hash-link";
-
-const headerData = {
-  name: "Simon B.Stirling",
-  designations: [
-    "CTO",
-    "R&D Manager",
-    "Solution Architect",
-    "Project Manager",
-    "Team Leader",
-    "Instructor",
-    "Full Stack Developer",
-  ],
-  imageThumb: "/images/logo.png",
-  social: {
-    facebook: "https://www.facebook.com/simonsbs",
-    twitter: "https://twitter.com/simonsbs",
-    instagram: "https://www.instagram.com/simonsbs/",
-    github: "https://github.com/Simonsbs/",
-  },
-};
+import GeneralInfo from "../../contexts/GeneralInfo";
 
 function Header({ toggleHeader, toggleHandler }) {
   const [currentPath, setCurrentPath] = useState("");
@@ -64,15 +46,15 @@ function Header({ toggleHeader, toggleHandler }) {
         </button>
         <Link to="/" onClick={toggleHandler} className="logo me-2">
           <img
-            src={headerData.imageThumb}
+            src={GeneralInfo.imageThumb}
             width={70}
             height={70}
             className="rounded"
-            alt={headerData.name}
+            alt={GeneralInfo.name}
           />
         </Link>
         <Link to="/" onClick={toggleHandler} className="site-title mb-2">
-          {headerData.name}
+          {GeneralInfo.name}
         </Link>
       </div>
 
@@ -94,10 +76,10 @@ function Header({ toggleHeader, toggleHandler }) {
         <div className="header-inner d-flex align-items-start flex-column">
           <Link to="/" onClick={checkIfToggleNeeded}>
             <img
-              src={headerData.imageThumb}
+              src={GeneralInfo.imageThumb}
               width={70}
               height={70}
-              alt={headerData.name}
+              alt={GeneralInfo.name}
               className="rounded"
             />
           </Link>
@@ -106,11 +88,11 @@ function Header({ toggleHeader, toggleHandler }) {
             onClick={checkIfToggleNeeded}
             className="site-title mt-3"
           >
-            {headerData.name}
+            {GeneralInfo.name}
           </Link>
 
           <span className="site-slogan">
-            <TextCarousel phrases={headerData.designations} />
+            <TextCarousel phrases={GeneralInfo.designations} />
           </span>
 
           <nav>
@@ -161,52 +143,62 @@ function Header({ toggleHeader, toggleHandler }) {
 
           <div className="footer mt-auto">
             <ul className="social-icons list-inline">
-              {!headerData.social.facebook ? null : (
+              {!GeneralInfo.social.linkedin ? null : (
                 <li className="list-inline-item">
                   <a
-                    href={headerData.social.facebook}
+                    href={GeneralInfo.social.linkedin}
+                    aria-label="link to linkedin profile"
+                  >
+                    <FaLinkedin />
+                  </a>
+                </li>
+              )}
+              {!GeneralInfo.social.facebook ? null : (
+                <li className="list-inline-item">
+                  <a
+                    href={GeneralInfo.social.facebook}
                     aria-label="link to facebook profile"
                   >
                     <FaFacebookF />
                   </a>
                 </li>
               )}
-              {!headerData.social.twitter ? null : (
+              {!GeneralInfo.social.twitter ? null : (
                 <li className="list-inline-item">
                   <a
-                    href={headerData.social.twitter}
+                    href={GeneralInfo.social.twitter}
                     aria-label="link to twitter profile"
                   >
                     <FaTwitter />
                   </a>
                 </li>
               )}
-              {!headerData.social.instagram ? null : (
+              {!GeneralInfo.social.instagram ? null : (
                 <li
                   className="list-inline-item"
                   aria-label="link to instagram profile"
                 >
-                  <a href={headerData.social.instagram}>
+                  <a href={GeneralInfo.social.instagram}>
                     <FaInstagram />
                   </a>
                 </li>
               )}
-              {!headerData.social.github ? null : (
+              {!GeneralInfo.social.github ? null : (
                 <li className="list-inline-item">
                   <a
-                    href={headerData.social.github}
+                    href={GeneralInfo.social.github}
                     aria-label="link to github profile"
                   >
                     <FaGithub />
                   </a>
                 </li>
               )}
-              {!headerData.social.dribbble ? null : (
+              {!GeneralInfo.social.dribbble ? null : (
                 <li
                   className="list-inline-item"
                   aria-label="link to dribble profile"
                 >
-                  <a href={headerData.social.dribbble}>
+                  <a href={GeneralInfo.social.dribbble}>
                     <FaDribbble />
                   </a>
                 </li>

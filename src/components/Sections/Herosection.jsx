@@ -1,22 +1,17 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
-
-const herosectionData = {
-  name: "Simon B.Stirling",
-  aboutMe:
-    "With over 20 years of experience in system analysis, development, and management across various industries, I am passionate about driving innovation and achieving success. Let's work together to bring your ideas to life.",
-};
+import GeneralInfo from "../../contexts/GeneralInfo";
 
 function Herosection() {
   return (
     <section className="hero background parallax shadow-dark d-flex align-items-center">
       <div className="cta mx-auto mt-2">
-        <h1 className="mt-0 mb-4">I’m {herosectionData.name}</h1>
-        <p className="mb-4">{herosectionData.aboutMe}</p>
-        <p className="fs-6 text-muted">
-          CTO | R&D Manager | Solution Architect | Project Manager | Team Leader
-          | Instructor | Full Stack Developer
+        <h1 className="mt-0 mb-4">I’m {GeneralInfo.name}</h1>
+        <p className="mb-4">{GeneralInfo.aboutMeShort}</p>
+        <p className="fs-6 text-muted pb-4">
+          {GeneralInfo.designations ? GeneralInfo.designations.join(" | ") : ""}
         </p>
+
         <ScrollLink
           activeClass="active"
           to="section-services"

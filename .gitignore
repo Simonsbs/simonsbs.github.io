@@ -10,6 +10,11 @@
 
 # production
 /build
+/dist
+/.vite
+/playwright-report
+/test-results
+/.venv-knowledge/
 
 # misc
 .DS_Store

@@ -1,73 +1,41 @@
 {
-  "name": "simonsbs.github.io",
-  "version": "1.0.0",
+  "name": "simon-stirling-portfolio",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "homepage": "https://bestdev.co.il/",
-  "dependencies": {
-    "@babel/standalone": "^7.22.10",
-    "@popperjs/core": "^2.11.8",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
-    "axios": "^1.6.5",
-    "bootstrap": "^5.3.1",
-    "bootstrap-icons": "^1.10.5",
-    "buffer": "^6.0.3",
-    "css-loader": "^6.8.1",
-    "emailjs-com": "^3.2.0",
-    "front-matter": "^4.0.2",
-    "markdown-to-jsx": "^7.3.2",
-    "pdfjs-dist": "^4.0.379",
-    "react": "^18.2.0",
-    "react-countup": "^6.4.2",
-    "react-dom": "^18.2.0",
-    "react-google-recaptcha-v3": "^1.10.1",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^4.10.1",
-    "react-on-screen": "^2.1.1",
-    "react-pdf": "^7.7.0",
-    "react-router-dom": "^6.15.0",
-    "react-router-hash-link": "^2.4.3",
-    "react-scripts": "5.0.1",
-    "react-scroll": "^1.8.9",
-    "react-share": "^4.4.1",
-    "react-slick": "^0.29.0",
-    "resolve-url-loader": "^5.0.0",
-    "sass": "^1.65.1",
-    "sass-loader": "^13.3.2",
-    "slick-carousel": "^1.8.1",
-    "uuid": "^9.0.1",
-    "web-vitals": "^3.4.0"
+  "engines": {
+    "node": ">=22.12.0"
   },
   "scripts": {
+    "predev": "node scripts/content.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "prestart": "node scripts/content.mjs",
+    "start": "vite --host 127.0.0.1",
+    "build": "npm run check && vite build && node scripts/check-build.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "precheck": "node scripts/content.mjs",
+    "check": "tsc --noEmit && node scripts/check-content.mjs && node scripts/check-projects.mjs",
+    "verify:live": "node scripts/verify-showcase-live.mjs",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy": "gh-pages -b master -d dist --nojekyll"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@emailjs/browser": "^5.0.3",
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/manrope": "^5.3.0",
+    "lucide-react": "^1.72.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0",
-    "node-sass": "^9.0.0",
-    "@babel/plugin-transform-private-property-in-object": "^7.23.4"
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "gh-pages": "^6.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
   }
 }

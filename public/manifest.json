@@ -1,22 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Simon Stirling",
+  "name": "Simon Stirling | Pre-sales & Post-sales Solutions Architect",
   "icons": [
     {
-      "src": "icon.ico",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "guy.png",
-      "type": "image/png"
-    },
-    {
-      "src": "logo.png",
-      "type": "image/png"
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#141715",
+  "background_color": "#141715"
 }

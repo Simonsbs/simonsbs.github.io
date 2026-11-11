@@ -1,0 +1,72 @@
+[
+  {
+    "id": "cloud-discovery-to-delivery",
+    "title": "From discovery to a production cloud platform",
+    "category": "Pre-sales",
+    "status": "Production",
+    "role": "Lead solution architect, Flame-Ware Solutions",
+    "summary": "An enterprise cloud opportunity for a customer whose disconnected inventory and operational systems limited visibility and created manual work.",
+    "contribution": "Led discovery, compared architecture options, prepared the technical proposal and built prototype demonstrations. Worked with customer stakeholders and suppliers on integration dependencies, risks and phased delivery.",
+    "outcome": "The approved proposal progressed into production, improving operational visibility, reducing manual processes and supporting lower operating costs.",
+    "technologies": [
+      "Technical discovery",
+      "Solution design",
+      "Prototype demos",
+      "Phased delivery"
+    ]
+  },
+  {
+    "id": "enterprise-document-ai",
+    "title": "Enterprise document AI",
+    "category": "Enterprise architecture",
+    "status": "Production",
+    "role": "Solution architect, Flame-Ware Solutions",
+    "summary": "Architecture and delivery of an LLM-powered platform for document analysis, extraction, contextual summaries and structured workflow responses.",
+    "contribution": "Led architecture and multidisciplinary delivery. Owned LLM integration, API design, security and deployment strategy, with validation, access controls, logging and human review.",
+    "outcome": "Deployed for multiple operational users and recurring document workloads, with ongoing development and support.",
+    "technologies": [".NET", "REST APIs", "SQL Server", "LLM integration"]
+  },
+  {
+    "id": "enterprise-service-support",
+    "title": "Enterprise support & service reliability",
+    "category": "Post-sales",
+    "status": "Production",
+    "role": "Solution architect, Flame-Ware Solutions",
+    "summary": "Architecture, operational reliability and technical support for a production vehicle-inspection and regulatory-information platform.",
+    "contribution": "Defined and monitored SLAs, oversaw incident resolution and technical escalations, led root-cause analysis and coordinated corrective work across development and support teams.",
+    "outcome": "Improved stability, reduced recurring incidents and made support more efficient through database query optimisation, monitoring, exception handling and consistent integration patterns.",
+    "technologies": [
+      "Production support",
+      "Root-cause analysis",
+      "SLA management",
+      "Monitoring"
+    ]
+  },
+  {
+    "id": "manufacturing-quality-data",
+    "title": "Manufacturing data & quality traceability",
+    "category": "Enterprise architecture",
+    "status": "Production",
+    "role": "Solution architect, Flame-Ware Solutions",
+    "summary": "A data-integration and quality-management solution for pharmaceutical manufacturing, supporting Continued Process Verification and quality investigations.",
+    "contribution": "Defined the architecture and SQL Server data models, implemented integration interfaces and led automated collection, validation, reporting and audit trails. Worked with manufacturing, QA and technical stakeholders on data integrity and traceability.",
+    "outcome": "Improved manufacturing-data visibility, standardised quality reporting and reduced manual consolidation.",
+    "technologies": [
+      "SQL Server",
+      "Data integration",
+      "Quality reporting",
+      "Audit trails"
+    ]
+  },
+  {
+    "id": "document-rag-prototype",
+    "title": "Document retrieval & local-model RAG",
+    "category": "Technical evaluation",
+    "status": "Proof of concept",
+    "role": "Hands-on architecture & implementation",
+    "summary": "A working document-based RAG application with local model inference, source visibility and retrieval metadata for manual verification.",
+    "contribution": "Personally built the document-ingestion, embedding, retrieval and LLM-integration workflows, using Ollama for local model inference and Streamlit for the interface.",
+    "outcome": "A working proof of concept for testing document retrieval and checking generated answers against their sources.",
+    "technologies": ["Python", "LangChain", "ChromaDB", "Ollama", "Streamlit"]
+  }
+]

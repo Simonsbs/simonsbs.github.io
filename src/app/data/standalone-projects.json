@@ -1,0 +1,1665 @@
+[
+  {
+    "id": "knowledge-lab",
+    "number": "01",
+    "name": "Knowledge Lab",
+    "title": "Enterprise knowledge assistant & evaluation lab",
+    "headline": "Answers you can trace back to evidence.",
+    "summary": "Explore a fictional knowledge base, inspect citations and compare retrieval decisions. Optional local Ollama inference adds a separately validated model draft.",
+    "focus": "AI evaluation & retrieval",
+    "color": "#69bd9f",
+    "live": "https://knowledge.bestdev.co.il/",
+    "repository": "https://github.com/Simonsbs/knowledge-assistant-lab",
+    "validationPath": "docs/validation/knowledge-lab-live.md",
+    "runtime": "React + TypeScript; optional Python / LangChain / Ollama",
+    "mode": "Public browser evidence mode",
+    "goal": "Help a support team find a supported answer while making source conflicts, missing evidence and access boundaries visible.",
+    "capabilities": [
+      {
+        "title": "Inspect exact evidence",
+        "description": "Read source passages, document owners, dates and rendered citations rather than accepting an unexplained answer."
+      },
+      {
+        "title": "Compare retrieval behaviour",
+        "description": "Compare a keyword baseline with governed BM25 retrieval, source-status filters, role filters and coverage guards."
+      },
+      {
+        "title": "Exercise difficult questions",
+        "description": "Try contradictory documents, undocumented topics and a restricted synthetic record. Inspect why the system answers or abstains."
+      },
+      {
+        "title": "Evaluate and extend",
+        "description": "Rerun labelled development and verification cases, inspect recorded model reviews, or import a custom JSON knowledge pack."
+      }
+    ],
+    "instructions": [
+      {
+        "title": "Open a support question",
+        "description": "Open the public demo and choose Support target. Read the quoted answer, then open its citation to inspect the original passage."
+      },
+      {
+        "title": "Change the retrieval rules",
+        "description": "Switch between governed retrieval and the keyword baseline. Compare which draft, archived or authoritative sources appear."
+      },
+      {
+        "title": "Test the boundaries",
+        "description": "Choose Conflicting sources, Missing answer and Restricted record. Compare the support and administrator demo roles."
+      },
+      {
+        "title": "Inspect the evaluation",
+        "description": "Open Evaluation lab and compare the development and verification sets across all six configurations. Custom packs disable the sample labels."
+      },
+      {
+        "title": "Try local inference if wanted",
+        "description": "Follow the repository setup, run npm run dev:local with Ollama and qwen3:8b installed, then expand Optional local inference and check the service before drafting an answer."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Evidence before generation",
+        "description": "Public evidence mode quotes canonical passages and runs entirely in the browser. It is useful without a model account or a hosted inference service."
+      },
+      {
+        "title": "Server-owned context admission",
+        "description": "The optional loopback Python adapter reloads the canonical pack, applies its own role and validates admitted context before calling Ollama."
+      },
+      {
+        "title": "Keep measured claims bounded",
+        "description": "The synthetic cases expose regressions and model errors. Passing them does not establish general accuracy or independent human acceptance."
+      }
+    ],
+    "limits": [
+      "All company policies and records are synthetic. Browser role filtering over a public pack is a simulation, not private-data protection.",
+      "The public demo does not run hosted model inference. Ollama runs only in the optional local checkout.",
+      "Both labelled sets are agent-authored regression coverage. Version 1 was accepted on agent validation; human review is not claimed."
+    ],
+    "evidence": [
+      "68 recorded retrieval/pipeline cases and 46 generated-answer content checks pass in the accepted local Qwen3 8B run.",
+      "Seven invalid-context probes are rejected. Earlier retrieval and model failures remain in the repository.",
+      "Source-linked agent review and reproducible setup are published with the project."
+    ],
+    "board": {
+      "note": "The upper path is the public browser demo. The lower-right branch runs only when the optional local service is configured.",
+      "zones": [
+        {
+          "x": 20,
+          "y": 65,
+          "width": 1060,
+          "height": 190,
+          "title": "PUBLIC BROWSER / EVIDENCE MODE"
+        },
+        {
+          "x": 20,
+          "y": 305,
+          "width": 510,
+          "height": 175,
+          "title": "PUBLIC SYNTHETIC SOURCE PACK"
+        },
+        {
+          "x": 560,
+          "y": 305,
+          "width": 520,
+          "height": 175,
+          "title": "OPTIONAL LOCAL SERVICE / LOOPBACK ONLY"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "question",
+          "title": "Question + settings",
+          "subtitle": "Support investigation",
+          "detail": "A visitor selects a question, retrieval configuration and simulated role in the browser.",
+          "x": 40,
+          "y": 120,
+          "kind": "input"
+        },
+        {
+          "id": "retrieve",
+          "title": "Governed retrieval",
+          "subtitle": "BM25 + source filters",
+          "detail": "BM25 uses English normalisation and explicit synonyms. Status, role, coverage and conflict checks determine which passages are usable.",
+          "x": 310,
+          "y": 120,
+          "kind": "gate"
+        },
+        {
+          "id": "evidence",
+          "title": "Exact evidence",
+          "subtitle": "Quote or abstain",
+          "detail": "The public mode quotes source text and renders passage links. Missing or conflicting support stays visible.",
+          "x": 580,
+          "y": 120,
+          "kind": "output"
+        },
+        {
+          "id": "review",
+          "title": "Answer inspection",
+          "subtitle": "Citations + evaluation",
+          "detail": "Visitors inspect source-backed output and labelled evaluation results. A model draft, when enabled locally, is distinct from exact evidence.",
+          "x": 850,
+          "y": 120,
+          "kind": "output"
+        },
+        {
+          "id": "pack",
+          "title": "Canonical JSON pack",
+          "subtitle": "Documents + metadata",
+          "detail": "Validated ingestion produces a synthetic public source pack with passage identifiers, ownership, status and role metadata.",
+          "x": 310,
+          "y": 350,
+          "kind": "store"
+        },
+        {
+          "id": "admission",
+          "title": "Python admission",
+          "subtitle": "Canonical context checks",
+          "detail": "The loopback adapter reloads source text and enforces its configured role before allowing a model request.",
+          "x": 580,
+          "y": 350,
+          "kind": "gate"
+        },
+        {
+          "id": "ollama",
+          "title": "Local Ollama",
+          "subtitle": "LangChain / qwen3:8b",
+          "detail": "The optional local model returns one concise JSON answer with admitted passage references. Code validates those references before rendering.",
+          "x": 850,
+          "y": 350,
+          "kind": "service"
+        }
+      ],
+      "edges": [
+        {
+          "id": "pack-retrieve",
+          "from": "pack",
+          "to": "retrieve",
+          "fromPort": "top",
+          "toPort": "bottom",
+          "label": "canonical passages",
+          "labelX": 414,
+          "labelY": 283
+        },
+        {
+          "id": "question-retrieve",
+          "from": "question",
+          "to": "retrieve",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "question",
+          "labelX": 255,
+          "labelY": 150
+        },
+        {
+          "id": "retrieve-evidence",
+          "from": "retrieve",
+          "to": "evidence",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "eligible passages",
+          "labelX": 530,
+          "labelY": 150
+        },
+        {
+          "id": "evidence-review",
+          "from": "evidence",
+          "to": "review",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "source links",
+          "labelX": 798,
+          "labelY": 150
+        },
+        {
+          "id": "evidence-admission",
+          "from": "evidence",
+          "to": "admission",
+          "fromPort": "bottom",
+          "toPort": "top",
+          "label": "passage IDs",
+          "labelX": 696,
+          "labelY": 283
+        },
+        {
+          "id": "admission-ollama",
+          "from": "admission",
+          "to": "ollama",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "checked context",
+          "labelX": 798,
+          "labelY": 380
+        },
+        {
+          "id": "ollama-review",
+          "from": "ollama",
+          "to": "review",
+          "fromPort": "top",
+          "toPort": "bottom",
+          "label": "cited JSON draft",
+          "labelX": 963,
+          "labelY": 283
+        }
+      ],
+      "flows": [
+        {
+          "id": "public",
+          "title": "Public evidence path",
+          "summary": "Find an answer without making a model request.",
+          "steps": [
+            {
+              "edge": "pack-retrieve",
+              "title": "Load canonical sources",
+              "detail": "The browser loads the synthetic source pack and its passage metadata.",
+              "kind": "data"
+            },
+            {
+              "edge": "question-retrieve",
+              "title": "Apply the investigation settings",
+              "detail": "The selected question and simulated role enter governed retrieval.",
+              "kind": "data"
+            },
+            {
+              "edge": "retrieve-evidence",
+              "title": "Keep only supported evidence",
+              "detail": "Source filters, coverage guards and conflict checks decide whether the pack supports an answer.",
+              "kind": "check"
+            },
+            {
+              "edge": "evidence-review",
+              "title": "Inspect the answer's sources",
+              "detail": "Exact quotations and citation links let the visitor verify the returned evidence.",
+              "kind": "data"
+            }
+          ]
+        },
+        {
+          "id": "local",
+          "title": "Optional local model path",
+          "summary": "Add a model draft only after canonical context admission.",
+          "steps": [
+            {
+              "edge": "question-retrieve",
+              "title": "Retrieve evidence first",
+              "detail": "The question follows the same browser retrieval path used by public evidence mode.",
+              "kind": "data"
+            },
+            {
+              "edge": "retrieve-evidence",
+              "title": "Select eligible passages",
+              "detail": "Only relevant source passages become candidates for the optional model request.",
+              "kind": "check"
+            },
+            {
+              "edge": "evidence-admission",
+              "title": "Admit context on the server",
+              "detail": "The local Python service reloads canonical text and independently applies its own role and context checks.",
+              "kind": "check"
+            },
+            {
+              "edge": "admission-ollama",
+              "title": "Call the local model",
+              "detail": "Validated context reaches LangChain and the locally running Ollama model. The public website does not host this service.",
+              "kind": "data"
+            },
+            {
+              "edge": "ollama-review",
+              "title": "Validate and inspect the draft",
+              "detail": "Code validates referenced passage IDs and renders citations. Source support still needs review; citations alone do not prove correctness.",
+              "kind": "check"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "integration-lab",
+    "number": "02",
+    "name": "Integration Lab",
+    "title": "Integration & webhook reliability lab",
+    "headline": "A failed delivery should leave a useful trail.",
+    "summary": "Send signed synthetic events through real HTTP, inject receiver failures and recover with visible retries, deduplication and dead-letter history.",
+    "focus": "Reliability & incident recovery",
+    "color": "#e6ad69",
+    "live": "https://integration.bestdev.co.il/",
+    "repository": "https://github.com/Simonsbs/integration-reliability-lab",
+    "validationPath": "VALIDATION.md",
+    "runtime": "React; public Worker / D1; local ASP.NET Core / SQLite",
+    "mode": "Real HTTP, explicit virtual retry clock",
+    "goal": "Help an operator determine what failed, whether an order effect already committed and how to recover without duplicating it.",
+    "capabilities": [
+      {
+        "title": "Inject controlled failures",
+        "description": "Exercise outages, throttling, invalid signatures, expired timestamps, bad payloads and a lost response after a successful commit."
+      },
+      {
+        "title": "Inspect the delivery history",
+        "description": "Follow correlation IDs, raw HTTP outcomes, retry deadlines, attempt cycles and the order-effect ledger."
+      },
+      {
+        "title": "Recover safely",
+        "description": "Replay a dead letter, repair the synthetic sender and confirm that retries and duplicate events retain one effect."
+      },
+      {
+        "title": "Compare real runtimes",
+        "description": "The public Worker/D1 API and runnable ASP.NET Core/SQLite reference implement the same contract and acceptance scenarios."
+      }
+    ],
+    "instructions": [
+      {
+        "title": "Run an outage",
+        "description": "Select Run outage scenario. Four actual HTTP requests fail while the explicitly virtual retry clock advances by 5, 15 and 45 seconds."
+      },
+      {
+        "title": "Inspect the dead letter",
+        "description": "Open its correlation ID, attempt responses and order ledger. Confirm that the failed delivery has not created an order effect."
+      },
+      {
+        "title": "Restore the receiver",
+        "description": "Select Healthy, then Replay & repair sender and Send next attempt. The receipt and one order effect are committed while failed history remains."
+      },
+      {
+        "title": "Send the duplicate",
+        "description": "Select Queue duplicate and send it. Inspect the cached success and confirm that the order ledger still has one effect."
+      },
+      {
+        "title": "Test uncertain delivery",
+        "description": "On a new order, select Lose response after committing. Retry after advancing the clock and verify that the already committed effect is not duplicated."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Commit the outcome together",
+        "description": "Receipt, order effect, delivery status and audit transition commit in one optimistic SQL update. A concurrent loser reloads and recomputes."
+      },
+      {
+        "title": "Keep retries inspectable",
+        "description": "Backoff, Retry-After handling and replay are explicit state transitions. Operators can see why an event is due, rejected or in dead letters."
+      },
+      {
+        "title": "Use a fixed receiver",
+        "description": "The browser posts a reserved signed envelope to one controlled receiver endpoint. The session signing secret is not returned to the browser."
+      }
+    ],
+    "limits": [
+      "Events, orders and failure modes are synthetic. Outages and lost responses are intentional fault injection.",
+      "The sender runs in the browser and uses explicit virtual retry time. Deliveries do not continue after the tab closes.",
+      "The demo does not claim production throughput, an uptime guarantee or distributed exactly-once delivery."
+    ],
+    "evidence": [
+      "Shared HTTP acceptance checks exercise the real .NET and Worker APIs, persistence, session expiry and concurrent updates.",
+      "Published validation covers rejected authentication, replay, deduplication and lost-response recovery.",
+      "The source includes the contract, state model, retained failures and an operator runbook."
+    ],
+    "board": {
+      "note": "The browser delivers a reserved envelope to a fixed receiver. Retry scheduling uses an explicitly advanced virtual clock; it is not a background queue.",
+      "zones": [
+        {
+          "x": 20,
+          "y": 75,
+          "width": 235,
+          "height": 180,
+          "title": "VISITOR BROWSER"
+        },
+        {
+          "x": 280,
+          "y": 75,
+          "width": 800,
+          "height": 405,
+          "title": "PUBLIC WORKER + D1 / EQUIVALENT LOCAL .NET API"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "browser",
+          "title": "Operations console",
+          "subtitle": "Browser HTTP sender",
+          "detail": "The visitor queues synthetic work, obtains one reserved signed envelope and posts it to the fixed receiver.",
+          "x": 40,
+          "y": 120,
+          "kind": "input"
+        },
+        {
+          "id": "sender",
+          "title": "Synthetic sender API",
+          "subtitle": "Reserve + sign envelope",
+          "detail": "The API claims a delivery attempt and returns its signed envelope without exposing the session signing secret.",
+          "x": 310,
+          "y": 120,
+          "kind": "service"
+        },
+        {
+          "id": "receiver",
+          "title": "Fixed HTTP receiver",
+          "subtitle": "HMAC + idempotency",
+          "detail": "The receiver checks timestamp, signature, raw bytes, event identity and order version before committing an effect.",
+          "x": 580,
+          "y": 120,
+          "kind": "gate"
+        },
+        {
+          "id": "ledger",
+          "title": "Atomic SQL outcome",
+          "subtitle": "Receipt + one effect",
+          "detail": "The optimistic update commits the receipt, business effect, attempt status and audit transition together.",
+          "x": 850,
+          "y": 120,
+          "kind": "store"
+        },
+        {
+          "id": "clock",
+          "title": "Virtual retry clock",
+          "subtitle": "Backoff / Retry-After",
+          "detail": "The operator explicitly advances virtual time. A retry uses the recorded deadline rather than an invisible timer.",
+          "x": 310,
+          "y": 350,
+          "kind": "gate"
+        },
+        {
+          "id": "dead",
+          "title": "Dead-letter review",
+          "subtitle": "Replay + repair sender",
+          "detail": "Exhausted or non-retryable work remains inspectable. Replay opens a new attempt cycle and keeps prior evidence.",
+          "x": 580,
+          "y": 350,
+          "kind": "output"
+        },
+        {
+          "id": "audit",
+          "title": "Audit & evidence",
+          "subtitle": "Attempts + safe export",
+          "detail": "Correlation IDs, attempts, outcomes and the ledger can be inspected and exported without access credentials.",
+          "x": 850,
+          "y": 350,
+          "kind": "output"
+        }
+      ],
+      "edges": [
+        {
+          "id": "queue",
+          "from": "browser",
+          "to": "sender",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "queue / claim",
+          "labelX": 259,
+          "labelY": 150
+        },
+        {
+          "id": "envelope",
+          "from": "sender",
+          "to": "browser",
+          "fromPort": "bottom",
+          "toPort": "bottom",
+          "via": [
+            [405, 245],
+            [135, 245]
+          ],
+          "label": "reserved signed envelope",
+          "labelX": 265,
+          "labelY": 238
+        },
+        {
+          "id": "deliver",
+          "from": "browser",
+          "to": "receiver",
+          "fromPort": "top",
+          "toPort": "top",
+          "via": [
+            [135, 40],
+            [675, 40]
+          ],
+          "label": "real HTTP POST",
+          "labelX": 405,
+          "labelY": 29
+        },
+        {
+          "id": "commit",
+          "from": "receiver",
+          "to": "ledger",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "validate + commit",
+          "labelX": 798,
+          "labelY": 150
+        },
+        {
+          "id": "retry",
+          "from": "receiver",
+          "to": "clock",
+          "fromPort": "bottom",
+          "toPort": "top",
+          "via": [
+            [675, 286],
+            [405, 286]
+          ],
+          "label": "retryable failure",
+          "labelX": 527,
+          "labelY": 278
+        },
+        {
+          "id": "due",
+          "from": "clock",
+          "to": "sender",
+          "fromPort": "top",
+          "toPort": "bottom",
+          "label": "when due",
+          "labelX": 414,
+          "labelY": 319
+        },
+        {
+          "id": "exhausted",
+          "from": "clock",
+          "to": "dead",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "budget exhausted",
+          "labelX": 529,
+          "labelY": 380
+        },
+        {
+          "id": "replay",
+          "from": "dead",
+          "to": "receiver",
+          "fromPort": "top",
+          "toPort": "bottom",
+          "label": "explicit replay",
+          "labelX": 684,
+          "labelY": 319
+        },
+        {
+          "id": "inspect",
+          "from": "ledger",
+          "to": "audit",
+          "fromPort": "bottom",
+          "toPort": "top",
+          "label": "retained history",
+          "labelX": 955,
+          "labelY": 282
+        }
+      ],
+      "flows": [
+        {
+          "id": "recover",
+          "title": "Outage to recovery",
+          "summary": "Follow a failed delivery into dead letters, then replay it safely.",
+          "steps": [
+            {
+              "edge": "queue",
+              "title": "Reserve a delivery",
+              "detail": "The console asks the API to claim one synthetic delivery attempt.",
+              "kind": "data"
+            },
+            {
+              "edge": "envelope",
+              "title": "Return the signed envelope",
+              "detail": "The API returns the reserved body and signature for the browser sender.",
+              "kind": "data"
+            },
+            {
+              "edge": "deliver",
+              "title": "Attempt actual HTTP delivery",
+              "detail": "The browser posts the envelope to the fixed receiver. The outage fixture returns a real 503.",
+              "kind": "denied"
+            },
+            {
+              "edge": "retry",
+              "title": "Record the retry deadline",
+              "detail": "The retryable failure records a deadline. The operator advances the virtual clock to inspect subsequent attempts.",
+              "kind": "check"
+            },
+            {
+              "edge": "exhausted",
+              "title": "Retain the dead letter",
+              "detail": "After the configured attempts are exhausted, the delivery enters dead letters without an order effect.",
+              "kind": "denied"
+            },
+            {
+              "edge": "replay",
+              "title": "Restore and replay",
+              "detail": "The operator selects Healthy and explicitly replays the retained delivery, optionally repairing its synthetic sender fault.",
+              "kind": "data"
+            },
+            {
+              "edge": "commit",
+              "title": "Commit one effect",
+              "detail": "Authentication, idempotency and version checks precede the atomic receipt and order-effect commit.",
+              "kind": "write"
+            },
+            {
+              "edge": "inspect",
+              "title": "Keep the full recovery trail",
+              "detail": "Failed attempts remain alongside the successful replay in the audit and exported evidence.",
+              "kind": "data"
+            }
+          ]
+        },
+        {
+          "id": "duplicate",
+          "title": "Duplicate / lost-response safety",
+          "summary": "A retry can return success without creating another order effect.",
+          "steps": [
+            {
+              "edge": "deliver",
+              "title": "Send the event",
+              "detail": "A valid reserved envelope reaches the receiver over actual HTTP.",
+              "kind": "data"
+            },
+            {
+              "edge": "commit",
+              "title": "Persist the original effect",
+              "detail": "The SQL outcome commits before the synthetic lost-response fixture returns 503 to the sender.",
+              "kind": "write"
+            },
+            {
+              "edge": "retry",
+              "title": "Treat the response as uncertain",
+              "detail": "The sender schedules a retry because it did not receive success. That does not prove the business effect failed.",
+              "kind": "check"
+            },
+            {
+              "edge": "due",
+              "title": "Reserve the retry when due",
+              "detail": "The explicit clock reaches the saved deadline and another attempt is reserved.",
+              "kind": "data"
+            },
+            {
+              "edge": "deliver",
+              "title": "Deliver the same event again",
+              "detail": "The retry carries the same event identity and bytes.",
+              "kind": "data"
+            },
+            {
+              "edge": "commit",
+              "title": "Return the stored result",
+              "detail": "Idempotency returns the original success. No second business effect is created.",
+              "kind": "check"
+            },
+            {
+              "edge": "inspect",
+              "title": "Verify the ledger",
+              "detail": "The attempt trail shows both outcomes while the order-effect count stays at one.",
+              "kind": "data"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "presales-workbench",
+    "number": "03",
+    "name": "Presales Workbench",
+    "title": "Technical presales solution workbench",
+    "headline": "Turn discovery into a decision you can explain.",
+    "summary": "Explore a fictional customer brief, compare feasible architecture options and produce an editable proposal with explicit assumptions, costs and a PoC plan.",
+    "focus": "Discovery & solution judgement",
+    "color": "#b7a0e1",
+    "live": "https://presales.bestdev.co.il/",
+    "repository": "https://github.com/Simonsbs/presales-solution-workbench",
+    "validationPath": "VALIDATION.md",
+    "runtime": "React + TypeScript; browser-local calculations and drafts",
+    "mode": "No model, account or backend draft store",
+    "goal": "Make the relationship between customer constraints, an architectural recommendation and a proposed evaluation inspectable.",
+    "capabilities": [
+      {
+        "title": "Structure customer discovery",
+        "description": "Capture business goals, current systems, stakeholders, integration scope, constraints and decision ownership."
+      },
+      {
+        "title": "Compare realistic trade-offs",
+        "description": "Three provider-neutral blueprints pass hard feasibility gates before weighted capability scores are considered."
+      },
+      {
+        "title": "Explore cost assumptions",
+        "description": "Edit illustrative rates, traffic, peak load, growth and headroom, then inspect reconciled cost line items."
+      },
+      {
+        "title": "Create a usable workshop pack",
+        "description": "Edit a proposal, preserve authored wording when inputs change, define measurable PoC criteria and export a seven-file ZIP."
+      }
+    ],
+    "instructions": [
+      {
+        "title": "Start with Northstar Retail",
+        "description": "Read the fictional business goal, stakeholders, three current systems and operating constraints in Discovery."
+      },
+      {
+        "title": "Compare the baseline",
+        "description": "Open Compare options. Inspect hard constraints, weighted contributions and cost lines for the managed-workflow baseline."
+      },
+      {
+        "title": "Introduce a new constraint",
+        "description": "Return to Discovery and select Introduce this constraint. The new five-second delivery requirement blocks the 60-second baseline and changes the proposed direction."
+      },
+      {
+        "title": "Review the proposal",
+        "description": "Open Proposal & PoC and edit a section. Change a structured input and inspect the review flag while your wording is preserved."
+      },
+      {
+        "title": "Export and continue",
+        "description": "Download the proposal pack, extract brief.json and re-import it to continue the workshop. Try the other fictional scenarios to explore different boundaries."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Feasibility before scoring",
+        "description": "An attractive score cannot override a hard boundary, ownership, region, delivery-time or budget constraint."
+      },
+      {
+        "title": "Keep assumptions editable",
+        "description": "Rates, latency baselines, capability ratings and delivery allowances remain visible workshop assumptions. Currency is a label, not an exchange-rate conversion."
+      },
+      {
+        "title": "Preserve authored judgement",
+        "description": "A changed brief flags proposal text for review rather than silently replacing the user's wording with a regenerated draft."
+      }
+    ],
+    "limits": [
+      "Customers, rates, capability ratings and requirements are fictional workshop fixtures.",
+      "Exports are proposed drafts and future PoC acceptance criteria, not a completed PoC, binding quotation or delivery commitment.",
+      "Drafts remain in this browser origin. Export before switching scenarios or clearing browser storage; no server-side draft store or AI inference is used."
+    ],
+    "evidence": [
+      "48 unit tests and 12 scenario/export checks are published, covering six baseline/changed-constraint decisions.",
+      "Recorded checks independently reconcile cost totals, budget boundaries, ZIP extraction and JSON round trips.",
+      "Windows/Linux CI, public browser checks and hosting validation are recorded in the repository."
+    ],
+    "board": {
+      "note": "Every decision and draft lives in the visitor's browser. The public Worker serves the application and documents, not a remote scoring or AI service.",
+      "zones": [
+        {
+          "x": 20,
+          "y": 70,
+          "width": 1060,
+          "height": 410,
+          "title": "VISITOR BROWSER / DETERMINISTIC WORKSHOP ENGINE"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "brief",
+          "title": "Discovery brief",
+          "subtitle": "Goals + current systems",
+          "detail": "A structured fictional workshop records stakeholders, operating context, integration scope and decision ownership.",
+          "x": 40,
+          "y": 120,
+          "kind": "input"
+        },
+        {
+          "id": "gates",
+          "title": "Feasibility gates",
+          "subtitle": "Hard constraints first",
+          "detail": "Boundary, region, connectivity, freshness, recovery, staffing, time and budget can block an option before scoring.",
+          "x": 310,
+          "y": 120,
+          "kind": "gate"
+        },
+        {
+          "id": "compare",
+          "title": "Weighted comparison",
+          "subtitle": "Three blueprints",
+          "detail": "Feasible options receive explicit weighted contributions from five criteria. The proposed direction remains explainable.",
+          "x": 580,
+          "y": 120,
+          "kind": "service"
+        },
+        {
+          "id": "proposal",
+          "title": "Proposal + PoC",
+          "subtitle": "Editable judgement",
+          "detail": "Authored wording, a proposed decision record and six measurable PoC checks remain editable and are flagged when the brief changes.",
+          "x": 850,
+          "y": 120,
+          "kind": "output"
+        },
+        {
+          "id": "storage",
+          "title": "Browser draft",
+          "subtitle": "Local save / JSON import",
+          "detail": "One active workshop is saved locally. Import validates the structured brief; export is needed before clearing browser storage.",
+          "x": 40,
+          "y": 350,
+          "kind": "store"
+        },
+        {
+          "id": "constraint",
+          "title": "Changed constraint",
+          "subtitle": "Five-second freshness",
+          "detail": "The Retail scenario introduces a five-second delivery requirement. Its previous 60-second workflow baseline becomes infeasible.",
+          "x": 310,
+          "y": 350,
+          "kind": "input"
+        },
+        {
+          "id": "cost",
+          "title": "Cost model",
+          "subtitle": "Rates + load + headroom",
+          "detail": "Editable illustrative inputs reconcile in integer cents. Peak load and monthly traffic are separate inputs.",
+          "x": 580,
+          "y": 350,
+          "kind": "service"
+        },
+        {
+          "id": "export",
+          "title": "Seven-file export",
+          "subtitle": "Brief / proposal / diagram",
+          "detail": "The ZIP contains brief.json, proposal.md, architecture.svg, poc-plan.csv, decision-record.md, analysis.json and README.txt.",
+          "x": 850,
+          "y": 350,
+          "kind": "output"
+        }
+      ],
+      "edges": [
+        {
+          "id": "brief-gates",
+          "from": "brief",
+          "to": "gates",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "requirements",
+          "labelX": 260,
+          "labelY": 150
+        },
+        {
+          "id": "gates-compare",
+          "from": "gates",
+          "to": "compare",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "feasible options",
+          "labelX": 530,
+          "labelY": 150
+        },
+        {
+          "id": "compare-proposal",
+          "from": "compare",
+          "to": "proposal",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "proposal",
+          "labelX": 798,
+          "labelY": 150
+        },
+        {
+          "id": "save",
+          "from": "brief",
+          "to": "storage",
+          "fromPort": "bottom",
+          "toPort": "top",
+          "label": "save / restore",
+          "labelX": 145,
+          "labelY": 283
+        },
+        {
+          "id": "constraint-gates",
+          "from": "constraint",
+          "to": "gates",
+          "fromPort": "top",
+          "toPort": "bottom",
+          "label": "recheck gates",
+          "labelX": 414,
+          "labelY": 283
+        },
+        {
+          "id": "cost-compare",
+          "from": "cost",
+          "to": "compare",
+          "fromPort": "top",
+          "toPort": "bottom",
+          "label": "cost assumptions",
+          "labelX": 685,
+          "labelY": 283
+        },
+        {
+          "id": "proposal-export",
+          "from": "proposal",
+          "to": "export",
+          "fromPort": "bottom",
+          "toPort": "top",
+          "label": "review + download",
+          "labelX": 955,
+          "labelY": 283
+        }
+      ],
+      "flows": [
+        {
+          "id": "baseline",
+          "title": "Discovery to proposal",
+          "summary": "Trace a customer brief into an inspectable proposed decision.",
+          "steps": [
+            {
+              "edge": "brief-gates",
+              "title": "Translate the customer brief",
+              "detail": "Business goals and operating constraints become structured decision inputs.",
+              "kind": "data"
+            },
+            {
+              "edge": "gates-compare",
+              "title": "Exclude infeasible options",
+              "detail": "Hard gates are applied before weighted ratings can influence a recommendation.",
+              "kind": "check"
+            },
+            {
+              "edge": "cost-compare",
+              "title": "Include transparent cost inputs",
+              "detail": "Illustrative rates, load and headroom feed independently reconciled cost line items.",
+              "kind": "data"
+            },
+            {
+              "edge": "compare-proposal",
+              "title": "Explain the proposed direction",
+              "detail": "The proposal records assumptions, trade-offs and measurable future PoC criteria. It remains a draft for review.",
+              "kind": "data"
+            },
+            {
+              "edge": "proposal-export",
+              "title": "Export a reviewable workshop",
+              "detail": "Seven files preserve the brief, calculations, architecture, proposal and proposed decision record.",
+              "kind": "data"
+            }
+          ]
+        },
+        {
+          "id": "change",
+          "title": "A constraint changes the answer",
+          "summary": "Watch a new delivery requirement invalidate the old baseline.",
+          "steps": [
+            {
+              "edge": "save",
+              "title": "Pin the original brief",
+              "detail": "The scenario retains the earlier brief for a before/after comparison.",
+              "kind": "data"
+            },
+            {
+              "edge": "constraint-gates",
+              "title": "Introduce five-second delivery",
+              "detail": "The managed workflow's declared 60-second baseline cannot satisfy the new five-second requirement.",
+              "kind": "denied"
+            },
+            {
+              "edge": "gates-compare",
+              "title": "Recompute only feasible choices",
+              "detail": "The blocked option stays visible with an explanation; the cloud-event blueprint becomes the proposed direction under this fixture.",
+              "kind": "check"
+            },
+            {
+              "edge": "compare-proposal",
+              "title": "Flag authored text for review",
+              "detail": "Existing proposal wording is preserved and marked for review against the changed inputs.",
+              "kind": "check"
+            },
+            {
+              "edge": "proposal-export",
+              "title": "Export the revised assumptions",
+              "detail": "The revised pack carries both the decision inputs and visible review flags, rather than claiming a confirmed customer decision.",
+              "kind": "data"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "traceability-lab",
+    "number": "04",
+    "name": "Traceability Lab",
+    "title": "Manufacturing data quality & traceability demonstrator",
+    "headline": "Every corrected reading keeps its original story.",
+    "summary": "Ingest synthetic manufacturing measurements, investigate known quality defects and follow a reviewed correction from its original source to its current overlay.",
+    "focus": "Data quality & lineage",
+    "color": "#75b9d8",
+    "live": "https://traceability.bestdev.co.il/",
+    "repository": "https://github.com/Simonsbs/manufacturing-traceability-demo",
+    "validationPath": "VALIDATION.md",
+    "runtime": "React + TypeScript; Node SQLite / public Worker D1",
+    "mode": "Synthetic batches with server-enforced demo roles",
+    "goal": "Help a quality team explain which process readings are trustworthy and trace every reviewed change back to its source.",
+    "capabilities": [
+      {
+        "title": "Reconcile the ingestion",
+        "description": "Retain raw records and reconcile usable, quarantined, duplicate and missing expected measurements."
+      },
+      {
+        "title": "Investigate known defects",
+        "description": "Check completeness, exact and conflicting duplicates, types, units, ranges, timestamps, equipment and sampling-plan membership."
+      },
+      {
+        "title": "Review a bounded correction",
+        "description": "Operators propose permitted field changes. Reviewer decisions check versions and findings before applying a curated overlay."
+      },
+      {
+        "title": "Follow the evidence",
+        "description": "Inspect original/current fields, source pointers, resolved finding history, a hash-linked audit and a verifiable six-file evidence ZIP."
+      }
+    ],
+    "instructions": [
+      {
+        "title": "Ingest the sample run",
+        "description": "Use the Operator role. Eleven source rows reconcile to four usable, five quarantined and two duplicates; eight of nine expected slots are observed."
+      },
+      {
+        "title": "Trace a finding",
+        "description": "Open the UNIT finding for MES-004 in batch AX-1102. Follow the source-row pointer, inspect raw JSON and compare original/current fields."
+      },
+      {
+        "title": "Propose the correction",
+        "description": "Use the fictional source-owner clarification to change degC to °C. Submission creates a proposal and leaves the measurement unchanged."
+      },
+      {
+        "title": "Review and approve",
+        "description": "Switch to Reviewer, record a rationale and approve. The curated measurement becomes version 2 while the original and resolved finding remain visible."
+      },
+      {
+        "title": "Verify the trail",
+        "description": "Open Audit trail and download the six-file ZIP. Optionally ingest the separate follow-up pressure reading to close AX-1103's completeness gap."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Retain the original",
+        "description": "Corrections update a versioned overlay. Canonical source hashes, row ordinals and the original reading remain available for investigation."
+      },
+      {
+        "title": "Protect concurrent reviews",
+        "description": "A mutation token and optimistic revision guard the SQL transaction. Approval also checks the proposed measurement version."
+      },
+      {
+        "title": "Verify before export",
+        "description": "Export verification checks source hashes, reconciliation, audit links and proposal/decision history before producing the evidence files."
+      }
+    ],
+    "limits": [
+      "All batches, readings, specifications and source-owner statements are synthetic.",
+      "One visitor can switch demo roles. This exercises server permissions, not separate verified people or independent two-person control.",
+      "The hash chain is not a digital signature. The demonstrator makes no product-release, regulatory-approval or pharmaceutical-system validation claim."
+    ],
+    "evidence": [
+      "40 unit tests and the same 24 HTTP scenarios on local SQLite, Worker/D1 and both public origins are recorded.",
+      "Local restart and public redeployment checks preserve source records, reviewed overlays, finding history and access.",
+      "Published browser validation includes actual downloads, independent verification, re-import and mobile layout."
+    ],
+    "board": {
+      "note": "The arrows illustrate ingestion and review steps. Demo roles belong to one visitor; approved corrections change a curated overlay while the raw source remains intact.",
+      "zones": [
+        {
+          "x": 20,
+          "y": 70,
+          "width": 235,
+          "height": 190,
+          "title": "SYNTHETIC INPUT"
+        },
+        {
+          "x": 280,
+          "y": 70,
+          "width": 800,
+          "height": 410,
+          "title": "SHARED POLICY SERVICE + SQLITE / D1 + INVESTIGATION UI"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "input",
+          "title": "Synthetic source files",
+          "subtitle": "Batches + measurements",
+          "detail": "The sample deliberately includes missing slots, duplicate readings, malformed values and inconsistent units.",
+          "x": 40,
+          "y": 120,
+          "kind": "input"
+        },
+        {
+          "id": "ingest",
+          "title": "Ingestion + checks",
+          "subtitle": "Validate and reconcile",
+          "detail": "The service retains source records and evaluates completeness, identity, types, units, ranges, time and equipment.",
+          "x": 310,
+          "y": 120,
+          "kind": "gate"
+        },
+        {
+          "id": "sql",
+          "title": "Retained SQL records",
+          "subtitle": "Raw + curated overlay",
+          "detail": "Raw source rows and hashes are immutable. Curated measurements and finding history are versioned in SQLite or D1.",
+          "x": 580,
+          "y": 120,
+          "kind": "store"
+        },
+        {
+          "id": "evidence",
+          "title": "Lineage + evidence",
+          "subtitle": "Pointers / audit / ZIP",
+          "detail": "The investigation connects original and current fields to imports, source rows, proposals, decisions and the audit chain.",
+          "x": 850,
+          "y": 120,
+          "kind": "output"
+        },
+        {
+          "id": "findings",
+          "title": "Quality findings",
+          "subtitle": "Open + resolved history",
+          "detail": "Findings explain why readings are quarantined or expected slots are missing. Resolved findings remain inspectable.",
+          "x": 310,
+          "y": 350,
+          "kind": "output"
+        },
+        {
+          "id": "proposal",
+          "title": "Operator proposal",
+          "subtitle": "No immediate change",
+          "detail": "A permitted value, exact unit, timestamp or equipment correction is validated as a proposal. Identity changes are outside this workflow.",
+          "x": 580,
+          "y": 350,
+          "kind": "input"
+        },
+        {
+          "id": "review",
+          "title": "Reviewer decision",
+          "subtitle": "Reason + version check",
+          "detail": "Reviewer scope, proposal state, measurement version and finding improvement are checked before the controlled transaction.",
+          "x": 850,
+          "y": 350,
+          "kind": "gate"
+        }
+      ],
+      "edges": [
+        {
+          "id": "input-ingest",
+          "from": "input",
+          "to": "ingest",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "source rows",
+          "labelX": 258,
+          "labelY": 150
+        },
+        {
+          "id": "ingest-sql",
+          "from": "ingest",
+          "to": "sql",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "retain + check",
+          "labelX": 530,
+          "labelY": 150
+        },
+        {
+          "id": "sql-evidence",
+          "from": "sql",
+          "to": "evidence",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "lineage",
+          "labelX": 798,
+          "labelY": 150
+        },
+        {
+          "id": "ingest-findings",
+          "from": "ingest",
+          "to": "findings",
+          "fromPort": "bottom",
+          "toPort": "top",
+          "label": "known defects",
+          "labelX": 414,
+          "labelY": 283
+        },
+        {
+          "id": "findings-proposal",
+          "from": "findings",
+          "to": "proposal",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "proposed repair",
+          "labelX": 530,
+          "labelY": 380
+        },
+        {
+          "id": "proposal-review",
+          "from": "proposal",
+          "to": "review",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "explicit review",
+          "labelX": 798,
+          "labelY": 380
+        },
+        {
+          "id": "review-sql",
+          "from": "review",
+          "to": "sql",
+          "fromPort": "top",
+          "toPort": "bottom",
+          "via": [
+            [945, 275],
+            [675, 275]
+          ],
+          "label": "approved overlay + audit",
+          "labelX": 813,
+          "labelY": 266
+        }
+      ],
+      "flows": [
+        {
+          "id": "ingestion",
+          "title": "Ingestion to investigation",
+          "summary": "See which source rows can be used and why the others cannot.",
+          "steps": [
+            {
+              "edge": "input-ingest",
+              "title": "Admit the sample files",
+              "detail": "Synthetic batch masters, the sampling plan and measurement records enter the ingestion service.",
+              "kind": "data"
+            },
+            {
+              "edge": "ingest-sql",
+              "title": "Retain and reconcile the rows",
+              "detail": "The sample's eleven source rows become four usable, five quarantined and two duplicates. Original records remain available.",
+              "kind": "write"
+            },
+            {
+              "edge": "ingest-findings",
+              "title": "Explain the defects",
+              "detail": "Validation emits actionable findings and expected-slot completeness gaps instead of silently filling or converting data.",
+              "kind": "check"
+            },
+            {
+              "edge": "sql-evidence",
+              "title": "Follow the original source",
+              "detail": "Import identifiers, row ordinals and canonical hashes connect each curated reading back to its source.",
+              "kind": "data"
+            }
+          ]
+        },
+        {
+          "id": "correction",
+          "title": "Reviewed correction",
+          "summary": "Change one curated unit while retaining the original record.",
+          "steps": [
+            {
+              "edge": "ingest-findings",
+              "title": "Select the unit finding",
+              "detail": "The investigator opens MES-004's UNIT finding and checks the fictional source-owner clarification.",
+              "kind": "data"
+            },
+            {
+              "edge": "findings-proposal",
+              "title": "Propose degC to °C",
+              "detail": "The Operator submits the permitted unit correction. The original and current measurement are still unchanged.",
+              "kind": "check"
+            },
+            {
+              "edge": "proposal-review",
+              "title": "Record an explicit review",
+              "detail": "The visitor switches to the demo Reviewer role and supplies a rationale. Server permissions and the measurement version are checked.",
+              "kind": "check"
+            },
+            {
+              "edge": "review-sql",
+              "title": "Commit the curated overlay",
+              "detail": "Approval advances the curated reading to version 2, resolves the unit finding and records the audit atomically. The raw source is untouched.",
+              "kind": "write"
+            },
+            {
+              "edge": "sql-evidence",
+              "title": "Verify both versions",
+              "detail": "The exported evidence reconciles the original source, current overlay, retained findings and review history.",
+              "kind": "data"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "workflow-lab",
+    "number": "05",
+    "name": "Workflow Lab",
+    "title": "MCP integration & controlled workflow demo",
+    "headline": "Give tools access. Keep authority explicit.",
+    "summary": "Investigate synthetic orders through real MCP tools, inspect the proposed follow-up and approve one bounded, replay-safe task write.",
+    "focus": "MCP & controlled tool authority",
+    "color": "#9fcca6",
+    "live": "https://workflow.bestdev.co.il/",
+    "repository": "https://github.com/Simonsbs/mcp-workflow-demo",
+    "validationPath": "VALIDATION.md",
+    "runtime": "Official MCP SDK 2.4; React; SQLite / Worker D1",
+    "mode": "Deterministic runner, real MCP Streamable HTTP",
+    "goal": "Let an operational investigator read useful records and propose an action without granting it the power to approve its own write.",
+    "capabilities": [
+      {
+        "title": "Use genuine MCP tools",
+        "description": "Discover strict schemas, look up an order, read untrusted error history and draft a deterministic follow-up over real MCP HTTP calls."
+      },
+      {
+        "title": "Inspect the exact proposal",
+        "description": "Review the task body, fixed queue, source order version, actor, resource, payload digest and ten-minute approval window."
+      },
+      {
+        "title": "Enforce the write boundary",
+        "description": "Separate capabilities govern reading, execution, proposal requests and review. The server rejects pending, rejected, stale, tampered and unscoped writes."
+      },
+      {
+        "title": "Verify what happened",
+        "description": "Run five live denial probes, inspect captured protocol bodies and verify a hash-linked audit and six-file evidence export."
+      }
+    ],
+    "instructions": [
+      {
+        "title": "Investigate ORD-2048",
+        "description": "Run Investigate order. Inspect the source errors, exact task payload and real request/response bodies in the MCP wire inspector."
+      },
+      {
+        "title": "Send the proposal for review",
+        "description": "Select Send for approval. Try Execute MCP call while pending and observe the server denial. A Controller approval attempt also fails."
+      },
+      {
+        "title": "Approve the bounded action",
+        "description": "Switch the demo review capability to Reviewer, enter a reason and select Approve exact task. Approval itself does not execute the write."
+      },
+      {
+        "title": "Execute and replay",
+        "description": "Execute the MCP call to create the synthetic internal task. Replay the same call and confirm that it returns the existing task."
+      },
+      {
+        "title": "Challenge the boundaries",
+        "description": "Run Security checks, then investigate ORD-2057's untrusted injection fixture. Download the evidence ZIP and verify its evidence.json through the file chooser."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Separate data from authority",
+        "description": "Partner error text is displayed as untrusted evidence. A fixed template uses allowlisted identifiers and codes; retrieved text cannot grant permissions."
+      },
+      {
+        "title": "Bind approval to the exact action",
+        "description": "The immutable proposal binds payload hash, workspace, actor, resource, source version and expiry. Execution revalidates every binding."
+      },
+      {
+        "title": "Commit once, replay safely",
+        "description": "One optimistic SQL update consumes the approval, creates the task, advances the order version and appends its audit. Replay reads the existing task."
+      }
+    ],
+    "limits": [
+      "All operational records are synthetic. The guided runner is deterministic and does not call a language model.",
+      "One visitor owns the demo capabilities and can switch roles. Verified separate identity and two-person approval are not claimed.",
+      "Manual audience-bound bearer capabilities are used. The project does not implement an OAuth authorization server or automatic ChatGPT plugin installation."
+    ],
+    "evidence": [
+      "40 unit tests and 34 HTTP scenarios per local/public target exercise audience, scope, malformed input, rejection, tampering, staleness and concurrent execution.",
+      "20 local and 14 public browser checks include actual download, independent extraction, evidence re-import and mobile layout.",
+      "Local restart and public redeployment checks retain the original capability, task, proposals and complete audit state."
+    ],
+    "board": {
+      "note": "This is a fixed investigator plan using real MCP. The lower lane shows a separate demo review capability, not a second verified person. Animation illustrates the design, not live server telemetry.",
+      "zones": [
+        {
+          "x": 20,
+          "y": 70,
+          "width": 1060,
+          "height": 185,
+          "title": "READ FIRST / RETRIEVED CONTENT IS DATA"
+        },
+        {
+          "x": 20,
+          "y": 315,
+          "width": 1060,
+          "height": 165,
+          "title": "SEPARATE REVIEW CAPABILITY / BOUNDED EXECUTION"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "runner",
+          "title": "Guided investigator",
+          "subtitle": "Fixed tool plan",
+          "detail": "The official SDK client follows a deterministic read/read/draft plan. It does not run an autonomous language model.",
+          "x": 40,
+          "y": 120,
+          "kind": "input"
+        },
+        {
+          "id": "mcp",
+          "title": "MCP SDK endpoint",
+          "subtitle": "Audience + scope checks",
+          "detail": "Streamable HTTP negotiates modern MCP and exposes four strict tools. MCP cannot issue capabilities or approve proposals.",
+          "x": 310,
+          "y": 120,
+          "kind": "gate"
+        },
+        {
+          "id": "records",
+          "title": "Synthetic evidence",
+          "subtitle": "Orders + untrusted errors",
+          "detail": "Read-only tools return order records and external-looking error messages. Injection text is preserved as data without instruction authority.",
+          "x": 580,
+          "y": 120,
+          "kind": "store"
+        },
+        {
+          "id": "draft",
+          "title": "Bounded task draft",
+          "subtitle": "Payload + SHA-256",
+          "detail": "An allowlisted template produces a fixed-queue proposal. It does not create a task or grant permission.",
+          "x": 850,
+          "y": 120,
+          "kind": "output"
+        },
+        {
+          "id": "controller",
+          "title": "Demo review UI",
+          "subtitle": "Request / reviewer switch",
+          "detail": "One visitor owns separate controller and reviewer capabilities. A reasoned decision is explicit, but separate human identity is not claimed.",
+          "x": 40,
+          "y": 355,
+          "kind": "input"
+        },
+        {
+          "id": "review",
+          "title": "Separate review API",
+          "subtitle": "Request or decide scope",
+          "detail": "The control plane revalidates the proposal and requires approval:decide for an explicit reviewer decision.",
+          "x": 310,
+          "y": 355,
+          "kind": "gate"
+        },
+        {
+          "id": "approval",
+          "title": "Immutable approval",
+          "subtitle": "Bindings + ten-minute expiry",
+          "detail": "Approval stores the exact payload hash, workspace, actor, MCP resource, source order version, status and expiry.",
+          "x": 580,
+          "y": 355,
+          "kind": "store"
+        },
+        {
+          "id": "commit",
+          "title": "Task policy + SQL",
+          "subtitle": "Task / consume / audit",
+          "detail": "The sole operational write rechecks all bindings and atomically consumes approval, creates one task and appends its audit. Replay returns that task.",
+          "x": 850,
+          "y": 355,
+          "kind": "gate"
+        }
+      ],
+      "edges": [
+        {
+          "id": "read",
+          "from": "runner",
+          "to": "mcp",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "real MCP calls",
+          "labelX": 258,
+          "labelY": 150
+        },
+        {
+          "id": "lookup",
+          "from": "mcp",
+          "to": "records",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "read-only tools",
+          "labelX": 530,
+          "labelY": 150
+        },
+        {
+          "id": "draft",
+          "from": "records",
+          "to": "draft",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "known references",
+          "labelX": 798,
+          "labelY": 150
+        },
+        {
+          "id": "propose",
+          "from": "draft",
+          "to": "controller",
+          "fromPort": "bottom",
+          "toPort": "top",
+          "via": [
+            [945, 281],
+            [135, 281]
+          ],
+          "label": "proposal only / no write authority",
+          "labelX": 813,
+          "labelY": 273
+        },
+        {
+          "id": "review-request",
+          "from": "controller",
+          "to": "review",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "review key",
+          "labelX": 258,
+          "labelY": 385
+        },
+        {
+          "id": "decision",
+          "from": "review",
+          "to": "approval",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "decision",
+          "labelX": 530,
+          "labelY": 385
+        },
+        {
+          "id": "execute",
+          "from": "mcp",
+          "to": "commit",
+          "fromPort": "top",
+          "toPort": "right",
+          "via": [
+            [405, 35],
+            [1060, 35],
+            [1060, 399]
+          ],
+          "label": "create_followup + approval ID + digest",
+          "labelX": 791,
+          "labelY": 24
+        },
+        {
+          "id": "binding",
+          "from": "approval",
+          "to": "commit",
+          "fromPort": "right",
+          "toPort": "left",
+          "label": "binding checks",
+          "labelX": 798,
+          "labelY": 385
+        }
+      ],
+      "flows": [
+        {
+          "id": "approved",
+          "title": "Investigate, approve, execute",
+          "summary": "A proposed action acquires authority only through a separate explicit decision.",
+          "steps": [
+            {
+              "edge": "read",
+              "title": "Connect with read scope",
+              "detail": "The SDK negotiates MCP and uses the reader capability for investigation.",
+              "kind": "data"
+            },
+            {
+              "edge": "lookup",
+              "title": "Retrieve synthetic records",
+              "detail": "Lookup and error-history tools return data. External-looking text cannot change the tool plan or permissions.",
+              "kind": "data"
+            },
+            {
+              "edge": "draft",
+              "title": "Build the exact task proposal",
+              "detail": "The deterministic template uses known identifiers and error codes, with a fixed internal queue.",
+              "kind": "data"
+            },
+            {
+              "edge": "propose",
+              "title": "Present the proposal for review",
+              "detail": "The draft crosses into the review UI as a proposal, carrying no write authority.",
+              "kind": "data"
+            },
+            {
+              "edge": "review-request",
+              "title": "Use the reviewer capability",
+              "detail": "After requesting review, the visitor explicitly switches to Reviewer and supplies a reason to approve the exact task.",
+              "kind": "check"
+            },
+            {
+              "edge": "decision",
+              "title": "Record the bounded approval",
+              "detail": "The review API stores the immutable payload and binds it to workspace, actor, resource, source version and expiry.",
+              "kind": "write"
+            },
+            {
+              "edge": "execute",
+              "title": "Attempt the MCP write",
+              "detail": "The executor submits approvalId and payloadHash to create_followup. Scope alone does not authorize the task.",
+              "kind": "check"
+            },
+            {
+              "edge": "binding",
+              "title": "Recheck and commit once",
+              "detail": "The policy checks every binding, consumes the approved proposal and writes one task and audit atomically. Replaying the call returns the existing task.",
+              "kind": "write"
+            }
+          ]
+        },
+        {
+          "id": "denied",
+          "title": "An unapproved write is refused",
+          "summary": "Executor scope cannot turn untrusted content into approval.",
+          "steps": [
+            {
+              "edge": "read",
+              "title": "Begin with a scoped connection",
+              "detail": "A valid executor capability permits a tool call, but it does not grant arbitrary authority over business records.",
+              "kind": "data"
+            },
+            {
+              "edge": "lookup",
+              "title": "Receive the injection fixture",
+              "detail": "ORD-2057's retrieved error asks for self-approval and token exfiltration. It remains untrusted text.",
+              "kind": "data"
+            },
+            {
+              "edge": "draft",
+              "title": "Keep the fixed proposal template",
+              "detail": "The proposed task excludes the injected instructions and points only at the internal demo queue.",
+              "kind": "check"
+            },
+            {
+              "edge": "execute",
+              "title": "Reject the missing approval",
+              "detail": "create_followup refuses an unknown or pending approval. No task or order update is committed; the denial is audited.",
+              "kind": "denied"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

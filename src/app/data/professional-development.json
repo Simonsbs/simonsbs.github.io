@@ -1,0 +1,139 @@
+[
+  {
+    "id": "ibm-genai",
+    "title": "IBM Generative AI Engineering",
+    "issuer": "IBM / Coursera",
+    "category": "AI & data",
+    "type": "Specialisation",
+    "date": null,
+    "skills": ["Generative AI", "LLMs", "AI applications"],
+    "url": "https://www.coursera.org/account/accomplishments/specialization/7VWANOFHUK9I",
+    "file": null,
+    "order": 1
+  },
+  {
+    "id": "aws-cloud",
+    "title": "AWS Cloud Solutions Architect",
+    "issuer": "AWS / Coursera",
+    "category": "Cloud & infrastructure",
+    "type": "Coursera specialisation",
+    "date": "2025-02-28",
+    "skills": ["Cloud architecture", "AWS", "Data lakes"],
+    "url": "https://www.coursera.org/account/accomplishments/specialization/WMS8ATILWN67",
+    "file": null,
+    "order": 2
+  },
+  {
+    "id": "google-cyber",
+    "title": "Google Cybersecurity",
+    "issuer": "Google / Coursera",
+    "category": "Security",
+    "type": "Specialisation",
+    "date": null,
+    "skills": [
+      "Security fundamentals",
+      "Risk management",
+      "Python",
+      "Linux & SQL"
+    ],
+    "url": "https://www.coursera.org/account/accomplishments/specialization/G2OBDCWVM39Y",
+    "file": null,
+    "order": 3
+  },
+  {
+    "id": "rag-project",
+    "title": "Project: Generative AI Applications with RAG and LangChain",
+    "issuer": "Coursera",
+    "category": "AI & data",
+    "type": "Course certificate",
+    "date": null,
+    "skills": ["RAG", "LangChain", "AI applications"],
+    "url": "https://www.coursera.org/account/accomplishments/records/3ETYV5AZ0YD3",
+    "file": null,
+    "order": 5
+  },
+  {
+    "id": "rag-agents",
+    "title": "Fundamentals of AI Agents Using RAG and LangChain",
+    "issuer": "Coursera",
+    "category": "AI & data",
+    "type": "Course certificate",
+    "date": null,
+    "skills": ["AI agents", "Retrieval", "LangChain"],
+    "url": "https://www.coursera.org/account/accomplishments/records/3HHBC7JW6XNS",
+    "file": null,
+    "order": 6
+  },
+  {
+    "id": "data-python",
+    "title": "Data Analysis with Python",
+    "issuer": "Coursera",
+    "category": "AI & data",
+    "type": "Course certificate",
+    "date": null,
+    "skills": ["Python", "Data analysis"],
+    "url": "https://www.coursera.org/account/accomplishments/records/LIJMP90QSEAX",
+    "file": null,
+    "order": 7
+  },
+  {
+    "id": "google-it",
+    "title": "Google IT Support",
+    "issuer": "Google / Coursera",
+    "category": "Cloud & infrastructure",
+    "type": "Specialisation",
+    "date": null,
+    "skills": ["IT infrastructure", "Networking", "Systems administration"],
+    "url": "https://www.coursera.org/account/accomplishments/specialization/AZSOQ8YVBUNT",
+    "file": null,
+    "order": 8
+  },
+  {
+    "id": "anthropic-skills",
+    "title": "Introduction to Agent Skills",
+    "issuer": "Anthropic Academy",
+    "category": "AI & data",
+    "type": "Course completion",
+    "date": null,
+    "skills": ["Agent skills", "Reusable workflows"],
+    "url": null,
+    "file": null,
+    "order": 9
+  },
+  {
+    "id": "anthropic-api",
+    "title": "Building with the Claude API",
+    "issuer": "Anthropic Academy",
+    "category": "AI & data",
+    "type": "Course completion",
+    "date": null,
+    "skills": ["Claude API", "AI integration"],
+    "url": null,
+    "file": null,
+    "order": 10
+  },
+  {
+    "id": "anthropic-mcp",
+    "title": "Introduction to Model Context Protocol",
+    "issuer": "Anthropic Academy",
+    "category": "AI & data",
+    "type": "Course completion",
+    "date": null,
+    "skills": ["MCP", "Tool integration"],
+    "url": null,
+    "file": null,
+    "order": 11
+  },
+  {
+    "id": "anthropic-code",
+    "title": "Claude Code in Action",
+    "issuer": "Anthropic Academy",
+    "category": "AI & data",
+    "type": "Course completion",
+    "date": null,
+    "skills": ["Claude Code", "Development workflows"],
+    "url": null,
+    "file": null,
+    "order": 12
+  }
+]

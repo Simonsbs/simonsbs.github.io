@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Mad-AI-Libs",
+    "subtitle": "A Mad Libs game with a twist!",
+    "imageUrl": "/images/projects/mad-ai-libs.png",
+    "date": "2021-03-01",
+    "categories": ["React", "Game", "AI"],
+    "projectUrl": "https://mad-ai-libs.com/",
+    "description": "Mad-AI-Libs is a Mad Libs game with a twist! The game uses a neural network to generate the story based on the user's input.",
+    "featured": false
+  },
+  {
+    "id": 2,
+    "title": "C.R.U.D Connect",
+    "subtitle": "A generic web rest app for C.R.U.D operations",
+    "imageUrl": "/images/projects/crudconnect.png",
+    "date": "2022-02-01",
+    "categories": ["API", "AWS", "NodeJS", "React"],
+    "projectUrl": "https://crudconnect.com",
+    "description": "A generic web rest app for C.R.U.D operations using AWS, NodeJS, and React. The app is hosted on AWS and uses AWS Cognito for authentication.",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Business Cards",
+    "subtitle": "A business card application",
+    "imageUrl": "/images/projects/cards.png",
+    "date": "2022-02-01",
+    "categories": ["React", "API", "AWS"],
+    "projectUrl": "https://bestdev.co.il/company-cards/",
+    "description": "A business card application using React and CrudConnect.com. The app is hosted on AWS and uses AWS Cognito for authentication.",
+    "featured": false
+  }
+]

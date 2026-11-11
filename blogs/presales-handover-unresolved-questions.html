@@ -1,0 +1,104 @@
+<h1>A useful presales handover starts with the unresolved questions</h1>
+<p>
+  A delivery team should be able to read a presales handover and identify what
+  the customer expects, what has been tested and which decisions still need an
+  owner. Those answers give the team somewhere to start when implementation
+  exposes a dependency that the demonstration did not cover.
+</p>
+<p>
+  The unresolved questions deserve space near the front. An assumption about
+  identity, data access or the customer's operating hours can change the work
+  substantially. If it appears only in someone's meeting notes, the delivery
+  estimate may depend on an agreement that nobody actually made.
+</p>
+<h2>Turn the customer expectation into a check</h2>
+<p>
+  Consider a hypothetical stock integration. The customer wants stock changes
+  visible in the sales application within fifteen minutes. A demonstration
+  sends a prepared file through the integration and shows the updated quantity.
+  That establishes a useful part of the flow. The source system's export
+  schedule still needs checking.
+</p>
+<p>
+  If that system exports once an hour, the integration cannot meet the stated
+  expectation through that interface. Measuring only the time between receiving
+  the file and updating the destination would hide most of the delay. The
+  acceptance check needs a starting point in the source system and an ending
+  point that matches what the customer sees.
+</p>
+<p>
+  Write down which timestamp starts the clock, which destination state stops
+  it, and what happens when the source is unavailable. Keep the fifteen-minute
+  target labelled as a requirement in this example until representative tests
+  establish whether it is achievable. A screenshot of the completed update
+  cannot supply the missing timing evidence.
+</p>
+<h2>Keep the reason for a decision</h2>
+<p>
+  The implementation team also needs to know why an option was chosen.
+  <a
+    href="https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record"
+    target="_blank"
+    rel="noopener noreferrer"
+    >Microsoft's guidance on architecture decision records</a
+  > recommends recording context, alternatives, consequences and decision
+  status. When an accepted decision changes, a linked replacement preserves
+  the earlier reasoning.
+</p>
+<p>
+  For the stock example, a short record could explain that file ingestion was
+  proposed because API access had not been confirmed. It should also say that
+  the freshness requirement remains unresolved. That gives the next architect
+  a specific condition to investigate before accepting the design.
+</p>
+<p>
+  Keep proposed choices distinct from customer-approved scope. Likewise, a
+  dependency listed in a proposal is not evidence that the customer has agreed
+  to provide it. The handover should link to the decision or confirmation that
+  establishes each commitment.
+</p>
+<h2>Assign the questions that can change delivery</h2>
+<p>
+  An open question needs an owner and a point at which the answer becomes
+  necessary. In the example, the source-system owner could confirm the export
+  schedule before the integration estimate is accepted. The customer's service
+  owner could confirm who investigates missing stock updates before a pilot
+  begins. A deadline without a responsible person leaves the dependency open.
+</p>
+<p>
+  Record the consequence alongside the question. If API access is unavailable,
+  does the customer accept slower updates, fund a different interface or stop
+  the proposed approach? This is easier to discuss before a delivery team has
+  committed to a design that relies on the answer.
+</p>
+<h2>Give the team something they can use</h2>
+<p>
+  A compact handover can link to four working records:
+</p>
+<ul>
+  <li>The agreed outcome and the acceptance checks that will demonstrate it.</li>
+  <li>The proposed architecture, with accepted decisions and open assumptions.</li>
+  <li>The test evidence, including the environment, inputs and known gaps.</li>
+  <li>The remaining dependencies, their owners and the decisions they affect.</li>
+</ul>
+<p>
+  <a
+    href="https://bestdev.co.il/#/projects/presales-workbench"
+    >Presales Workbench</a
+  > provides a synthetic example of some of these records. Its export includes
+  a discovery brief, proposal, proposed decision record and PoC plan. The plan
+  contains future acceptance checks; exporting it does not mean those checks
+  have passed. The
+  <a
+    href="https://github.com/Simonsbs/presales-solution-workbench/blob/main/README.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    >project documentation</a
+  > explains that boundary.
+</p>
+<p>
+  Before handing over, ask the receiving team to identify the first test they
+  would run and the first dependency they would chase. If they need the
+  original presenter to reconstruct either answer, add the missing detail to
+  the record while the people who know it are still available.
+</p>

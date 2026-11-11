@@ -1,0 +1,104 @@
+<h1>What a proof of concept still needs before production</h1>
+<p>
+  A proof of concept can answer a focused question: can this data be retrieved,
+  can these systems exchange an event, or can this workflow produce a useful
+  draft? Moving it into production creates further questions about access,
+  recovery and who will investigate a failure. Those questions need evidence
+  of their own.
+</p>
+<h2>Record what the demonstration actually established</h2>
+<p>
+  Start with the tested path and its conditions. A document assistant might
+  retrieve the right passage from a prepared collection under one test account.
+  That result says little about whether another account can access documents
+  it should not see. Likewise, an integration that succeeds with a prepared
+  payload still needs checking against the source system's real interface and
+  failure behaviour.
+</p>
+<p>
+  Keep the evidence close to the claim: the source revision, environment,
+  representative inputs and observed output. Distinguish a completed test from
+  a proposed acceptance check. If the next team cannot reproduce the result,
+  it will spend part of the implementation budget rediscovering what the
+  demonstration meant.
+</p>
+<p>
+  The portfolio's
+  <a href="https://bestdev.co.il/#/projects/knowledge-lab">Knowledge Lab</a>
+  keeps a relevant boundary visible. Its public mode displays exact source
+  quotations; optional local inference is a separate path. Evaluating the
+  public evidence interface alone cannot establish the behaviour of generated
+  answers or readiness for an enterprise deployment. The
+  <a
+    href="https://github.com/Simonsbs/knowledge-assistant-lab/blob/main/README.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    >project documentation</a
+  > explains the two paths.
+</p>
+<h2>Rehearse a failure with the people who will handle it</h2>
+<p>
+  Consider a hypothetical internal order assistant. It reads order data and
+  prepares a task for an operator to review. During a rehearsal, make the order
+  service unavailable. Check what the user sees, whether the request can be
+  safely repeated and which evidence reaches the support team.
+</p>
+<p>
+  A useful runbook identifies where to find the failed operation, what the
+  responder may safely retry and when to involve the source-system owner.
+  Exercise it with someone who did not build the feature. Each missing
+  permission or unexplained log field is work the team can resolve before a
+  customer depends on the service.
+</p>
+<p>
+  <a
+    href="https://docs.aws.amazon.com/wellarchitected/latest/operational-readiness-reviews/wa-operational-readiness-reviews.html"
+    target="_blank"
+    rel="noopener noreferrer"
+    >AWS's operational readiness review guidance</a
+  > recommends using lessons from operational incidents to shape review
+  questions. For a particular service, those questions should reflect its own
+  dependencies and known failure modes. A generic checklist is a starting
+  point; the rehearsal supplies evidence about this implementation.
+</p>
+<h2>Define how the pilot can stop</h2>
+<p>
+  Agree which users and data belong in the first release, who owns the decision
+  to expand it, and which observations would stop it. For the order assistant,
+  an unauthorised order lookup should halt the pilot for investigation. Slow
+  responses need a different assessment against the agreed service target.
+  Treating every issue as a single overall success score obscures the action
+  each one requires.
+</p>
+<p>
+  <a
+    href="https://sre.google/workbook/canarying-releases/"
+    target="_blank"
+    rel="noopener noreferrer"
+    >Google's SRE guidance on canarying</a
+  > describes evaluating a change through a limited deployment before wider
+  rollout. It also explains why the traffic sample, duration and chosen
+  metrics affect what the evaluation can reveal. A quiet pilot with a few
+  successful requests gives limited evidence about peak conditions.
+</p>
+<p>
+  Work through the exit procedure too. Disabling the assistant may stop future
+  actions while leaving tasks it already created. A rollback plan should say
+  which changes can be reversed and which require reconciliation. Check that
+  the responsible operator can perform those steps with the permissions they
+  will actually have.
+</p>
+<h2>Make the remaining work estimable</h2>
+<p>
+  Turn each gap into a delivery item with an owner and an acceptance check.
+  For the example assistant, that could mean verifying access against real
+  organisational roles, rehearsing source-service failure, confirming how
+  duplicate tasks are prevented and testing the pilot's shutdown procedure.
+  Include the customer dependencies needed to perform those checks.
+</p>
+<p>
+  The production decision can then name the evidence available, the work still
+  open and who accepts any remaining limitation. The PoC retains its value as
+  a focused technical result, and the implementation estimate has a concrete
+  basis for the work that follows.
+</p>

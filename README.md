@@ -46,7 +46,7 @@ npm run preview  # Local preview of the production build
 - Mad-AI-Libs and Business Cards are archived from featured content. C.R.U.D Connect remains the public API example.
 - `public/blogs/blogs.json` and its existing HTML files remain the article sources. `scripts/content.mjs` generates the article index, excerpts, reading times and timezone independent dates before development, checks and builds.
 - Images, CV files and certificate PDFs remain in `public/`. Existing privacy and terms text is preserved in `src/app/data/`.
-- The original Create React App source is retained outside `src/app/` for reference and is excluded from the new build. The historical `yarn.lock` is retained; the new application uses `package-lock.json`.
+- The original Create React App source is retained outside `src/app/` for reference and is excluded from the new build. The application uses the validated `package-lock.json`. The superseded Yarn lock is preserved locally and in Git history; it is ignored in the current npm-only source release.
 
 ## Knowledge assistant and evaluation lab
 

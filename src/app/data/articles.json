@@ -406,5 +406,53 @@
     "content": "when-a-constraint-changes-the-architecture.html",
     "excerpt": "A technical proposal needs to explain why its recommended option fits the customer's constraints. Presales Workbench makes that reasoning inspectable: change a...",
     "readingMinutes": 3
+  },
+  {
+    "id": 35,
+    "title": "A useful presales handover starts with the unresolved questions",
+    "category": "Pre-sales",
+    "featureImage": "/images/projects/presales-workbench.webp",
+    "date": "2026-11-11",
+    "author": "Simon Stirling",
+    "slug": "presales-handover-unresolved-questions",
+    "content": "presales-handover-unresolved-questions.html",
+    "excerpt": "A delivery team should be able to read a presales handover and identify what the customer expects, what has been tested and which decisions still need an owner. Those...",
+    "readingMinutes": 3
+  },
+  {
+    "id": 36,
+    "title": "An AI tool approval should name the exact action",
+    "category": "Applied AI",
+    "featureImage": "/images/projects/workflow-lab.webp",
+    "date": "2026-11-11",
+    "author": "Simon Stirling",
+    "slug": "ai-tool-approval-exact-action",
+    "content": "ai-tool-approval-exact-action.html",
+    "excerpt": "A reviewer approving a task needs to see its destination, contents and intended effect. If those details can change after approval, the execution may be authorised by...",
+    "readingMinutes": 3
+  },
+  {
+    "id": 37,
+    "title": "Correcting manufacturing data without losing the original record",
+    "category": "Data quality",
+    "featureImage": "/images/projects/traceability-lab.webp",
+    "date": "2026-11-11",
+    "author": "Simon Stirling",
+    "slug": "correcting-manufacturing-data-with-lineage",
+    "content": "correcting-manufacturing-data-with-lineage.html",
+    "excerpt": "When a measurement has the wrong unit, correcting the current value is only part of the job. Someone investigating it later needs to see the imported record, the...",
+    "readingMinutes": 3
+  },
+  {
+    "id": 38,
+    "title": "What a proof of concept still needs before production",
+    "category": "Implementation",
+    "featureImage": "/images/projects/knowledge-lab.webp",
+    "date": "2026-11-11",
+    "author": "Simon Stirling",
+    "slug": "proof-of-concept-before-production-support",
+    "content": "proof-of-concept-before-production-support.html",
+    "excerpt": "A proof of concept can answer a focused question: can this data be retrieved, can these systems exchange an event, or can this workflow produce a useful draft? Moving...",
+    "readingMinutes": 3
   }
 ]

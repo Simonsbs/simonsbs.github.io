@@ -64,7 +64,7 @@ export const certificates: Certificate[] = [
   })),
 ].sort((a, b) => a.order - b.order);
 export const articles = [...articleData].sort(
-  (a, b) => Date.parse(b.date) - Date.parse(a.date),
+  (a, b) => Date.parse(b.date) - Date.parse(a.date) || b.id - a.id,
 );
 
 export const expertise = [

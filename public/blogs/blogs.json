@@ -338,5 +338,45 @@
     "author": "Simon Stirling",
     "slug": "when-a-constraint-changes-the-architecture",
     "content": "when-a-constraint-changes-the-architecture.html"
+  },
+  {
+    "id": 35,
+    "title": "A useful presales handover starts with the unresolved questions",
+    "category": "Pre-sales",
+    "featureImage": "/images/projects/presales-workbench.webp",
+    "date": "11 November, 2026",
+    "author": "Simon Stirling",
+    "slug": "presales-handover-unresolved-questions",
+    "content": "presales-handover-unresolved-questions.html"
+  },
+  {
+    "id": 36,
+    "title": "An AI tool approval should name the exact action",
+    "category": "Applied AI",
+    "featureImage": "/images/projects/workflow-lab.webp",
+    "date": "11 November, 2026",
+    "author": "Simon Stirling",
+    "slug": "ai-tool-approval-exact-action",
+    "content": "ai-tool-approval-exact-action.html"
+  },
+  {
+    "id": 37,
+    "title": "Correcting manufacturing data without losing the original record",
+    "category": "Data quality",
+    "featureImage": "/images/projects/traceability-lab.webp",
+    "date": "11 November, 2026",
+    "author": "Simon Stirling",
+    "slug": "correcting-manufacturing-data-with-lineage",
+    "content": "correcting-manufacturing-data-with-lineage.html"
+  },
+  {
+    "id": 38,
+    "title": "What a proof of concept still needs before production",
+    "category": "Implementation",
+    "featureImage": "/images/projects/knowledge-lab.webp",
+    "date": "11 November, 2026",
+    "author": "Simon Stirling",
+    "slug": "proof-of-concept-before-production-support",
+    "content": "proof-of-concept-before-production-support.html"
   }
 ]

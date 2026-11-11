@@ -35,7 +35,12 @@ for (const asset of manifest.media) {
     `Media bytes changed during build: ${asset.path}`,
   );
 }
-for (const article of manifest.featuredArticles) {
+assert.deepEqual(manifest.featuredArticles, manifest.articles.slice(0, 3));
+assert.equal(
+  manifest.articles.length,
+  JSON.parse(await readFile("src/app/data/articles.json", "utf8")).length,
+);
+for (const article of manifest.articles) {
   assert.equal(
     createHash("sha256")
       .update(

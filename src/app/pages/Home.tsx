@@ -378,15 +378,13 @@ export default function Home() {
           }
           link={{ to: "/blog/", label: "Visit the journal" }}
         >
-          Recent engineering notes from the public projects, with implementation
-          details and evidence you can inspect.
+          Practical notes on pre-sales, architecture and implementation, with
+          worked examples and sources you can inspect.
         </SectionHeading>
         <div className="articles-grid">
-          {articles
-            .filter((article) => [32, 33, 34].includes(article.id))
-            .map((article) => (
-              <ArticleCard key={article.id} article={article} compact />
-            ))}
+          {articles.slice(0, 3).map((article) => (
+            <ArticleCard key={article.id} article={article} compact />
+          ))}
         </div>
         <div className="learning-note">
           <GraduationCap size={23} />

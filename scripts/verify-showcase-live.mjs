@@ -53,7 +53,7 @@ for (const asset of manifest.media) {
 results.push(
   "Exact application screenshots, narrated MP4 and English captions",
 );
-for (const article of manifest.featuredArticles) {
+for (const article of manifest.articles) {
   const html = await (await get(origin + article.content)).text();
   assert.equal(
     createHash("sha256").update(html.replace(/\r\n/g, "\n")).digest("hex"),
@@ -61,7 +61,7 @@ for (const article of manifest.featuredArticles) {
     `Published article mismatch: ${article.content}`,
   );
 }
-results.push("All three new technical articles");
+results.push(`Exact published content for all ${manifest.articles.length} articles`);
 const report = {
   at: new Date().toISOString(),
   origin,

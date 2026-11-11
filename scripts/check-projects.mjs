@@ -133,6 +133,16 @@ const media = await Promise.all(
 const cases = JSON.parse(
   await readFile("src/app/data/case-studies.json", "utf8"),
 );
+const publishedArticles = JSON.parse(
+  await readFile("src/app/data/articles.json", "utf8"),
+)
+  .sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id)
+  .map((article) => ({
+    id: article.id,
+    page: `https://bestdev.co.il/#/blog/${article.id}/${article.slug}`,
+    content: `/blogs/${article.content}`,
+    sha256: hashes[`public/blogs/${article.content}`],
+  }));
 const manifest = {
   schemaVersion: 1,
   sourceFingerprint,
@@ -159,14 +169,8 @@ const manifest = {
     id: study.id,
     page: `https://bestdev.co.il/#/case-studies/${study.id}`,
   })),
-  featuredArticles: articleSources
-    .filter((article) => [32, 33, 34].includes(article.id))
-    .map((article) => ({
-      id: article.id,
-      page: `https://bestdev.co.il/#/blog/${article.id}/${article.slug}`,
-      content: `/blogs/${article.content}`,
-      sha256: hashes[`public/blogs/${article.content}`],
-    })),
+  featuredArticles: publishedArticles.slice(0, 3),
+  articles: publishedArticles,
   media,
 };
 await writeFile(

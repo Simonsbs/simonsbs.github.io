@@ -1,0 +1,102 @@
+<h1>Correcting manufacturing data without losing the original record</h1>
+<p>
+  When a measurement has the wrong unit, correcting the current value is only
+  part of the job. Someone investigating it later needs to see the imported
+  record, the reason for the correction and the version that a report used.
+  Keeping that trail makes the correction understandable after the immediate
+  data-quality issue has been resolved.
+</p>
+<p>
+  A useful design separates the received source record from the measurement
+  that downstream users query. The source records what arrived. The current
+  measurement records the interpretation the application has accepted, with
+  a link back to that source and any reviewed changes.
+</p>
+<h2>Keep the evidence behind a unit change</h2>
+<p>
+  In the synthetic
+  <a href="https://bestdev.co.il/#/projects/traceability-lab">Traceability Lab</a>,
+  source row <code>MES-004</code> contains the unit <code>degC</code>. The lab
+  raises a unit finding. Its fictional source-owner clarification supplies the
+  evidence for proposing <code>°C</code> as the corrected unit. This is a
+  reviewed change to the unit label, not a numerical temperature conversion.
+</p>
+<p>
+  The proposal alone leaves the measurement unchanged. A reviewer records a
+  rationale and approves it; the curated measurement then becomes version 2.
+  The original source remains available, and the resolved finding remains in
+  the history. The
+  <a
+    href="https://github.com/Simonsbs/manufacturing-traceability-demo/blob/main/README.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    >project walkthrough</a
+  > describes how to inspect each stage.
+</p>
+<p>
+  For a real import, a familiar-looking unit string would be insufficient
+  evidence on its own. The mapping needs support from the source system's
+  specification or its owner. Record that reference with the proposed change
+  so a reviewer can assess the meaning as well as the spelling.
+</p>
+<h2>Review the version that will actually change</h2>
+<p>
+  A correction can become stale while it is waiting for review. Two people
+  might propose different changes to the same measurement, or a separate
+  update might resolve the original problem. Applying a patch against a newer
+  version can overwrite work that its author never saw.
+</p>
+<p>
+  Include the measurement version in the proposal and compare it again when
+  approval is applied. The lab also requires a workspace revision and
+  re-evaluates the patch, rejecting stale changes and changes that do not
+  improve the findings. Its
+  <a
+    href="https://github.com/Simonsbs/manufacturing-traceability-demo/blob/main/CONTRACT.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    >HTTP contract</a
+  > makes those conditions explicit.
+</p>
+<p>
+  When a conflict occurs, show the current measurement alongside the proposed
+  change. The reviewer can then decide whether the proposal still applies.
+  Automatically retrying a stale correction against fresh data skips that
+  decision.
+</p>
+<h2>Keep reports connected to their inputs</h2>
+<p>
+  A report produced before a correction may legitimately differ from one
+  produced afterwards. To explain the difference, retain the measurement
+  versions and the report's input boundary. Depending on the system, that
+  could be a snapshot identifier, a versioned dataset or an explicit list of
+  measurement versions. A query against today's current rows cannot establish
+  what yesterday's report contained.
+</p>
+<p>
+  This does not require every application to adopt event sourcing.
+  <a
+    href="https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing"
+    target="_blank"
+    rel="noopener noreferrer"
+    >Microsoft's event sourcing guidance</a
+  > describes both the value of retained events and the complexity of the
+  pattern. A relational design with retained sources, explicit versions and
+  correction history may be sufficient for the investigation the team needs
+  to support.
+</p>
+<h2>State what an export can establish</h2>
+<p>
+  The lab exports sources, measurements, findings and audit history. Its hash
+  links help detect inconsistent evidence, but an administrator able to
+  rewrite the database and recompute the hashes could rewrite that history.
+  The export is not a digital signature or proof of independent custody.
+</p>
+<p>
+  All lab batches, readings and source-owner statements are fictional. Its
+  switchable roles demonstrate server permission checks, not separate verified
+  people. It makes no product release or regulatory validation decision.
+  Within that scope, it gives a reviewer a concrete investigation: follow a
+  corrected value back to its source, inspect the proposal and explain why the
+  accepted version changed.
+</p>

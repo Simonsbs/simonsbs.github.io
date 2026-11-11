@@ -57,7 +57,7 @@ export default function Journal() {
     <>
       <PageMeta
         title="The journal"
-        description="Thoughts from Simon Stirling on software development, technology, leadership and building better teams."
+        description="Articles by Simon Stirling on pre-sales, solution architecture, applied AI, data quality and implementation support."
       />
       <section className="page-intro shell">
         <Eyebrow>NOTES FROM THE INTERSECTION</Eyebrow>
@@ -67,8 +67,8 @@ export default function Journal() {
           <span>Always thinking.</span>
         </h1>
         <p>
-          Notes on the craft of software, the people behind it, and the lessons
-          that connect the two.
+          Practical notes on discovery, architecture, applied AI and the work of
+          getting systems into service.
         </p>
       </section>
       <section

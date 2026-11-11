@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceFingerprint": "2ba1573607d062aa4f9b129f75392a9a0faef5f24a010e4e002027c5d1dd6357",
+  "sourceFingerprint": "c019551065a673ea67249ee608093510b2c82d14415e34f8de42e9da6b31dc52",
   "publicCvSha256": "af39757692f3b017bbb9e59d2270598049620d55a8081261dd9134b8cabe1468",
   "projectCount": 5,
   "diagramComponents": 37,
@@ -68,10 +68,54 @@
   ],
   "featuredArticles": [
     {
-      "id": 32,
-      "page": "https://bestdev.co.il/#/blog/32/webhook-retries-without-duplicate-effects",
-      "content": "/blogs/webhook-retries-without-duplicate-effects.html",
-      "sha256": "3138d59294331cdf8b239f9310adbb1e0bad8e201722ebe1616d7f88d5328206"
+      "id": 38,
+      "page": "https://bestdev.co.il/#/blog/38/proof-of-concept-before-production-support",
+      "content": "/blogs/proof-of-concept-before-production-support.html",
+      "sha256": "68ab0ad1220945d51e812688e6d34b465e20c5a5264d3f97acce5e07e8275677"
+    },
+    {
+      "id": 37,
+      "page": "https://bestdev.co.il/#/blog/37/correcting-manufacturing-data-with-lineage",
+      "content": "/blogs/correcting-manufacturing-data-with-lineage.html",
+      "sha256": "c7ec617b05aad991406046885b5241ce774ae91a3375bf8fb30dd2c113b1996a"
+    },
+    {
+      "id": 36,
+      "page": "https://bestdev.co.il/#/blog/36/ai-tool-approval-exact-action",
+      "content": "/blogs/ai-tool-approval-exact-action.html",
+      "sha256": "0ca2a361e38f01e68884e6f958b0ffc78293c27c056dc865659d63429b57ec4d"
+    }
+  ],
+  "articles": [
+    {
+      "id": 38,
+      "page": "https://bestdev.co.il/#/blog/38/proof-of-concept-before-production-support",
+      "content": "/blogs/proof-of-concept-before-production-support.html",
+      "sha256": "68ab0ad1220945d51e812688e6d34b465e20c5a5264d3f97acce5e07e8275677"
+    },
+    {
+      "id": 37,
+      "page": "https://bestdev.co.il/#/blog/37/correcting-manufacturing-data-with-lineage",
+      "content": "/blogs/correcting-manufacturing-data-with-lineage.html",
+      "sha256": "c7ec617b05aad991406046885b5241ce774ae91a3375bf8fb30dd2c113b1996a"
+    },
+    {
+      "id": 36,
+      "page": "https://bestdev.co.il/#/blog/36/ai-tool-approval-exact-action",
+      "content": "/blogs/ai-tool-approval-exact-action.html",
+      "sha256": "0ca2a361e38f01e68884e6f958b0ffc78293c27c056dc865659d63429b57ec4d"
+    },
+    {
+      "id": 35,
+      "page": "https://bestdev.co.il/#/blog/35/presales-handover-unresolved-questions",
+      "content": "/blogs/presales-handover-unresolved-questions.html",
+      "sha256": "c504d55414dbbcf8839c10c8479259d4f494042beefa8b19837504a18126e52d"
+    },
+    {
+      "id": 34,
+      "page": "https://bestdev.co.il/#/blog/34/when-a-constraint-changes-the-architecture",
+      "content": "/blogs/when-a-constraint-changes-the-architecture.html",
+      "sha256": "f4dc72bab7df61e4928d35e3c4961c59f5bd7b17dd871b1ecb350145a330b7b9"
     },
     {
       "id": 33,
@@ -80,10 +124,196 @@
       "sha256": "d4320fa5c6a83a309fce16954b755d361889c19db5cbc85e721f02cffc09cd79"
     },
     {
-      "id": 34,
-      "page": "https://bestdev.co.il/#/blog/34/when-a-constraint-changes-the-architecture",
-      "content": "/blogs/when-a-constraint-changes-the-architecture.html",
-      "sha256": "f4dc72bab7df61e4928d35e3c4961c59f5bd7b17dd871b1ecb350145a330b7b9"
+      "id": 32,
+      "page": "https://bestdev.co.il/#/blog/32/webhook-retries-without-duplicate-effects",
+      "content": "/blogs/webhook-retries-without-duplicate-effects.html",
+      "sha256": "3138d59294331cdf8b239f9310adbb1e0bad8e201722ebe1616d7f88d5328206"
+    },
+    {
+      "id": 31,
+      "page": "https://bestdev.co.il/#/blog/31/agile-leadership-adapting-to-change",
+      "content": "/blogs/agile-leadership-adapting-to-change.html",
+      "sha256": "c81200b6df464c8d9df9909efa8725c918ff5dd9bab301fc9d30cb9f4a3d8b84"
+    },
+    {
+      "id": 30,
+      "page": "https://bestdev.co.il/#/blog/30/the-role-of-emotional-intelligence-in-leadership",
+      "content": "/blogs/the-role-of-emotional-intelligence-in-leadership.html",
+      "sha256": "2ce76af69f0982d93da1f1202993a9b1484ee2af810ca5556b66ccd4d0116c33"
+    },
+    {
+      "id": 29,
+      "page": "https://bestdev.co.il/#/blog/29/leading-remote-teams-challenges-and-best-practices",
+      "content": "/blogs/leading-remote-teams-challenges-and-best-practices.html",
+      "sha256": "f763440c4025b50e7a9057030e940c3f43d24e99241bda116949106e039faab3"
+    },
+    {
+      "id": 28,
+      "page": "https://bestdev.co.il/#/blog/28/strategies-for-conflict-resolution-in-the-workplace",
+      "content": "/blogs/strategies-for-conflict-resolution-in-the-workplace.html",
+      "sha256": "a90b64eb39479f97c574ed9553cce8e1796b6ce13d17aec71df7bd18736018aa"
+    },
+    {
+      "id": 27,
+      "page": "https://bestdev.co.il/#/blog/27/building-a-positive-organizational-culture",
+      "content": "/blogs/building-a-positive-organizational-culture.html",
+      "sha256": "3218f0ed084d256638b0710a4fa01f02c387a5a27b04221b9f656b1efe310c78"
+    },
+    {
+      "id": 26,
+      "page": "https://bestdev.co.il/#/blog/26/the-art-of-effective-communication-in-leadership",
+      "content": "/blogs/the-art-of-effective-communication-in-leadership.html",
+      "sha256": "5fbf37f6c97aba83e207d37606f3080505d53db6b5f896982724474fdf94f46f"
+    },
+    {
+      "id": 25,
+      "page": "https://bestdev.co.il/#/blog/25/a-deep-dive-into-javascript-closures",
+      "content": "/blogs/a-deep-dive-into-javascript-closures.html",
+      "sha256": "5ecb65b0686cee0498b9fa5060f5250c4ad834c46d14e833a1f75bf1144d8647"
+    },
+    {
+      "id": 24,
+      "page": "https://bestdev.co.il/#/blog/24/building-restful-apis-with-nodejs-and-express",
+      "content": "/blogs/building-restful-apis-with-nodejs-and-express.html",
+      "sha256": "ce0dce58904f9d373e8c3c45f6e573fde88c3c8b0fded4075b04626dbb2781ef"
+    },
+    {
+      "id": 23,
+      "page": "https://bestdev.co.il/#/blog/23/unit-testing-in-javascript-with-jest",
+      "content": "/blogs/unit-testing-in-javascript-with-jest.html",
+      "sha256": "1a428167e15fff6136aff3a831c9e2fe76a89a9d162d29ac80bb19b3fe71856e"
+    },
+    {
+      "id": 22,
+      "page": "https://bestdev.co.il/#/blog/22/introduction-to-typescript-javascripts-typed-superset",
+      "content": "/blogs/introduction-to-typescript-javascripts-typed-superset.html",
+      "sha256": "79f4eaaea9f5ab611bd01a89025c16bb47da40d11c86029297185a9db935d232"
+    },
+    {
+      "id": 21,
+      "page": "https://bestdev.co.il/#/blog/21/exploring-javascript-design-patterns",
+      "content": "/blogs/exploring-javascript-design-patterns.html",
+      "sha256": "2c7e3d9c210fe2d7c2d604f5c456f43226898d4020cf9eb081d08bc7417ea3ff"
+    },
+    {
+      "id": 20,
+      "page": "https://bestdev.co.il/#/blog/20/javascript-performance-optimization-techniques",
+      "content": "/blogs/javascript-performance-optimization-techniques.html",
+      "sha256": "cf16fa5b11089b5cd4ab09d172b1ccaf6b498a17c22fb2bb6686c21a7d3e42da"
+    },
+    {
+      "id": 19,
+      "page": "https://bestdev.co.il/#/blog/19/error-handling-javascript-try-catch-finally",
+      "content": "/blogs/error-handling-javascript-try-catch-finally.html",
+      "sha256": "efe17907bbdda6e37fa7504df31dcd5ed6a68601cc989de44bbeb78f66b58847"
+    },
+    {
+      "id": 18,
+      "page": "https://bestdev.co.il/#/blog/18/building-simple-todo-app-vanilla-javascript",
+      "content": "/blogs/building-simple-todo-app-vanilla-javascript.html",
+      "sha256": "ee703ddde22725f754ae698c8e539a843ddb7f23558b5ba4f582db0b81b1bf3b"
+    },
+    {
+      "id": 17,
+      "page": "https://bestdev.co.il/#/blog/17/mastering-javascript-testing-unit-integration-end-to-end",
+      "content": "/blogs/mastering-javascript-testing-unit-integration-end-to-end.html",
+      "sha256": "95d8f767efb96a30f63b5ea83b7a623e12f6c84144082b3371ef2983d414e760"
+    },
+    {
+      "id": 16,
+      "page": "https://bestdev.co.il/#/blog/16/beginners-guide-javascript-frameworks-react-angular-vue",
+      "content": "/blogs/beginners-guide-javascript-frameworks-react-angular-vue.html",
+      "sha256": "2455e1e5cf8874b08e5f0d26c66e88c69c6d519c5fd1f1548fb6f569488f0b93"
+    },
+    {
+      "id": 15,
+      "page": "https://bestdev.co.il/#/blog/15/understanding-asynchronous-programming-javascript",
+      "content": "/blogs/understanding-asynchronous-programming-javascript.html",
+      "sha256": "c109a5c7004b6687893722c4931525dc46744cdffab17b75fae5cc8bcb767b3b"
+    },
+    {
+      "id": 14,
+      "page": "https://bestdev.co.il/#/blog/14/javascript-objects-comprehensive-guide",
+      "content": "/blogs/javascript-objects-comprehensive-guide.html",
+      "sha256": "0706f6d70ec288bd9899a4d835fdcaae4c7bbb9b06b6815eb9e9314a0dc11e1b"
+    },
+    {
+      "id": 13,
+      "page": "https://bestdev.co.il/#/blog/13/integration-technology-leadership-symphony-innovation",
+      "content": "/blogs/integration-technology-leadership-symphony-innovation.html",
+      "sha256": "9ff8f6b0f23c91fb14f70222ba68f5de679b97c091d83a10ea35d12fd6d6fc72"
+    },
+    {
+      "id": 12,
+      "page": "https://bestdev.co.il/#/blog/12/managing-multidisciplinary-teams-diversity-unity",
+      "content": "/blogs/managing-multidisciplinary-teams-diversity-unity.html",
+      "sha256": "3c6f038aa350c58b842d779db2f11439e2a14f379d60d8d6160a9e0aeb37eda6"
+    },
+    {
+      "id": 11,
+      "page": "https://bestdev.co.il/#/blog/11/leading-large-teams-symphony-collaboration-adaptability",
+      "content": "/blogs/leading-large-teams-symphony-collaboration-adaptability.html",
+      "sha256": "ccc0e0173483d92d1a58a77b9d0bfaac648f75163c900689c657225775f6da92"
+    },
+    {
+      "id": 10,
+      "page": "https://bestdev.co.il/#/blog/10/navigating-large-team-management-challenges-strategies",
+      "content": "/blogs/navigating-large-team-management-challenges-strategies.html",
+      "sha256": "d7b2068da79e6b0715d509540269b12fd00b33174d936eb2ff8c1b871d993f45"
+    },
+    {
+      "id": 9,
+      "page": "https://bestdev.co.il/#/blog/9/journey-through-project-success-concept-release",
+      "content": "/blogs/journey-through-project-success-concept-release.html",
+      "sha256": "27e4762973baa9f40ea250a83883d83d13d9c935926fdad9c46d05f9d9c105df"
+    },
+    {
+      "id": 8,
+      "page": "https://bestdev.co.il/#/blog/8/machine-learning-new-frontier-business-innovation",
+      "content": "/blogs/machine-learning-new-frontier-business-innovation.html",
+      "sha256": "d2726b7b779ce5b1e2a86bae2de60e811ecc657fc550ca5fe406c470a1edcbdc"
+    },
+    {
+      "id": 7,
+      "page": "https://bestdev.co.il/#/blog/7/frameworks-software-development-building-blocks-success",
+      "content": "/blogs/frameworks-software-development-building-blocks-success.html",
+      "sha256": "4741886511c020d36149a5f619ab5dab0887046162d3d7ba50f53a7d758dc59e"
+    },
+    {
+      "id": 6,
+      "page": "https://bestdev.co.il/#/blog/6/project-management-methodologies-path-success",
+      "content": "/blogs/project-management-methodologies-path-success.html",
+      "sha256": "473d59377ef8f5c154d07267ca1e35b365b7074aa2430d2d36faf08ea8342c20"
+    },
+    {
+      "id": 5,
+      "page": "https://bestdev.co.il/#/blog/5/databases-silent-powerhouse-modern-technology",
+      "content": "/blogs/databases-silent-powerhouse-modern-technology.html",
+      "sha256": "23bc9f4b0db72ab83a011ea844a86787c0793e56d88757796c2ca9c9854a2cb8"
+    },
+    {
+      "id": 4,
+      "page": "https://bestdev.co.il/#/blog/4/cto-journey-technology-leadership",
+      "content": "/blogs/cto-journey-technology-leadership.html",
+      "sha256": "c1128b85f6988e5db77ae7e185189453800bed5e7e65d213614ff15a5042617a"
+    },
+    {
+      "id": 3,
+      "page": "https://bestdev.co.il/#/blog/3/programming-languages-heartbeat-technology",
+      "content": "/blogs/programming-languages-heartbeat-technology.html",
+      "sha256": "54387f92a8f54a3ab08608286dc4edb50e420df4c191083b9acb6499ae0098aa"
+    },
+    {
+      "id": 2,
+      "page": "https://bestdev.co.il/#/blog/2/libraries-unsung-heroes-software-development",
+      "content": "/blogs/libraries-unsung-heroes-software-development.html",
+      "sha256": "fdd63d9729560949b89deae1796de269fcd64df8e05f018090e82721a4ada5b0"
+    },
+    {
+      "id": 1,
+      "page": "https://bestdev.co.il/#/blog/1/frameworks-backbone-modern-software-development",
+      "content": "/blogs/frameworks-backbone-modern-software-development.html",
+      "sha256": "76373f66e8220d3acc50a13bfb123a3d124336dbc6b9e76e37794239c07ceb09"
     }
   ],
   "media": [

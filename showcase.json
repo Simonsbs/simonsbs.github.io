@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "sourceFingerprint": "12d02a479d5eb1538df3b669b21d3202683ac0dbf0ac29e629f9a184612f6b1a",
+  "publicCvSha256": "af39757692f3b017bbb9e59d2270598049620d55a8081261dd9134b8cabe1468",
+  "projectCount": 5,
+  "diagramComponents": 37,
+  "diagramEdges": 38,
+  "illustratedFlows": 10,
+  "illustratedSteps": 55,
+  "projects": [
+    {
+      "id": "knowledge-lab",
+      "title": "Enterprise knowledge assistant & evaluation lab",
+      "page": "https://bestdev.co.il/#/projects/knowledge-lab",
+      "live": "https://knowledge.bestdev.co.il/",
+      "repository": "https://github.com/Simonsbs/knowledge-assistant-lab"
+    },
+    {
+      "id": "integration-lab",
+      "title": "Integration & webhook reliability lab",
+      "page": "https://bestdev.co.il/#/projects/integration-lab",
+      "live": "https://integration.bestdev.co.il/",
+      "repository": "https://github.com/Simonsbs/integration-reliability-lab"
+    },
+    {
+      "id": "presales-workbench",
+      "title": "Technical presales solution workbench",
+      "page": "https://bestdev.co.il/#/projects/presales-workbench",
+      "live": "https://presales.bestdev.co.il/",
+      "repository": "https://github.com/Simonsbs/presales-solution-workbench"
+    },
+    {
+      "id": "traceability-lab",
+      "title": "Manufacturing data quality & traceability demonstrator",
+      "page": "https://bestdev.co.il/#/projects/traceability-lab",
+      "live": "https://traceability.bestdev.co.il/",
+      "repository": "https://github.com/Simonsbs/manufacturing-traceability-demo"
+    },
+    {
+      "id": "workflow-lab",
+      "title": "MCP integration & controlled workflow demo",
+      "page": "https://bestdev.co.il/#/projects/workflow-lab",
+      "live": "https://workflow.bestdev.co.il/",
+      "repository": "https://github.com/Simonsbs/mcp-workflow-demo"
+    }
+  ]
+}

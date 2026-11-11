@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-11T19:02:30.167Z",
+  "origin": "https://bestdev.co.il",
+  "passed": 9,
+  "results": [
+    "Public portfolio HTTPS",
+    "Exact five-project source fingerprint and links",
+    "Published application and styles",
+    "Public CV preserved",
+    "knowledge-lab: public demo and repository",
+    "integration-lab: public demo and repository",
+    "presales-workbench: public demo and repository",
+    "traceability-lab: public demo and repository",
+    "workflow-lab: public demo and repository"
+  ],
+  "sourceFingerprint": "12d02a479d5eb1538df3b669b21d3202683ac0dbf0ac29e629f9a184612f6b1a"
+}

@@ -1,0 +1,138 @@
+{
+  "at": "2026-11-11T18:54:37.844Z",
+  "passed": 28,
+  "checks": [
+    {
+      "check": "Integration Lab page, goals, abilities, instructions and links",
+      "passed": true
+    },
+    {
+      "check": "Integration Lab / 01Outage to recovery",
+      "steps": 8,
+      "last": "Keep the full recovery trail",
+      "passed": true
+    },
+    {
+      "check": "Integration Lab / 02Duplicate / lost-response safety",
+      "steps": 7,
+      "last": "Verify the ledger",
+      "passed": true
+    },
+    {
+      "check": "Presales Workbench page, goals, abilities, instructions and links",
+      "passed": true
+    },
+    {
+      "check": "Presales Workbench / 01Discovery to proposal",
+      "steps": 5,
+      "last": "Export a reviewable workshop",
+      "passed": true
+    },
+    {
+      "check": "Presales Workbench / 02A constraint changes the answer",
+      "steps": 5,
+      "last": "Export the revised assumptions",
+      "passed": true
+    },
+    {
+      "check": "Traceability Lab page, goals, abilities, instructions and links",
+      "passed": true
+    },
+    {
+      "check": "Traceability Lab / 01Ingestion to investigation",
+      "steps": 4,
+      "last": "Follow the original source",
+      "passed": true
+    },
+    {
+      "check": "Traceability Lab / 02Reviewed correction",
+      "steps": 5,
+      "last": "Verify both versions",
+      "passed": true
+    },
+    {
+      "check": "Workflow Lab page, goals, abilities, instructions and links",
+      "passed": true
+    },
+    {
+      "check": "Workflow Lab / 01Investigate, approve, execute",
+      "steps": 8,
+      "last": "Recheck and commit once",
+      "passed": true
+    },
+    {
+      "check": "Workflow Lab / 02An unapproved write is refused",
+      "steps": 4,
+      "last": "Reject the missing approval",
+      "passed": true
+    },
+    {
+      "check": "Knowledge Lab page, goals, abilities, instructions and links",
+      "passed": true
+    },
+    {
+      "check": "Knowledge Lab / 01Public evidence path",
+      "steps": 4,
+      "last": "Inspect the answer's sources",
+      "passed": true
+    },
+    {
+      "check": "Knowledge Lab / 02Optional local model path",
+      "steps": 5,
+      "last": "Validate and inspect the draft",
+      "passed": true
+    },
+    {
+      "check": "Reduced motion disables autoplay and packets while manual stepping works",
+      "passed": true
+    },
+    {
+      "check": "Keyboard activation opens SVG component notes",
+      "passed": true
+    },
+    {
+      "check": "390px mobile has no page overflow; canvas offers detail pan and fit modes",
+      "passed": true
+    },
+    {
+      "check": "Mobile navigation opens project collection and closes after selection",
+      "passed": true
+    },
+    {
+      "check": "Mobile page: Knowledge LabAnswers you can trace back to evidence.",
+      "passed": true
+    },
+    {
+      "check": "Mobile page: Integration LabA failed delivery should leave a useful trail.",
+      "passed": true
+    },
+    {
+      "check": "Mobile page: Presales WorkbenchTurn discovery into a decision you can explain.",
+      "passed": true
+    },
+    {
+      "check": "Mobile page: Traceability LabEvery corrected reading keeps its original story.",
+      "passed": true
+    },
+    {
+      "check": "Mobile page: Workflow LabGive tools access. Keep authority explicit.",
+      "passed": true
+    },
+    {
+      "check": "Packets move along real SVG paths; timed playback advances steps and pause freezes position",
+      "passed": true
+    },
+    {
+      "check": "Legacy knowledge route redirects to its project page",
+      "passed": true
+    },
+    {
+      "check": "Unknown project has a useful not-found page",
+      "passed": true
+    },
+    {
+      "check": "Overview showcases all five pages with distinct live and repository links",
+      "passed": true
+    }
+  ]
+}

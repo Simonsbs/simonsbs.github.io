@@ -308,5 +308,35 @@
     "author": "Simon B.Stirling",
     "slug": "agile-leadership-adapting-to-change",
     "content": "agile-leadership-adapting-to-change.html"
+  },
+  {
+    "id": 32,
+    "title": "A webhook retry must not apply the order twice",
+    "category": "Integration",
+    "featureImage": "/images/projects/integration-lab.webp",
+    "date": "11 November, 2026",
+    "author": "Simon Stirling",
+    "slug": "webhook-retries-without-duplicate-effects",
+    "content": "webhook-retries-without-duplicate-effects.html"
+  },
+  {
+    "id": 33,
+    "title": "Evaluate retrieval before judging the model's answer",
+    "category": "Applied AI",
+    "featureImage": "/images/projects/knowledge-lab.webp",
+    "date": "11 November, 2026",
+    "author": "Simon Stirling",
+    "slug": "evaluate-retrieval-before-generated-answers",
+    "content": "evaluate-retrieval-before-generated-answers.html"
+  },
+  {
+    "id": 34,
+    "title": "When a new constraint changes the proposed architecture",
+    "category": "Solution design",
+    "featureImage": "/images/projects/presales-workbench.webp",
+    "date": "11 November, 2026",
+    "author": "Simon Stirling",
+    "slug": "when-a-constraint-changes-the-architecture",
+    "content": "when-a-constraint-changes-the-architecture.html"
   }
 ]

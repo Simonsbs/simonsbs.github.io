@@ -1,0 +1,94 @@
+<h1>Evaluate retrieval before judging the model's answer</h1>
+<p>
+  A fluent answer can hide a retrieval mistake. The assistant may have selected
+  a draft policy, missed a contradictory source or found a passage that shares
+  vocabulary with the question but does not answer it. Knowledge Lab separates
+  those decisions so they can be inspected before model generation enters the
+  picture.
+</p>
+<h2>Give the retrieval layer an observable result</h2>
+<p>
+  The public application searches a fictional company knowledge base and quotes
+  exact source passages. A visitor can inspect the document, its owner, status
+  and date, then compare the quoted text with the question. This browser
+  evidence mode works without a model service.
+</p>
+<p>
+  The project includes both a keyword baseline and governed BM25 retrieval.
+  Source-status filters, simulated role filters, coverage checks and conflict
+  handling affect which evidence is usable. Switching configurations exposes
+  changes in the selected evidence and in the decision to answer or abstain.
+</p>
+<p>
+  The distinction is practical. If retrieval cannot find the relevant policy, a
+  different generation prompt does not repair that missing evidence. If two
+  authoritative sources disagree, presenting that disagreement is more useful
+  than selecting whichever passage makes a concise answer easiest.
+</p>
+<h2>Test missing answers and conflicting sources</h2>
+<p>
+  The sample questions include a support target, contradictory policies, an
+  undocumented topic and a restricted synthetic record. These make the system's
+  boundaries visible. The support and administrator options illustrate filtering
+  over a public pack; they are not a security boundary protecting private
+  information.
+</p>
+<p>
+  Earlier retrieval failures are retained in the project records. Two questions
+  originally failed because of English word-form differences. General inflection
+  normalisation corrected those cases. A separate corpus-vocabulary guard
+  prevents an unsupported storage-capacity question from becoming an answer
+  merely because it overlaps with other policy language.
+</p>
+<p>
+  Those are different faults with different remedies. Recording both the
+  original failure and its correction gives a reviewer more information than
+  reporting a final aggregate score alone.
+</p>
+<h2>Evaluate generation as a separate step</h2>
+<p>
+  The optional local path adds a Python and LangChain adapter with Ollama
+  inference. The adapter reloads the canonical source pack, applies its
+  configured role and checks admitted context before calling the model. It does
+  not rely on the browser to declare which passages are permitted.
+</p>
+<p>
+  The accepted local Qwen3 8B run records 68 pipeline cases, 46 generated-answer
+  content checks and seven rejected invalid-context probes. Accepted answers
+  have a source-by-source agent review. These checks look beyond the presence of
+  a citation: the cited source must support the answer and its qualifications.
+</p>
+<h2>Describe what the evaluation establishes</h2>
+<p>
+  The development and verification sets contain 40 and 28 synthetic,
+  agent-authored questions. They are regression coverage. Passing them does not
+  establish general answer accuracy, an independent human benchmark or
+  successful operation on a customer's documents.
+</p>
+<p>
+  Human review was not performed for the accepted version 1 run. The public
+  deployment serves evidence mode; local model results are recorded separately.
+  That separation lets someone assess retrieval behaviour, model behaviour and
+  the quality of the evaluation without confusing them.
+</p>
+<p>
+  Open the
+  <a
+    href="https://knowledge.bestdev.co.il/"
+    target="_blank"
+    rel="noopener noreferrer"
+    >public Knowledge Lab</a
+  >, follow the
+  <a
+    href="https://github.com/Simonsbs/knowledge-assistant-lab#readme"
+    target="_blank"
+    rel="noopener noreferrer"
+    >implementation and local setup</a
+  >, or inspect the
+  <a
+    href="https://github.com/Simonsbs/knowledge-assistant-lab/blob/main/docs/validation/knowledge-lab-live.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    >recorded local-model validation</a
+  >.
+</p>

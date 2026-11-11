@@ -1,0 +1,91 @@
+<h1>A webhook retry must not apply the order twice</h1>
+<p>
+  A receiver can commit an order update and still fail to deliver its
+  acknowledgement. The sender sees a failure and retries. That second delivery
+  needs to find the original result without applying the order again.
+  Integration Lab makes that sequence visible through a small, working
+  application.
+</p>
+<h2>Start with the ambiguous failure</h2>
+<p>
+  The usual outage example is straightforward: the receiver is unavailable,
+  several attempts fail, and the delivery eventually needs intervention. A lost
+  response is harder to reason about. The sender cannot tell from a timeout or
+  failure response whether the receiver changed its data.
+</p>
+<p>
+  The lab includes a control called
+  <strong>Lose response after committing</strong>. The receiver persists an
+  actual receipt and order effect, then deliberately returns a synthetic 503.
+  The failure is injected, but the database commit is real. Sending the event
+  again exposes whether the implementation can recover safely.
+</p>
+<h2>Keep the receipt and business effect together</h2>
+<p>
+  The receiver stores its receipt, the business effect, delivery status and
+  audit transition in one optimistic SQLite update. A repeated delivery can
+  return the stored success response. It does not need to apply the order a
+  second time.
+</p>
+<p>
+  This is also why a successful HTTP status alone is weak evidence for a
+  recovery demonstration. The useful checks are the stored receipt, the order
+  ledger and the attempt history. Together, they show what the receiver
+  committed and what the sender observed.
+</p>
+<p>
+  The public implementation uses a Cloudflare Worker and D1. A separate,
+  runnable ASP.NET Core API uses SQLite locally. The two implementations share
+  the same HTTP contract and acceptance scenarios. The public host does not run
+  the .NET application.
+</p>
+<h2>Make recovery inspectable</h2>
+<p>
+  The outage scenario sends four actual HTTP attempts to an unavailable
+  receiver. An explicit virtual clock advances the retry schedule. Once the
+  delivery becomes a dead letter, the operator can inspect its correlation ID,
+  responses and history, restore the receiver and replay the event.
+</p>
+<p>
+  Earlier failed attempts remain visible after recovery. The operator can then
+  queue a duplicate and check that the ledger still contains one order effect.
+  Preserving that history matters: a final green status explains less than a
+  sequence showing the original failure, corrective action and resulting state.
+</p>
+<h2>Check the boundaries of the claim</h2>
+<p>
+  The recorded version 1 validation runs the same 25 HTTP scenarios against the
+  local .NET API, local Worker and public custom domain. Each run records 216
+  requests, including its test operations. The coverage includes duplicates,
+  conflicting bytes, concurrent operations, retry exhaustion and lost responses
+  after a commit. Separate checks cover persistence after actual process
+  restarts.
+</p>
+<p>
+  Those results describe bounded synthetic cases. They do not establish
+  production throughput, availability or a distributed exactly-once guarantee.
+  The browser initiates deliveries, the retry clock is virtual, and closing the
+  tab stops further sends. Keeping those limits visible makes the demonstration
+  easier to assess and reproduce.
+</p>
+<p>
+  Try the
+  <a
+    href="https://integration.bestdev.co.il/"
+    target="_blank"
+    rel="noopener noreferrer"
+    >public Integration Lab</a
+  >, inspect the
+  <a
+    href="https://github.com/Simonsbs/integration-reliability-lab/blob/main/CONTRACT.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    >HTTP contract</a
+  >, or read the
+  <a
+    href="https://github.com/Simonsbs/integration-reliability-lab/blob/main/VALIDATION.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    >recorded validation and its limits</a
+  >.
+</p>

@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:12.945
+Integration Lab is a working demonstration of webhook failure and recovery. Its orders are synthetic, while signatures, HTTP requests and database writes are real.
+
+2
+00:00:13.395 --> 00:00:28.360
+Run outage scenario sends four requests to an unavailable receiver. The virtual retry clock advances explicitly. The delivery becomes a dead letter, with every failed attempt still visible.
+
+3
+00:00:28.810 --> 00:00:42.906
+Set the receiver to Healthy, choose Replay and repair sender, then send the next attempt. The receiver records one order effect. The earlier failure history remains available.
+
+4
+00:00:43.356 --> 00:00:55.237
+Queue a duplicate and send it. The receiver returns its stored response without applying the order again. Compare the delivery history with the order ledger.
+
+5
+00:00:55.687 --> 00:01:08.623
+A harder case loses the response after committing. The receipt and order update are real; the failure response is injected. Retrying still leaves one order effect.
+
+6
+00:01:09.073 --> 00:01:24.628
+The public service uses a Worker and D1. A local ASP.NET Core implementation shares its HTTP contract. The architecture board explains the receipt, retry and audit boundaries.
+
+7
+00:01:25.078 --> 00:01:39.923
+This is a bounded synthetic demonstration. The browser sends deliveries and controls virtual retry time. Recorded validation and source code let you inspect the behaviour and its limits.

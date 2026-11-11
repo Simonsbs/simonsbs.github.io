@@ -1,4 +1,4 @@
-import{m as e}from"./index-fbg6Xw-P.js";import{a as t,v as n,w as r}from"./UI-CyP1hJmG.js";var i=`<h1 class="mb-4">Privacy Policy</h1>
+import{h as e}from"./index-DXo-99W_.js";import{S as t,a as n,g as r}from"./UI-CsN8CeK9.js";var i=`<h1 class="mb-4">Privacy Policy</h1>
 <p><strong>Last Updated:</strong> 01/08/2023</p>
 <p>
   <strong>1. Introduction</strong>
@@ -199,5 +199,5 @@ import{m as e}from"./index-fbg6Xw-P.js";import{a as t,v as n,w as r}from"./UI-Cy
   For any concerns or queries related to these terms, contact us at
   info@bestdev.co.il.
 </p>
-`,o=n();function s({kind:n}){return(0,o.jsxs)(`section`,{className:`shell legal-section`,children:[(0,o.jsx)(t,{title:n===`privacy`?`Privacy policy`:`Terms of usage`,description:`The existing ${n===`privacy`?`privacy policy`:`terms of usage`} for bestdev.co.il.`}),(0,o.jsxs)(r,{className:`text-link`,to:`/`,children:[(0,o.jsx)(e,{size:16}),`Back to the overview`]}),(0,o.jsx)(`div`,{className:`prose legal-prose`,dangerouslySetInnerHTML:{__html:n===`privacy`?i:a}})]})}export{s as default};
-//# sourceMappingURL=Legal-qpSw2EJf.js.map
+`,o=r();function s({kind:r}){return(0,o.jsxs)(`section`,{className:`shell legal-section`,children:[(0,o.jsx)(n,{title:r===`privacy`?`Privacy policy`:`Terms of usage`,description:`The existing ${r===`privacy`?`privacy policy`:`terms of usage`} for bestdev.co.il.`}),(0,o.jsxs)(t,{className:`text-link`,to:`/`,children:[(0,o.jsx)(e,{size:16}),`Back to the overview`]}),(0,o.jsx)(`div`,{className:`prose legal-prose`,dangerouslySetInnerHTML:{__html:r===`privacy`?i:a}})]})}export{s as default};
+//# sourceMappingURL=Legal-C38JPrhn.js.map

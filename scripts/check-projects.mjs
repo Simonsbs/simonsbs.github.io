@@ -108,6 +108,13 @@ const sourceFingerprint = createHash("sha256")
 const manifest = {
   schemaVersion: 1,
   sourceFingerprint,
+  publicCvSha256: createHash("sha256")
+    .update(
+      await readFile(
+        "public/media/Simon_Stirling_Solutions_Engineering_Architecture_CV.pdf",
+      ),
+    )
+    .digest("hex"),
   projectCount: data.length,
   diagramComponents: nodeCount,
   diagramEdges: edgeCount,

@@ -18,7 +18,7 @@
     "check": "tsc --noEmit && node scripts/check-content.mjs && node scripts/check-projects.mjs",
     "verify:live": "node scripts/verify-showcase-live.mjs",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d dist --nojekyll"
+    "deploy": "gh-pages -b master -d dist --nojekyll --dotfiles"
   },
   "dependencies": {
     "@emailjs/browser": "^5.0.3",

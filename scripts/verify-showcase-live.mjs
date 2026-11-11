@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
 const origin = new URL(process.argv[2] ?? "https://bestdev.co.il").origin;
 const expected = JSON.parse(await readFile("public/showcase.json", "utf8")),
   results = [];
@@ -19,10 +20,16 @@ for (const match of html.matchAll(/(?:src|href)="(\/assets\/[^\"]+)"/g)) {
   assert.ok((await r.arrayBuffer()).byteLength > 0);
 }
 results.push("Published application and styles");
-await get(
+const cv = await get(
   origin + "/media/Simon_Stirling_Solutions_Engineering_Architecture_CV.pdf",
 );
 results.push("Public CV preserved");
+assert.equal(
+  createHash("sha256")
+    .update(new Uint8Array(await cv.arrayBuffer()))
+    .digest("hex"),
+  manifest.publicCvSha256,
+);
 for (const p of manifest.projects) {
   await get(p.live);
   const repo = await (

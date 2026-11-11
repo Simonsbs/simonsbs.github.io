@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceFingerprint": "c6b5dbd086fa320ddfcd9d145f55fb1b184e99e3f72f337e4f165fedd9218c97",
+  "sourceFingerprint": "12d02a479d5eb1538df3b669b21d3202683ac0dbf0ac29e629f9a184612f6b1a",
+  "publicCvSha256": "af39757692f3b017bbb9e59d2270598049620d55a8081261dd9134b8cabe1468",
   "projectCount": 5,
   "diagramComponents": 37,
   "diagramEdges": 38,

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
+import { createHash } from "node:crypto";
 const html = await readFile("dist/index.html", "utf8"),
   manifest = JSON.parse(await readFile("dist/showcase.json", "utf8"));
 assert.match(html, /Simon Stirling/);
@@ -14,6 +15,17 @@ assert.equal(
 await access(
   "dist/media/Simon_Stirling_Solutions_Engineering_Architecture_CV.pdf",
 );
+assert.equal(
+  createHash("sha256")
+    .update(
+      await readFile(
+        "dist/media/Simon_Stirling_Solutions_Engineering_Architecture_CV.pdf",
+      ),
+    )
+    .digest("hex"),
+  manifest.publicCvSha256,
+);
+assert.match(await readFile("dist/.gitattributes", "utf8"), /\*\.pdf binary/);
 console.log(
   "PASS: production entry, fingerprinted five-project manifest, CSS/JS assets, CNAME and public CV.",
 );

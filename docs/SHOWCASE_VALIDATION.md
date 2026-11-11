@@ -15,6 +15,8 @@
 
 ## Release gates
 
+Git initially classified the mostly textual PDF as text. Explicit binary attributes in both source and published artifacts protect PDF/font/image bytes from Windows line-ending conversion. The build and live checks compare the public CV's SHA-256 with its original bytes.
+
 Windows/Linux CI repeat the production build and dependency audit. Publication uses the existing GitHub Pages `master` artifact branch, preserving `bestdev.co.il` and `.nojekyll`. After publication, `npm run verify:live` compares the served manifest and static assets with the local build and checks all ten outgoing live/source destinations. Actual public browser checks confirm the five hash routes, flow controls and mobile rendering.
 
 `public/showcase.json` exposes a deterministic fingerprint of the application source and the exact five page/demo/repository mappings. Detailed local and final live reports are retained under ignored `artifacts/portfolio-validation/` without access credentials.

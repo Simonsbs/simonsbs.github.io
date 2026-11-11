@@ -124,10 +124,9 @@ export default function Contact() {
           your <span>next hire.</span>
         </h2>
         <p>
-          I’m looking for full-time pre-sales, post-sales, enterprise
-          architecture and solutions architect roles. If your team needs someone
-          who can work with customers from technical discovery through
-          implementation and ongoing support, get in touch.
+          I’m looking for a full-time role in solutions architecture or
+          solutions engineering, across pre-sales or post-sales. Tell me about
+          the role, your team and the customer problems you need to solve.
         </p>
         <p className="contact-work-rights">
           {profile.workRights} {profile.relocation}

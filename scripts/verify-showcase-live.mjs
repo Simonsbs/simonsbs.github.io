@@ -40,6 +40,28 @@ for (const p of manifest.projects) {
   assert.equal(repo.private, false);
   results.push(p.id + ": public demo and repository");
 }
+for (const asset of manifest.media) {
+  const response = await get(origin + asset.path);
+  assert.equal(
+    createHash("sha256")
+      .update(new Uint8Array(await response.arrayBuffer()))
+      .digest("hex"),
+    asset.sha256,
+    `Published media mismatch: ${asset.path}`,
+  );
+}
+results.push(
+  "Exact application screenshots, narrated MP4 and English captions",
+);
+for (const article of manifest.featuredArticles) {
+  const html = await (await get(origin + article.content)).text();
+  assert.equal(
+    createHash("sha256").update(html.replace(/\r\n/g, "\n")).digest("hex"),
+    article.sha256,
+    `Published article mismatch: ${article.content}`,
+  );
+}
+results.push("All three new technical articles");
 const report = {
   at: new Date().toISOString(),
   origin,

@@ -52,6 +52,14 @@ export type StandaloneProject = {
   decisions: { title: string; description: string }[];
   limits: string[];
   evidence: string[];
+  screenshot: { src: string; alt: string };
+  walkthrough?: {
+    video: string;
+    captions: string;
+    poster: string;
+    duration: string;
+    transcript: { title: string; text: string }[];
+  };
   board: {
     note: string;
     zones: {

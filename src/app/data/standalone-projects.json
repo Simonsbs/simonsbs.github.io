@@ -310,6 +310,10 @@
           ]
         }
       ]
+    },
+    "screenshot": {
+      "src": "/images/projects/knowledge-lab.webp",
+      "alt": "Knowledge Lab showing a support question and source-backed evidence from the fictional company knowledge base."
     }
   },
   {
@@ -684,6 +688,46 @@
           ]
         }
       ]
+    },
+    "screenshot": {
+      "src": "/images/projects/integration-lab.webp",
+      "alt": "Integration Lab operations console showing synthetic webhook delivery status, receiver controls and attempt history."
+    },
+    "walkthrough": {
+      "video": "/media/integration-lab-walkthrough.mp4",
+      "captions": "/media/integration-lab-walkthrough.vtt",
+      "poster": "/images/projects/integration-lab.webp",
+      "duration": "1 minute 40 seconds",
+      "transcript": [
+        {
+          "title": "Investigate a failed delivery",
+          "text": "Integration Lab is a working demonstration of webhook failure and recovery. Its orders are synthetic, while signatures, HTTP requests and database writes are real."
+        },
+        {
+          "title": "Inspect the failure history",
+          "text": "Run outage scenario sends four requests to an unavailable receiver. The virtual retry clock advances explicitly. The delivery becomes a dead letter, with every failed attempt still visible."
+        },
+        {
+          "title": "Restore service and replay",
+          "text": "Set the receiver to Healthy, choose Replay and repair sender, then send the next attempt. The receiver records one order effect. The earlier failure history remains available."
+        },
+        {
+          "title": "Check duplicate safety",
+          "text": "Queue a duplicate and send it. The receiver returns its stored response without applying the order again. Compare the delivery history with the order ledger."
+        },
+        {
+          "title": "Recover an ambiguous outcome",
+          "text": "A harder case loses the response after committing. The receipt and order update are real; the failure response is injected. Retrying still leaves one order effect."
+        },
+        {
+          "title": "Inspect the design",
+          "text": "The public service uses a Worker and D1. A local ASP.NET Core implementation shares its HTTP contract. The architecture board explains the receipt, retry and audit boundaries."
+        },
+        {
+          "title": "Understand the demonstration's limits",
+          "text": "This is a bounded synthetic demonstration. The browser sends deliveries and controls virtual retry time. Recorded validation and source code let you inspect the behaviour and its limits."
+        }
+      ]
     }
   },
   {
@@ -998,6 +1042,10 @@
           ]
         }
       ]
+    },
+    "screenshot": {
+      "src": "/images/projects/presales-workbench.webp",
+      "alt": "Presales Workbench showing the fictional Northstar Retail discovery brief and architecture evaluation controls."
     }
   },
   {
@@ -1308,6 +1356,10 @@
           ]
         }
       ]
+    },
+    "screenshot": {
+      "src": "/images/projects/traceability-lab.webp",
+      "alt": "Traceability Lab showing synthetic manufacturing data quality and source traceability."
     }
   },
   {
@@ -1660,6 +1712,10 @@
           ]
         }
       ]
+    },
+    "screenshot": {
+      "src": "/images/projects/workflow-lab.webp",
+      "alt": "Workflow Lab showing investigation and approval controls for a synthetic operational task."
     }
   }
 ]

@@ -2,7 +2,15 @@
 
 The profile leads with pre-sales, enterprise solutions architecture and post-sales implementation/support. CTO and co-owner roles remain as secondary career-history context. Featured cases cover customer discovery, enterprise delivery and ongoing service reliability.
 
-The portfolio at [bestdev.co.il](https://bestdev.co.il/) uses React 19, TypeScript and Vite 8. It showcases five independently deployed demonstrators alongside source-grounded professional delivery cases. Hash routing preserves direct project/article links on GitHub Pages.
+The portfolio at [bestdev.co.il](https://bestdev.co.il/) uses React 19, TypeScript and Vite 8. The homepage leads with professional delivery, a visible CV download and three selected demos. Projects contains all five independently deployed demonstrators and all delivery cases. Hash routing preserves direct case-study, project and article links on GitHub Pages.
+
+## Delivery case studies and recent writing
+
+Each `/case-studies/:caseId` page explains the customer problem, Simon's responsibility, constraints, architecture/delivery approach, decisions, outcome and scope. Homepage cards link directly to their case rather than the collection. `src/app/data/case-study-details.json` extends the existing case records without adding unverified clients, scale, products or numerical improvements. Production and proof-of-concept stages remain explicit.
+
+Three articles dated 11 November 2026 cover webhook retries, retrieval evaluation and constraint-led presales decisions. Their source is the independent projects' implementation and validation records. The 31 historical articles retain their titles, URLs and dates.
+
+All five project cards and pages have real application screenshots. Integration Lab also has a 100-second narrated walkthrough with English WebVTT captions and a visible transcript. It uses actual screenshots of the public synthetic sandbox and a clearly labelled synthetic voice. Video loads on request. See [refresh sources, media workflow and verification](docs/PORTFOLIO_REFRESH.md).
 
 ## Standalone project pages
 
@@ -43,7 +51,7 @@ npm run preview  # Local preview of the production build
 - `src/app/data/case-studies.json` contains source-checked professional delivery examples. Production systems and the RAG proof of concept are labelled separately.
 - `src/app/data/professional-development.json` adds AI, cloud and security learning from the CV project. Missing dates and credential links remain unset.
 - The homepage, experience, work-rights statement and downloadable public CV are aligned with the confirmed CV-project evidence. `docs/CONTENT_SOURCES.md` records claim sources and limits; `PROJECT_ROADMAP.md` records the build order and current implementation status.
-- Mad-AI-Libs and Business Cards are archived from featured content. C.R.U.D Connect remains the public API example.
+- Mad-AI-Libs, Business Cards and C.R.U.D Connect are archived from featured content. C.R.U.D Connect failed DNS resolution during the 11 November review; its historical metadata remains locally available without a featured live link.
 - `public/blogs/blogs.json` and its existing HTML files remain the article sources. `scripts/content.mjs` generates the article index, excerpts, reading times and timezone independent dates before development, checks and builds.
 - Images, CV files and certificate PDFs remain in `public/`. Existing privacy and terms text is preserved in `src/app/data/`.
 - The original Create React App source is retained outside `src/app/` for reference and is excluded from the new build. The application uses the validated `package-lock.json`. The superseded Yarn lock is preserved locally and in Git history; it is ignored in the current npm-only source release.

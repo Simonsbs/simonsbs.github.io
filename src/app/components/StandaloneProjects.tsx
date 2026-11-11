@@ -12,36 +12,74 @@ import { Github } from "./BrandIcons";
 import { projectPath, standaloneProjects } from "../data/standalone";
 import type { CSSProperties } from "react";
 const icons = [FileSearch, GitBranch, Boxes, Factory, ShieldCheck];
-export default function StandaloneProjects() {
+export default function StandaloneProjects({
+  featured = false,
+}: {
+  featured?: boolean;
+}) {
+  const selected = featured
+    ? ["presales-workbench", "knowledge-lab", "integration-lab"].map((id) =>
+        standaloneProjects.find((project) => project.id === id)!,
+      )
+    : standaloneProjects;
   return (
     <section
       className="standalone-collection"
-      aria-label="Five standalone engineering projects"
+      aria-label={
+        featured
+          ? "Selected live demonstrations"
+          : "Five standalone engineering projects"
+      }
     >
       <div className="standalone-heading">
         <div>
-          <div className="section-kicker">BUILT TO BE EXPLORED / 01 TO 05</div>
+          <div className="section-kicker">
+            INDEPENDENT BUILDS / SYNTHETIC DATA
+          </div>
           <h2>
-            Five independent projects.
+            {featured ? "Selected live demos." : "Five independent projects."}
             <br />
-            <span>Open the hood.</span>
+            <span>Try the decisions yourself.</span>
           </h2>
         </div>
         <p>
-          Each has its own live application and repository. Explore what it
-          does, try the walkthrough and follow its architecture on an animated
-          whiteboard.
+          {featured
+            ? "Compare a proposal, inspect retrieval evidence or recover a failed integration. Each build has source code and an architecture walkthrough."
+            : "Each has its own live application, repository, usage guide and architecture walkthrough. These synthetic demonstrations are separate from customer delivery."}
+          {featured && (
+            <Link className="text-link standalone-view-all" to="/projects">
+              Explore all five demos
+              <ArrowRight size={16} />
+            </Link>
+          )}
         </p>
       </div>
       <div className="standalone-grid">
-        {standaloneProjects.map((project, i) => {
-          const Icon = icons[i];
+        {selected.map((project) => {
+          const Icon =
+            icons[
+              standaloneProjects.findIndex((item) => item.id === project.id)
+            ];
           return (
             <article
               className="standalone-card"
               key={project.id}
               style={{ "--project-color": project.color } as CSSProperties}
             >
+              <Link
+                className="standalone-preview"
+                to={projectPath(project.id)}
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <img
+                  src={project.screenshot.src}
+                  alt=""
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                />
+              </Link>
               <div className="standalone-card-top">
                 <span className="standalone-number">{project.number}</span>
                 <Icon size={26} strokeWidth={1.3} />

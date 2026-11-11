@@ -26,6 +26,30 @@ assert.equal(
   manifest.publicCvSha256,
 );
 assert.match(await readFile("dist/.gitattributes", "utf8"), /\*\.pdf binary/);
+for (const asset of manifest.media) {
+  assert.equal(
+    createHash("sha256")
+      .update(await readFile("dist" + asset.path))
+      .digest("hex"),
+    asset.sha256,
+    `Media bytes changed during build: ${asset.path}`,
+  );
+}
+for (const article of manifest.featuredArticles) {
+  assert.equal(
+    createHash("sha256")
+      .update(
+        (await readFile("dist" + article.content, "utf8")).replace(
+          /\r\n/g,
+          "\n",
+        ),
+      )
+      .digest("hex"),
+    article.sha256,
+    `Article content changed during build: ${article.content}`,
+  );
+}
+assert.equal(manifest.caseStudies.length, 5);
 console.log(
   "PASS: production entry, fingerprinted five-project manifest, CSS/JS assets, CNAME and public CV.",
 );

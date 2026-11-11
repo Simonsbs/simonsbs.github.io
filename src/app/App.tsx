@@ -11,6 +11,7 @@ const Article = lazy(() => import("./pages/Article"));
 const Certificates = lazy(() => import("./pages/Certificates"));
 const Legal = lazy(() => import("./pages/Legal"));
 const Project = lazy(() => import("./pages/Project"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 
 function NotFound() {
   return (
@@ -62,6 +63,7 @@ export default function App() {
             ))}
             <Route path="projects" element={<Work />} />
             <Route path="projects/:projectId" element={<Project />} />
+            <Route path="case-studies/:caseId" element={<CaseStudy />} />
             <Route
               path="labs/knowledge"
               element={<Navigate to="/projects/knowledge-lab" replace />}

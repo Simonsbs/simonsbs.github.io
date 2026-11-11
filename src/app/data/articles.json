@@ -370,5 +370,41 @@
     "content": "agile-leadership-adapting-to-change.html",
     "excerpt": "In a world where change is constant, agility in leadership is no longer a choice but a necessity. Agile leadership is about embracing change, fostering innovation,...",
     "readingMinutes": 2
+  },
+  {
+    "id": 32,
+    "title": "A webhook retry must not apply the order twice",
+    "category": "Integration",
+    "featureImage": "/images/projects/integration-lab.webp",
+    "date": "2026-11-11",
+    "author": "Simon Stirling",
+    "slug": "webhook-retries-without-duplicate-effects",
+    "content": "webhook-retries-without-duplicate-effects.html",
+    "excerpt": "A receiver can commit an order update and still fail to deliver its acknowledgement. The sender sees a failure and retries. That second delivery needs to find the...",
+    "readingMinutes": 3
+  },
+  {
+    "id": 33,
+    "title": "Evaluate retrieval before judging the model's answer",
+    "category": "Applied AI",
+    "featureImage": "/images/projects/knowledge-lab.webp",
+    "date": "2026-11-11",
+    "author": "Simon Stirling",
+    "slug": "evaluate-retrieval-before-generated-answers",
+    "content": "evaluate-retrieval-before-generated-answers.html",
+    "excerpt": "A fluent answer can hide a retrieval mistake. The assistant may have selected a draft policy, missed a contradictory source or found a passage that shares vocabulary...",
+    "readingMinutes": 3
+  },
+  {
+    "id": 34,
+    "title": "When a new constraint changes the proposed architecture",
+    "category": "Solution design",
+    "featureImage": "/images/projects/presales-workbench.webp",
+    "date": "2026-11-11",
+    "author": "Simon Stirling",
+    "slug": "when-a-constraint-changes-the-architecture",
+    "content": "when-a-constraint-changes-the-architecture.html",
+    "excerpt": "A technical proposal needs to explain why its recommended option fits the customer's constraints. Presales Workbench makes that reasoning inspectable: change a...",
+    "readingMinutes": 3
   }
 ]

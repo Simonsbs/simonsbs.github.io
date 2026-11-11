@@ -17,18 +17,10 @@ const icons = {
   "enterprise-service-support": Headset,
 };
 
-export default function CaseStudyCard({
-  study,
-  detailed = false,
-}: {
-  study: CaseStudy;
-  detailed?: boolean;
-}) {
+export default function CaseStudyCard({ study }: { study: CaseStudy }) {
   const Icon = icons[study.id as keyof typeof icons] || Database;
   return (
-    <article
-      className={`case-study-card${detailed ? " case-study-detailed" : ""}`}
-    >
+    <article className="case-study-card">
       <div className="case-study-top">
         <Icon size={28} strokeWidth={1.4} />
         <span
@@ -42,24 +34,22 @@ export default function CaseStudyCard({
         </span>
       </div>
       <span className="case-study-category">{study.category}</span>
-      <h3>{study.title}</h3>
+      <h3>
+        <Link to={`/case-studies/${study.id}`}>{study.title}</Link>
+      </h3>
       <p>{study.summary}</p>
-      {detailed ? (
-        <>
-          <span className="case-study-role">{study.role}</span>
-          <div className="case-study-detail">
-            <h4>My contribution</h4>
-            <p>{study.contribution}</p>
-            <h4>Result</h4>
-            <p>{study.outcome}</p>
-          </div>
-        </>
-      ) : (
-        <Link to="/projects" className="text-link">
-          Read the delivery example
-          <ArrowUpRight size={16} />
-        </Link>
-      )}
+      <p className="case-card-result">
+        <strong>Result</strong>
+        {study.outcome}
+      </p>
+      <Link
+        to={`/case-studies/${study.id}`}
+        className="text-link"
+        aria-label={`Read the case study: ${study.title}`}
+      >
+        Read the delivery example
+        <ArrowUpRight size={16} />
+      </Link>
       <div className="tags">
         {study.technologies.map((item) => (
           <span key={item}>{item}</span>

@@ -1,0 +1,37 @@
+[
+  {
+    "image": "integration-01-overview.jpg",
+    "title": "Investigate a failed delivery",
+    "text": "Integration Lab is a working demonstration of webhook failure and recovery. Its orders are synthetic, while signatures, HTTP requests and database writes are real."
+  },
+  {
+    "image": "integration-02-outage.jpg",
+    "title": "Inspect the failure history",
+    "text": "Run outage scenario sends four requests to an unavailable receiver. The virtual retry clock advances explicitly. The delivery becomes a dead letter, with every failed attempt still visible."
+  },
+  {
+    "image": "integration-03-recovered.jpg",
+    "title": "Restore service and replay",
+    "text": "Set the receiver to Healthy, choose Replay and repair sender, then send the next attempt. The receiver records one order effect. The earlier failure history remains available."
+  },
+  {
+    "image": "integration-04-duplicate.jpg",
+    "title": "Check duplicate safety",
+    "text": "Queue a duplicate and send it. The receiver returns its stored response without applying the order again. Compare the delivery history with the order ledger."
+  },
+  {
+    "image": "integration-05-lost-response.jpg",
+    "title": "Recover an ambiguous outcome",
+    "text": "A harder case loses the response after committing. The receipt and order update are real; the failure response is injected. Retrying still leaves one order effect."
+  },
+  {
+    "image": "integration-06-architecture.jpg",
+    "title": "Inspect the design",
+    "text": "The public service uses a Worker and D1. A local ASP.NET Core implementation shares its HTTP contract. The architecture board explains the receipt, retry and audit boundaries."
+  },
+  {
+    "image": "integration-07-audit.jpg",
+    "title": "Understand the demonstration's limits",
+    "text": "This is a bounded synthetic demonstration. The browser sends deliveries and controls virtual retry time. Recorded validation and source code let you inspect the behaviour and its limits."
+  }
+]

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Github } from "../components/BrandIcons";
 import { Link } from "react-router-dom";
-import { caseStudies, profile, projects } from "../data/portfolio";
-import { Eyebrow, PageMeta, ProjectCard } from "../components/UI";
+import { caseStudies, profile } from "../data/portfolio";
+import { Eyebrow, PageMeta } from "../components/UI";
 import CaseStudyCard from "../components/CaseStudyCard";
 import StandaloneProjects from "../components/StandaloneProjects";
 
@@ -29,15 +29,15 @@ export default function Work() {
       <section className="page-intro shell">
         <Eyebrow>INDEPENDENT BUILDS & PROFESSIONAL DELIVERY</Eyebrow>
         <h1>
-          Working projects.
+          Architecture in practice.
           <br />
-          <span>Visible decisions.</span>
+          <span>Delivery you can explore.</span>
         </h1>
         <div className="page-intro-bottom">
           <p>
-            Five standalone applications, each with a public demo, source code,
-            usage guide and animated architecture board. Professional delivery
-            cases below describe my existing experience separately.
+            Professional delivery cases explain my responsibilities and results.
+            Five independent demonstrators let you inspect working applications,
+            source code and architecture decisions using synthetic data.
           </p>
           <a
             className="text-link"
@@ -51,9 +51,6 @@ export default function Work() {
           </a>
         </div>
       </section>
-      <div className="shell work-standalone">
-        <StandaloneProjects />
-      </div>
       <section
         className="shell collection-section"
         aria-label="Delivery case studies"
@@ -62,9 +59,9 @@ export default function Work() {
           <div className="section-kicker">PROFESSIONAL EXPERIENCE</div>
           <h2>Delivery case studies.</h2>
           <p>
-            Source-grounded examples from customer discovery through
-            implementation and support. Customer details are anonymised;
-            production and proof-of-concept work are labelled.
+            Anonymised customer work and a document-retrieval proof of concept.
+            Open a case for the problem, my contribution, design decisions and
+            outcome.
           </p>
         </div>
         <div className="collection-toolbar">
@@ -87,34 +84,10 @@ export default function Work() {
         </div>
         <div className="case-studies-grid case-studies-detailed">
           {selected.map((study) => (
-            <CaseStudyCard key={study.id} study={study} detailed />
+            <CaseStudyCard key={study.id} study={study} />
           ))}
         </div>
-        <div className="public-projects">
-          <div>
-            <div className="section-kicker">A PUBLIC API PROJECT</div>
-            <h2>C.R.U.D Connect</h2>
-            <p>
-              A public example of API-backed application development with React,
-              Node.js and AWS. My enterprise work above covers the broader
-              architecture, customer delivery and support responsibilities.
-            </p>
-            <a
-              className="text-link"
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore the code and other experiments
-              <ArrowUpRight size={17} />
-            </a>
-          </div>
-          <div>
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </div>
+        <StandaloneProjects />
         <div className="collection-footer">
           <p>
             Looking for this mix of customer understanding and engineering

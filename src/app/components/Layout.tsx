@@ -84,6 +84,12 @@ export default function Layout() {
                 key={to}
                 to={to}
                 end={to === "/"}
+                className={({ isActive }) =>
+                  isActive ||
+                  (to === "/projects" && pathname.startsWith("/case-studies/"))
+                    ? "active"
+                    : undefined
+                }
                 onClick={() => setMenuOpen(false)}
               >
                 {label}
@@ -94,6 +100,10 @@ export default function Layout() {
               <Download size={16} />
             </a>
           </nav>
+          <a className="header-cv" href={profile.cv} download>
+            Download CV
+            <Download size={16} />
+          </a>
           <Link to="/contact" className="header-contact">
             Contact
             <ArrowUpRight size={17} />

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceFingerprint": "12d02a479d5eb1538df3b669b21d3202683ac0dbf0ac29e629f9a184612f6b1a",
+  "sourceFingerprint": "2ba1573607d062aa4f9b129f75392a9a0faef5f24a010e4e002027c5d1dd6357",
   "publicCvSha256": "af39757692f3b017bbb9e59d2270598049620d55a8081261dd9134b8cabe1468",
   "projectCount": 5,
   "diagramComponents": 37,
@@ -42,6 +42,78 @@
       "page": "https://bestdev.co.il/#/projects/workflow-lab",
       "live": "https://workflow.bestdev.co.il/",
       "repository": "https://github.com/Simonsbs/mcp-workflow-demo"
+    }
+  ],
+  "caseStudies": [
+    {
+      "id": "cloud-discovery-to-delivery",
+      "page": "https://bestdev.co.il/#/case-studies/cloud-discovery-to-delivery"
+    },
+    {
+      "id": "enterprise-document-ai",
+      "page": "https://bestdev.co.il/#/case-studies/enterprise-document-ai"
+    },
+    {
+      "id": "enterprise-service-support",
+      "page": "https://bestdev.co.il/#/case-studies/enterprise-service-support"
+    },
+    {
+      "id": "manufacturing-quality-data",
+      "page": "https://bestdev.co.il/#/case-studies/manufacturing-quality-data"
+    },
+    {
+      "id": "document-rag-prototype",
+      "page": "https://bestdev.co.il/#/case-studies/document-rag-prototype"
+    }
+  ],
+  "featuredArticles": [
+    {
+      "id": 32,
+      "page": "https://bestdev.co.il/#/blog/32/webhook-retries-without-duplicate-effects",
+      "content": "/blogs/webhook-retries-without-duplicate-effects.html",
+      "sha256": "3138d59294331cdf8b239f9310adbb1e0bad8e201722ebe1616d7f88d5328206"
+    },
+    {
+      "id": 33,
+      "page": "https://bestdev.co.il/#/blog/33/evaluate-retrieval-before-generated-answers",
+      "content": "/blogs/evaluate-retrieval-before-generated-answers.html",
+      "sha256": "d4320fa5c6a83a309fce16954b755d361889c19db5cbc85e721f02cffc09cd79"
+    },
+    {
+      "id": 34,
+      "page": "https://bestdev.co.il/#/blog/34/when-a-constraint-changes-the-architecture",
+      "content": "/blogs/when-a-constraint-changes-the-architecture.html",
+      "sha256": "f4dc72bab7df61e4928d35e3c4961c59f5bd7b17dd871b1ecb350145a330b7b9"
+    }
+  ],
+  "media": [
+    {
+      "path": "/images/projects/knowledge-lab.webp",
+      "sha256": "9d879be3666b7667b82443a9c07b540c46c2fa1b4e55376619d74802715b66e6"
+    },
+    {
+      "path": "/images/projects/integration-lab.webp",
+      "sha256": "3c61a140e16640f6e818409163101e51ad21274a7548d537f3ed6c5bfc1cee9a"
+    },
+    {
+      "path": "/media/integration-lab-walkthrough.mp4",
+      "sha256": "2810570bbd1d4d1b025abc8b818b2e423003c72f54b726754ab2446fc6d30f39"
+    },
+    {
+      "path": "/media/integration-lab-walkthrough.vtt",
+      "sha256": "5b705578fe9594f0b6d548ca92e818d7d3d199f4d8c3ab0eb685efdf8bc188a9"
+    },
+    {
+      "path": "/images/projects/presales-workbench.webp",
+      "sha256": "ca5b49e99c900e68179f5b9c90d278455b034618056b5389e8a8bfca0463e0aa"
+    },
+    {
+      "path": "/images/projects/traceability-lab.webp",
+      "sha256": "870a81bdd34bf0898476c46c785011249c63d95822d7a84c76a47e96c9c25fb3"
+    },
+    {
+      "path": "/images/projects/workflow-lab.webp",
+      "sha256": "7f6c85a714ecbd199367972dbff0831c6886b49f39f7867150be79188badd133"
     }
   ]
 }

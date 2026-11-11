@@ -97,6 +97,13 @@ async function scan(dir) {
   }
 }
 await scan("src/app");
+const articleSources = JSON.parse(
+  await readFile("public/blogs/blogs.json", "utf8"),
+);
+paths.push(
+  "public/blogs/blogs.json",
+  ...articleSources.map((article) => "public/blogs/" + article.content),
+);
 const hashes = {};
 for (const path of paths)
   hashes[path] = createHash("sha256")
@@ -105,6 +112,27 @@ for (const path of paths)
 const sourceFingerprint = createHash("sha256")
   .update(JSON.stringify(hashes))
   .digest("hex");
+const mediaPaths = [
+  ...new Set(
+    data.flatMap((project) => [
+      project.screenshot.src,
+      ...(project.walkthrough
+        ? [project.walkthrough.video, project.walkthrough.captions]
+        : []),
+    ]),
+  ),
+];
+const media = await Promise.all(
+  mediaPaths.map(async (url) => ({
+    path: url,
+    sha256: createHash("sha256")
+      .update(await readFile("public" + url))
+      .digest("hex"),
+  })),
+);
+const cases = JSON.parse(
+  await readFile("src/app/data/case-studies.json", "utf8"),
+);
 const manifest = {
   schemaVersion: 1,
   sourceFingerprint,
@@ -127,6 +155,19 @@ const manifest = {
     live: p.live,
     repository: p.repository,
   })),
+  caseStudies: cases.map((study) => ({
+    id: study.id,
+    page: `https://bestdev.co.il/#/case-studies/${study.id}`,
+  })),
+  featuredArticles: articleSources
+    .filter((article) => [32, 33, 34].includes(article.id))
+    .map((article) => ({
+      id: article.id,
+      page: `https://bestdev.co.il/#/blog/${article.id}/${article.slug}`,
+      content: `/blogs/${article.content}`,
+      sha256: hashes[`public/blogs/${article.content}`],
+    })),
+  media,
 };
 await writeFile(
   "public/showcase.json",

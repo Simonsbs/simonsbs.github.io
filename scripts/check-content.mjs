@@ -11,6 +11,8 @@ const index = await readJson("src/app/data/articles.json");
 const projects = await readJson("src/app/data/projects.json");
 const certificates = await readJson("src/app/data/certificates.json");
 const caseStudies = await readJson("src/app/data/case-studies.json");
+const caseDetails = await readJson("src/app/data/case-study-details.json");
+const standalone = await readJson("src/app/data/standalone-projects.json");
 const development = await readJson(
   "src/app/data/professional-development.json",
 );
@@ -112,12 +114,61 @@ for (const study of caseStudies) {
     study.contribution && study.outcome && study.role,
     "Case studies must explain personal contribution, role and delivery result.",
   );
+  const detail = caseDetails[study.id];
+  assert.ok(detail?.problem && detail.scope, `Missing case page: ${study.id}`);
+  assert.ok(
+    detail.constraints.length &&
+      detail.architecture.length &&
+      detail.decisions.length,
+    `Incomplete case page: ${study.id}`,
+  );
+  assert.ok(
+    standalone.some((project) => project.id === detail.relatedProject),
+    `Missing related project: ${study.id}`,
+  );
 }
 assert.deepEqual(
-  projects.filter((project) => project.featured).map((project) => project.id),
-  [2],
-  "Only the relevant public API project should remain featured.",
+  Object.keys(caseDetails).sort(),
+  caseStudies.map((study) => study.id).sort(),
+  "Every delivery case must have exactly one detail page.",
 );
+for (const project of projects) {
+  if (project.archiveReason)
+    assert.equal(
+      project.featured,
+      false,
+      "Archived projects must not expose a featured live link.",
+    );
+}
+for (const project of standalone) {
+  assert.ok(
+    project.screenshot?.alt && project.screenshot.src,
+    `Missing application preview: ${project.id}`,
+  );
+  localAssets.push(project.screenshot.src);
+  if (project.walkthrough) {
+    const { video, captions, poster, transcript } = project.walkthrough;
+    localAssets.push(video, captions, poster);
+    const bytes = await readFile(path.join(root, "public", video));
+    assert.equal(
+      bytes.toString("ascii", 4, 8),
+      "ftyp",
+      "Walkthrough must be an actual MP4.",
+    );
+    const vtt = await readFile(path.join(root, "public", captions), "utf8");
+    assert.ok(vtt.startsWith("WEBVTT\n"), "Captions must be valid WebVTT.");
+    assert.equal(
+      [...vtt.matchAll(/-->/g)].length,
+      transcript.length,
+      "Every narrated scene needs captions.",
+    );
+    for (const scene of transcript)
+      assert.ok(
+        vtt.includes(scene.text),
+        "The visible transcript and captions must match.",
+      );
+  }
+}
 for (const asset of new Set(localAssets)) {
   const relative = asset.replace(/^\.?\//, "");
   const absolute = path.resolve(root, "public", relative);

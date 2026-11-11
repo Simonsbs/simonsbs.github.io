@@ -78,16 +78,19 @@ export default function Home() {
             <span>architect.</span>
           </h1>
           <p className="hero-description">
-            I help enterprise customers understand their requirements, evaluate
-            technical options and implement the right solution. My work spans
-            pre-sales discovery and demonstrations through solution
-            architecture, implementation, onboarding and post-sales support.
+            I turn enterprise requirements into solutions customers can
+            evaluate, implement and support. My work includes cloud
+            modernisation, production document AI and enterprise integration.
           </p>
           <div className="hero-actions">
-            <Link to="/resume" className="button button-primary">
-              My experience
+            <Link to="/work" className="button button-primary">
+              View selected work
               <ArrowDownRight size={20} />
             </Link>
+            <a href={profile.cv} download className="button button-secondary">
+              Download CV
+              <Download size={17} />
+            </a>
             <Link to="/contact" className="button button-text">
               Discuss a role
               <ArrowUpRight size={19} />
@@ -146,33 +149,72 @@ export default function Home() {
           <div className="experience-pillar">
             <Layers3 size={24} />
             <span>
-              Customer discovery.
+              Production document AI.
               <br />
-              <strong>Proposals & demonstrations.</strong>
+              <strong>.NET, APIs & LLM integration.</strong>
             </span>
           </div>
           <div className="experience-pillar">
             <Code2 size={24} />
             <span>
-              Enterprise solution design.
+              Cloud & manufacturing data.
               <br />
-              <strong>Cloud, integration & AI.</strong>
+              <strong>Architecture into production.</strong>
             </span>
           </div>
           <div className="experience-pillar">
             <Users size={24} />
             <span>
-              Post-sales involvement.
+              Customer delivery.
               <br />
-              <strong>Implementation to support.</strong>
+              <strong>Discovery through support.</strong>
             </span>
           </div>
         </div>
       </div>
 
+      <section id="work" className="section work-section">
+        <div className="shell">
+          <SectionHeading
+            number="01"
+            eyebrow="CUSTOMER SOLUTIONS IN PRACTICE"
+            title={
+              <>
+                Enterprise problems.
+                <br />
+                Customer delivery.
+              </>
+            }
+            link={{ to: "/projects", label: "Explore projects & case studies" }}
+          >
+            Examples from my work in architecture and delivery. Customer details
+            are anonymised; each example states its delivery stage.
+          </SectionHeading>
+          <div className="case-studies-grid">
+            {caseStudies.slice(0, 3).map((study) => (
+              <CaseStudyCard key={study.id} study={study} />
+            ))}
+          </div>
+          <StandaloneProjects featured />
+          <a
+            className="github-note"
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github size={19} />
+            <span>
+              Public code and technical experiments.{" "}
+              <strong>Explore my GitHub.</strong>
+            </span>
+            <ArrowUpRight size={18} />
+          </a>
+        </div>
+      </section>
+
       <section id="expertise" className="section shell">
         <SectionHeading
-          number="01"
+          number="02"
           eyebrow="WHAT I BRING"
           title={
             <>
@@ -182,8 +224,7 @@ export default function Home() {
             </>
           }
         >
-          Customer discovery, enterprise solution design and technical support
-          across the customer lifecycle.
+          How I support customers and delivery teams.
         </SectionHeading>
         <div className="expertise-grid">
           {expertise.map((item) => {
@@ -204,45 +245,6 @@ export default function Home() {
               </article>
             );
           })}
-        </div>
-      </section>
-
-      <section id="work" className="section work-section">
-        <div className="shell">
-          <SectionHeading
-            number="02"
-            eyebrow="CUSTOMER SOLUTIONS IN PRACTICE"
-            title={
-              <>
-                Enterprise problems.
-                <br />
-                Customer delivery.
-              </>
-            }
-            link={{ to: "/projects", label: "Explore projects & case studies" }}
-          >
-            Examples from my work in architecture and delivery. Customer details
-            are anonymised; each example states its delivery stage.
-          </SectionHeading>
-          <div className="case-studies-grid">
-            {caseStudies.slice(0, 3).map((study) => (
-              <CaseStudyCard key={study.id} study={study} />
-            ))}
-          </div>
-          <StandaloneProjects />
-          <a
-            className="github-note"
-            href={profile.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github size={19} />
-            <span>
-              Public code and technical experiments.{" "}
-              <strong>Explore my GitHub.</strong>
-            </span>
-            <ArrowUpRight size={18} />
-          </a>
         </div>
       </section>
 
@@ -276,18 +278,11 @@ export default function Home() {
             <span>Customer focus.</span>
           </h2>
           <p className="about-lead">
-            I work with business stakeholders and technical teams to turn
-            enterprise requirements into practical solutions.
+            I work with business stakeholders and engineering teams, from the
+            first technical assessment through production delivery and support.
           </p>
           <p>
-            I assess applications, data flows and integration dependencies,
-            compare alternatives, and explain the trade-offs through proposals
-            and demonstrations. I stay involved through implementation, customer
-            onboarding, technical troubleshooting and ongoing support.
-          </p>
-          <p>
-            My experience includes production document AI, cloud modernisation,
-            manufacturing-data integration and .NET systems. I also deliver
+            Alongside architecture and hands-on development, I deliver customer
             workshops and practical training for technical and business
             audiences.
           </p>
@@ -320,10 +315,6 @@ export default function Home() {
             <br />
             <span>& support.</span>
           </h2>
-          <p>
-            Customer assessments, technical proposals, enterprise architecture,
-            integration, onboarding and production support.
-          </p>
           <a href={profile.cv} className="text-link" download>
             The full story, in my CV
             <ArrowDown size={17} />
@@ -387,12 +378,12 @@ export default function Home() {
           }
           link={{ to: "/blog/", label: "Visit the journal" }}
         >
-          Selected writing on implementation, integration and applying
-          technology to business needs.
+          Recent engineering notes from the public projects, with implementation
+          details and evidence you can inspect.
         </SectionHeading>
         <div className="articles-grid">
           {articles
-            .filter((article) => [8, 9, 24].includes(article.id))
+            .filter((article) => [32, 33, 34].includes(article.id))
             .map((article) => (
               <ArticleCard key={article.id} article={article} compact />
             ))}

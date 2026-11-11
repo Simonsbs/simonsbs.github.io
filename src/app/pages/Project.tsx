@@ -116,6 +116,9 @@ export default function Project() {
         </div>
         <nav className="project-jump" aria-label="Project page sections">
           {[
+            ...(project.walkthrough
+              ? [["walkthrough", "Watch walkthrough"]]
+              : []),
             ["capabilities", "What it does"],
             ["architecture", "Architecture board"],
             ["how-to-use", "How to use it"],
@@ -128,6 +131,73 @@ export default function Project() {
           ))}
         </nav>
       </section>
+      {!project.walkthrough && (
+        <section
+          className="shell project-preview"
+          aria-label={`${project.name} application preview`}
+        >
+          <figure>
+            <img
+              src={project.screenshot.src}
+              alt={project.screenshot.alt}
+              width="1200"
+              height="800"
+              loading="lazy"
+            />
+            <figcaption>
+              The public application with synthetic example data.
+            </figcaption>
+          </figure>
+        </section>
+      )}
+      {project.walkthrough && (
+        <section
+          className="shell project-video"
+          id="walkthrough"
+          tabIndex={-1}
+          aria-labelledby="walkthrough-title"
+        >
+          <div className="project-section-heading">
+            <div>
+              <div className="section-kicker">WATCH THE APPLICATION</div>
+              <h2 id="walkthrough-title">From failed delivery to recovery.</h2>
+            </div>
+            <p>
+              {project.walkthrough.duration}. Real application screenshots,
+              synthetic narration, English captions and a full transcript.
+            </p>
+          </div>
+          <video
+            aria-label={`${project.name} narrated walkthrough`}
+            controls
+            playsInline
+            preload="none"
+            poster={project.walkthrough.poster}
+            width="1280"
+            height="960"
+          >
+            <source src={project.walkthrough.video} type="video/mp4" />
+            <track
+              kind="captions"
+              src={project.walkthrough.captions}
+              srcLang="en"
+              label="English"
+            />
+            Your browser cannot play this video.{" "}
+            <a href={project.walkthrough.video}>Download the walkthrough</a> or
+            read the transcript below.
+          </video>
+          <details className="walkthrough-transcript">
+            <summary>Read the walkthrough transcript</summary>
+            {project.walkthrough.transcript.map((scene) => (
+              <div key={scene.title}>
+                <h3>{scene.title}</h3>
+                <p>{scene.text}</p>
+              </div>
+            ))}
+          </details>
+        </section>
+      )}
       <section
         id="capabilities"
         tabIndex={-1}

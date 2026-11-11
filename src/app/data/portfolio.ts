@@ -73,7 +73,7 @@ export const expertise = [
     icon: "architecture",
     title: "Pre-sales & solution consulting",
     description:
-      "Lead customer discovery, explain architecture options and build demonstrations. Turn requirements into technical proposals, realistic estimates and a clear handover into delivery.",
+      "Lead discovery, compare architecture options and demonstrate the proposed solution. Prepare technical proposals, estimates and the handover into delivery.",
     tags: ["Discovery & qualification", "Demos & PoCs", "Technical proposals"],
   },
   {
@@ -81,7 +81,7 @@ export const expertise = [
     icon: "engineering",
     title: "Enterprise solution architecture",
     description:
-      "Assess applications, data flows and integration dependencies. Translate business requirements into cloud and enterprise solution designs, with clear trade-offs, technical documentation and phased implementation plans.",
+      "Assess applications, data flows and integration dependencies. Design cloud and enterprise solutions with documented trade-offs and phased implementation plans.",
     tags: [
       "Application & integration design",
       "Cloud architecture",
@@ -93,7 +93,7 @@ export const expertise = [
     icon: "leadership",
     title: "Post-sales & implementation",
     description:
-      "Support customers through implementation, integration, onboarding and ongoing use. Investigate technical issues, coordinate fixes and controlled releases, and help teams keep production systems reliable.",
+      "Guide implementation and onboarding, investigate production issues, and coordinate fixes and controlled releases across development and support teams.",
     tags: [
       "Implementation & integration",
       "Onboarding & support",
@@ -105,7 +105,7 @@ export const expertise = [
     icon: "mentoring",
     title: "Customer enablement & adoption",
     description:
-      "Explain complex technical choices to business and engineering audiences. Deliver demonstrations, customer workshops and practical training, and guide teams through working prototypes and solution adoption.",
+      "Run customer workshops, demonstrations and practical training. Help business and engineering audiences understand technical choices and adopt the solution.",
     tags: ["Customer workshops", "Technical training", "Developer mentoring"],
   },
 ] as const;
@@ -117,21 +117,21 @@ export const experience = [
     role: "Lead solution architect",
     background: "Additional roles: CTO and co-owner.",
     description:
-      "Work directly with enterprise customers from discovery and technical evaluation through proposals, architecture, implementation and production support. Develop demonstrations and integration designs, coordinate delivery teams and resolve technical issues after deployment.",
+      "Lead enterprise customer engagements from discovery through proposals, architecture and production support. Coordinate delivery teams, demonstrate options and resolve technical issues after deployment.",
   },
   {
     period: "2017 to present",
     company: "Brama Technological Lab",
     role: "Lead IT architect, head of R&D, sales & support",
     description:
-      "Combine infrastructure and secure-systems architecture with R&D, customer assessment, supplier evaluation, technical sales and support. Deliver prototypes, product evaluations and tailored technology solutions.",
+      "Combine infrastructure and secure-systems architecture with R&D, customer assessments and supplier evaluation. Deliver prototypes, product evaluations, technical sales and ongoing support.",
   },
   {
     period: "2010 to present",
     company: "Educational institutes, HackerU & independent teaching",
     role: "Technology lecturer & technical trainer",
     description:
-      "Teach developers, students and enterprise teams across software development, databases, cloud, APIs and architecture. Develop curricula, practical exercises and technical training materials, and mentor learners through implementation.",
+      "Teach software development, databases, cloud, APIs and architecture. Build curricula and practical exercises for students and enterprise teams, and mentor learners through implementation.",
   },
   {
     period: "2004 to 2005",

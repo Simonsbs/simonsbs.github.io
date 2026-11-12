@@ -1,3 +1,10 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://bestdev.co.il/sitemap.xml
+Sitemap: https://knowledge.bestdev.co.il/sitemap.xml
+Sitemap: https://integration.bestdev.co.il/sitemap.xml
+Sitemap: https://presales.bestdev.co.il/sitemap.xml
+Sitemap: https://traceability.bestdev.co.il/sitemap.xml
+Sitemap: https://workflow.bestdev.co.il/sitemap.xml
+Sitemap: https://signalweave.bestdev.co.il/sitemap.xml

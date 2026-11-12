@@ -1,5 +1,5 @@
-import{m as e}from"./index-06uP15KV.js";import{C as t,_ as n,a as r}from"./UI-D32DbZNg.js";var i=`<h1 class="mb-4">Privacy Policy</h1>
-<p><strong>Last Updated:</strong> 01/08/2023</p>
+import{m as e}from"./index-CawzpRRI.js";import{E as t,a as n,b as r}from"./UI-Bo3WByDi.js";var i=`<h1 class="mb-4">Privacy Policy</h1>
+<p><strong>Last Updated:</strong> 12 November 2026</p>
 <p>
   <strong>1. Introduction</strong>
 </p>
@@ -53,8 +53,14 @@ import{m as e}from"./index-06uP15KV.js";import{C as t,_ as n,a as r}from"./UI-D3
   <strong>7. Cookies and Trackers</strong>
 </p>
 <p>
-  We use cookies for activity tracking and advertisements. This may change in
-  the future.
+  The portfolio uses Google Analytics only after you choose Allow analytics.
+  It measures page visits, CV downloads, demo links and successful contact-form
+  submissions. Analytics event parameters do not include your contact-form
+  name, email address, subject or message. Advertising storage, advertising
+  personalisation and Google signals are disabled in this implementation.
+  Your analytics choice is saved in this browser. You can allow or reject
+  analytics using Analytics settings in the footer. Rejecting analytics stops
+  this site's Analytics events and clears its Analytics cookies.
 </p>
 
 <p>
@@ -105,7 +111,12 @@ import{m as e}from"./index-06uP15KV.js";import{C as t,_ as n,a as r}from"./UI-D3
 <p>
   <strong>14. Consent</strong>
 </p>
-<p>Users provide consent for data collection via a checkbox during signup.</p>
+<p>
+  Analytics is optional. The Google Analytics tag is not loaded until you allow
+  analytics. Contact-form details are sent when you submit that form, separately
+  from the optional analytics choice. You can continue using the portfolio when
+  analytics is rejected.
+</p>
 `,a=`<h1 class="mb-4">Terms and Policy</h1>
 
 <p>
@@ -199,5 +210,5 @@ import{m as e}from"./index-06uP15KV.js";import{C as t,_ as n,a as r}from"./UI-D3
   For any concerns or queries related to these terms, contact us at
   info@bestdev.co.il.
 </p>
-`,o=n();function s({kind:n}){return(0,o.jsxs)(`section`,{className:`shell legal-section`,children:[(0,o.jsx)(r,{title:n===`privacy`?`Privacy policy`:`Terms of usage`,description:`The existing ${n===`privacy`?`privacy policy`:`terms of usage`} for bestdev.co.il.`}),(0,o.jsxs)(t,{className:`text-link`,to:`/`,children:[(0,o.jsx)(e,{size:16}),`Back to the overview`]}),(0,o.jsx)(`div`,{className:`prose legal-prose`,dangerouslySetInnerHTML:{__html:n===`privacy`?i:a}})]})}export{s as default};
-//# sourceMappingURL=Legal-BKh4MtA5.js.map
+`,o=r();function s({kind:r}){return(0,o.jsxs)(`section`,{className:`shell legal-section`,children:[(0,o.jsx)(n,{title:r===`privacy`?`Privacy policy`:`Terms of usage`,description:`The existing ${r===`privacy`?`privacy policy`:`terms of usage`} for bestdev.co.il.`}),(0,o.jsxs)(t,{className:`text-link`,to:`/`,children:[(0,o.jsx)(e,{size:16}),`Back to the overview`]}),(0,o.jsx)(`div`,{className:`prose legal-prose`,dangerouslySetInnerHTML:{__html:r===`privacy`?i:a}})]})}export{s as default};
+//# sourceMappingURL=Legal-BbPKmNqL.js.map

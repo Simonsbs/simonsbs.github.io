@@ -28,4 +28,12 @@ Browser checks cover the restored landing, privacy, data-safety, support and ter
 
 A hydration warning during a local Projects reload was traced to Vite preview serving the homepage for `/projects` without a trailing slash. `/projects/` serves the correct pre-rendered document; the existing live GitHub Pages host redirects `/projects` to `/projects/` and does not show this warning. Development diagnostics are retained under ignored `artifacts/mobile-apps/`.
 
-Publication results are recorded below after deployment.
+## Published verification
+
+- Application source: `afad9577cebac841e399c3ecd0121985cf68d632` on `main`.
+- Windows and Linux builds and dependency audits passed in [validation run 43203264002](https://github.com/Simonsbs/simonsbs.github.io/actions/runs/43203264002).
+- GitHub Pages artifact: `13c3769169b27175af0847a3a2b95ac3d65bedcd`. Its [deployment](https://github.com/Simonsbs/simonsbs.github.io/actions/runs/43203480177) succeeded.
+- All five public app pages and all six assets return HTTP 200 and match the validated build exactly. The public catalogue, homepage and Projects collection expose the app links, and the live sitemap matches all 66 expected URLs.
+- Public browser checks confirm the catalogue-to-app link, original landing-page image, privacy policy, return link, and Apps navigation at 320px without horizontal overflow. The app page contains structured data and no executable scripts.
+
+Machine-readable evidence is retained under ignored `artifacts/mobile-apps/`: `recovered-files.json`, `browser-local.json`, `browser-live.json` and `live.json`.

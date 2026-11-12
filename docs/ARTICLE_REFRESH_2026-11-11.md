@@ -29,3 +29,11 @@ Verification before publication:
 - All six cited project README/contract files match the current published `main` versions.
 - Browser checks against the production preview loaded all four full article bodies with one page title each and no horizontal overflow. Screenshots confirmed readable headers and body text at the default desktop viewport.
 - Journal search found the handover article; the Data quality filter found the correction article. The homepage showed articles 38, 37 and 36. No browser console errors were observed.
+
+## Publication verification, 12 November 2026
+
+The pending Pages release completed after GitHub's outage. The live journal shows 38 articles, with all four additions first. `npm run verify:live` passed all 11 checks, including the exact source fingerprint, every article's content hash, application assets, CV, project destinations and media.
+
+The full-journal check initially exposed a verifier decoding issue: all 31 historical HTML files contain UTF-8 byte order marks. Fetch's text decoder removes those marks, whereas the build's filesystem decoder retains them. The verifier now reads the response bytes through Buffer so both checks hash the same content. The deployed bytes matched the local source; no historical article needed changing.
+
+Published artifact commit: `85274981ac4cfbc9b0b2e5ab1333cb3ec686ec57`. Verified source fingerprint: `c019551065a673ea67249ee608093510b2c82d14415e34f8de42e9da6b31dc52`. The verifier-only fix requires no site redeployment.

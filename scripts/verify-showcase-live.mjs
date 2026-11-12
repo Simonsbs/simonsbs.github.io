@@ -54,7 +54,10 @@ results.push(
   "Exact application screenshots, narrated MP4 and English captions",
 );
 for (const article of manifest.articles) {
-  const html = await (await get(origin + article.content)).text();
+  // Buffer decoding retains legacy UTF-8 BOMs, matching readFile in the build check.
+  const html = Buffer.from(
+    await (await get(origin + article.content)).arrayBuffer(),
+  ).toString("utf8");
   assert.equal(
     createHash("sha256").update(html.replace(/\r\n/g, "\n")).digest("hex"),
     article.sha256,

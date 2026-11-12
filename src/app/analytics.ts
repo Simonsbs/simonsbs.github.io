@@ -176,7 +176,9 @@ export function setAnalyticsConsent(granted: boolean, persist = true) {
   if (!configured) {
     configured = true;
     target.dataLayer = target.dataLayer || [];
-    target.gtag = (...args) => target.dataLayer!.push(args);
+    target.gtag = function () {
+      target.dataLayer!.push(arguments);
+    };
     queue("consent", "default", {
       analytics_storage: "denied",
       ad_storage: "denied",

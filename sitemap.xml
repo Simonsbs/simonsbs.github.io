@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bestdev.co.il/</loc></url>
   <url><loc>https://bestdev.co.il/projects/</loc></url>
+  <url><loc>https://bestdev.co.il/apps/</loc></url>
   <url><loc>https://bestdev.co.il/blog/</loc></url>
   <url><loc>https://bestdev.co.il/certificates/</loc></url>
   <url><loc>https://bestdev.co.il/privacy/</loc></url>
@@ -60,4 +61,9 @@
   <url><loc>https://bestdev.co.il/blog/page/5/</loc></url>
   <url><loc>https://bestdev.co.il/blog/page/6/</loc></url>
   <url><loc>https://bestdev.co.il/blog/page/7/</loc></url>
+  <url><loc>https://bestdev.co.il/apps/math-for-maya/</loc></url>
+  <url><loc>https://bestdev.co.il/apps/math-for-maya/privacy/</loc></url>
+  <url><loc>https://bestdev.co.il/apps/math-for-maya/data-safety/</loc></url>
+  <url><loc>https://bestdev.co.il/apps/math-for-maya/support/</loc></url>
+  <url><loc>https://bestdev.co.il/apps/math-for-maya/terms/</loc></url>
 </urlset>

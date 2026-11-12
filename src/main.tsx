@@ -6,6 +6,7 @@ import App from "./app/App";
 import "./app/site.css";
 import "./app/projects.css";
 import "./app/refresh.css";
+import "./app/analytics.css";
 
 // Existing shared fragment links keep working after the move to real URLs.
 const legacyRoute = window.location.hash.startsWith("#/");

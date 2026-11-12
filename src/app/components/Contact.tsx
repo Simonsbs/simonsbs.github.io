@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
 import { profile } from "../data/portfolio";
+import { trackEvent } from "../analytics";
 
 type Recaptcha = {
   ready: (callback: () => void) => void;
@@ -96,6 +97,7 @@ export default function Contact() {
       );
       form.reset();
       setStatus("success");
+      trackEvent("generate_lead", { method: "contact_form" });
     } catch {
       setStatus("error");
     }

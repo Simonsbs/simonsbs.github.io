@@ -3,6 +3,7 @@ import { ArrowUp, ArrowUpRight, Download, Menu, X } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { profile } from "../data/portfolio";
+import AnalyticsConsent from "./AnalyticsConsent";
 
 const navigation = [
   { to: "/", label: "Overview" },
@@ -182,6 +183,7 @@ export default function Layout() {
             <Link to="/certificates">Certificates</Link>
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>
+            <AnalyticsConsent />
           </div>
           <span>Built with care, in Israel.</span>
         </div>

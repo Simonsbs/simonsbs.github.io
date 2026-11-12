@@ -9,6 +9,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { canonicalPath, MetadataCollector, siteOrigin } from "../seo";
 import type { ReactNode } from "react";
+import { recordPage } from "../analytics";
 import { articlePath, formatDate } from "../data/portfolio";
 import type { Article, Project } from "../data/portfolio";
 
@@ -21,7 +22,7 @@ export function PageMeta({
   description: string;
   noindex?: boolean;
 }) {
-  const { pathname } = useLocation();
+  const { pathname, search, key } = useLocation();
   const collect = useContext(MetadataCollector);
   collect?.({ title, description, noindex });
   useEffect(() => {
@@ -48,7 +49,8 @@ export function PageMeta({
         "content",
         noindex ? "noindex,follow" : "index,follow,max-image-preview:large",
       );
-  }, [title, description, pathname, noindex]);
+    recordPage({ key, title: document.title, path: pathname + search });
+  }, [title, description, pathname, search, key, noindex]);
   return null;
 }
 

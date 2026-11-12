@@ -15,7 +15,8 @@
     "build": "npm run check && vite build && node scripts/prerender.mjs && node scripts/check-build.mjs && node scripts/check-seo.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "precheck": "node scripts/content.mjs",
-    "check": "tsc --noEmit && node scripts/check-content.mjs && node scripts/check-projects.mjs",
+    "check": "tsc --noEmit && node scripts/check-content.mjs && node scripts/check-projects.mjs && npm run test:analytics",
+    "test:analytics": "node --experimental-strip-types --test scripts/analytics.test.mjs",
     "verify:live": "node scripts/verify-showcase-live.mjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d dist --nojekyll --dotfiles"

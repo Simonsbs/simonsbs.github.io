@@ -8,3 +8,4 @@ Sitemap: https://presales.bestdev.co.il/sitemap.xml
 Sitemap: https://traceability.bestdev.co.il/sitemap.xml
 Sitemap: https://workflow.bestdev.co.il/sitemap.xml
 Sitemap: https://signalweave.bestdev.co.il/sitemap.xml
+Sitemap: https://keylore.bestdev.co.il/sitemap.xml

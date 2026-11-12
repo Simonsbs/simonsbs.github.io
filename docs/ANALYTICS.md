@@ -16,7 +16,7 @@ This integration measures the portfolio and clicks through to its demos. It does
 
 ## Page views and events
 
-`PageMeta` records one manual `page_view` after updating the title. Its route key prevents repeated effects from double-counting, and previous-page URLs are carried as referrers. Returning through browser history creates the appropriate new view. The tag's automatic initial view is disabled with `send_page_view: false`. In the web stream, automatic browser-history page views are also disabled. Do not enable them without removing the manual integration.
+`PageMeta` records one manual `page_view` after updating the title. Its route key prevents repeated effects from double-counting, and previous-page URLs are carried as referrers. Search/filter query changes and trailing-slash changes on the same route do not add views. Returning through browser history from a different page creates the appropriate new view. The tag uses Google's required `arguments` command queue format. Its automatic initial view is disabled with `send_page_view: false`. In the web stream, automatic browser-history page views are also disabled. Do not enable them without removing the manual integration.
 
 Enhanced measurement keeps scrolls, outbound clicks, video engagement and file downloads enabled. Automatic site-search and form-interaction collection are disabled. Google-side redaction covers email addresses and 12 query parameter keys: `email`, `name`, `phone`, `message`, `subject`, `token`, `access_token`, `code`, `password`, `q`, `search` and `analytics_debug`.
 

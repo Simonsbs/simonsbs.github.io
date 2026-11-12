@@ -21,6 +21,7 @@ let enabled = false;
 let configured = false;
 let currentPage: Page | undefined;
 let lastNavigation: string | undefined;
+let lastRoute: string | undefined;
 let previousLocation: string | undefined;
 
 function browser() {
@@ -81,6 +82,11 @@ function sendCurrentPage() {
     new URL(currentPage.path, target.location.origin).href,
     true,
   );
+  const route = new URL(location).pathname.replace(/\/+$/, "") || "/";
+  if (route === lastRoute) {
+    lastNavigation = currentPage.key;
+    return;
+  }
   const referrer = previousLocation ?? safeUrl(document.referrer);
   const fields = {
     page_title: currentPage.title,
@@ -93,6 +99,7 @@ function sendCurrentPage() {
     ...(debug() ? { debug_mode: true } : {}),
   });
   lastNavigation = currentPage.key;
+  lastRoute = route;
   previousLocation = location;
 }
 
@@ -169,6 +176,7 @@ export function setAnalyticsConsent(granted: boolean, persist = true) {
   target[`ga-disable-${measurementId}`] = !enabled;
   if (!enabled) {
     lastNavigation = undefined;
+    lastRoute = undefined;
     if (configured) queue("consent", "update", { analytics_storage: "denied" });
     clearAnalyticsCookies();
     return;

@@ -79,6 +79,11 @@ test("one initial view, one per route and correct title/referrer on back navigat
   const configuration = window.dataLayer.find(
     (command) => command[0] === "config",
   );
+  assert.equal(
+    Object.prototype.toString.call(configuration),
+    "[object Arguments]",
+    "Google's tag command queue requires the arguments object",
+  );
   assert.equal(configuration[2].send_page_view, false);
   assert.equal(configuration[2].allow_google_signals, false);
   assert.equal(configuration[2].allow_ad_personalization_signals, false);
@@ -92,6 +97,16 @@ test("one initial view, one per route and correct title/referrer on back navigat
     key: "projects",
     title: "Projects | Simon Stirling",
     path: "/projects/",
+  });
+  e.analytics.recordPage({
+    key: "filter-change",
+    title: "Projects | Simon Stirling",
+    path: "/projects/?q=private",
+  });
+  e.analytics.recordPage({
+    key: "trailing-slash",
+    title: "Projects | Simon Stirling",
+    path: "/projects",
   });
   e.analytics.recordPage(initial);
   const views = e.events("page_view");

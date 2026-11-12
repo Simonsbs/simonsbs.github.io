@@ -199,4 +199,4 @@ export const formatDate = (date: string) =>
   }).format(new Date(date));
 
 export const articlePath = (article: Article) =>
-  `/blog/${article.id}/${article.slug}`;
+  `/blog/${article.id}/${article.slug}/`;

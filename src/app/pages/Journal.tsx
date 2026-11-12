@@ -5,7 +5,12 @@ import {
   SlidersHorizontal,
   X,
 } from "lucide-react";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { articles } from "../data/portfolio";
 import { ArticleCard, EmptyState, Eyebrow, PageMeta } from "../components/UI";
 
@@ -46,18 +51,19 @@ export default function Journal() {
       { replace: true },
     );
   }
-  function paginate(value: number) {
-    navigate({
-      pathname: value === 1 ? "/blog/" : `/blog/page/${value}`,
-      search: params.toString() ? `?${params}` : "",
-    });
+  function pageHref(value: number) {
+    const page = Math.max(1, Math.min(totalPages, value));
+    return `${page === 1 ? "/blog/" : `/blog/page/${page}/`}${params.toString() ? `?${params}` : ""}`;
   }
 
   return (
     <>
       <PageMeta
-        title="The journal"
+        title={
+          currentPage > 1 ? `The journal, page ${currentPage}` : "The journal"
+        }
         description="Articles by Simon Stirling on pre-sales, solution architecture, applied AI, data quality and implementation support."
+        noindex={currentPage > Math.max(1, totalPages)}
       />
       <section className="page-intro shell">
         <Eyebrow>NOTES FROM THE INTERSECTION</Eyebrow>
@@ -151,35 +157,35 @@ export default function Journal() {
         )}
         {totalPages > 1 && (
           <nav className="pagination" aria-label="Journal pages">
-            <button
-              onClick={() => paginate(currentPage - 1)}
-              disabled={currentPage <= 1}
+            <Link
+              to={pageHref(currentPage - 1)}
+              aria-disabled={currentPage <= 1}
             >
               <ArrowLeft size={16} />
               <span>Previous</span>
-            </button>
+            </Link>
             <div>
               {Array.from({ length: totalPages }, (_, index) => index + 1).map(
                 (number) => (
-                  <button
+                  <Link
                     key={number}
                     className={number === currentPage ? "selected" : ""}
                     aria-current={number === currentPage ? "page" : undefined}
                     aria-label={`Page ${number}`}
-                    onClick={() => paginate(number)}
+                    to={pageHref(number)}
                   >
                     {number}
-                  </button>
+                  </Link>
                 ),
               )}
             </div>
-            <button
-              onClick={() => paginate(currentPage + 1)}
-              disabled={currentPage >= totalPages}
+            <Link
+              to={pageHref(currentPage + 1)}
+              aria-disabled={currentPage >= totalPages}
             >
               <span>Next</span>
               <ArrowRight size={16} />
-            </button>
+            </Link>
           </nav>
         )}
       </section>

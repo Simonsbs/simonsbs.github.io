@@ -12,7 +12,7 @@
     "dev": "vite --host 127.0.0.1",
     "prestart": "node scripts/content.mjs",
     "start": "vite --host 127.0.0.1",
-    "build": "npm run check && vite build && node scripts/check-build.mjs",
+    "build": "npm run check && vite build && node scripts/prerender.mjs && node scripts/check-build.mjs && node scripts/check-seo.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "precheck": "node scripts/content.mjs",
     "check": "tsc --noEmit && node scripts/check-content.mjs && node scripts/check-projects.mjs",

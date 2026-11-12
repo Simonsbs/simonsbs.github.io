@@ -139,7 +139,7 @@ const publishedArticles = JSON.parse(
   .sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id)
   .map((article) => ({
     id: article.id,
-    page: `https://bestdev.co.il/#/blog/${article.id}/${article.slug}`,
+    page: `https://bestdev.co.il/blog/${article.id}/${article.slug}/`,
     content: `/blogs/${article.content}`,
     sha256: hashes[`public/blogs/${article.content}`],
   }));
@@ -161,13 +161,13 @@ const manifest = {
   projects: data.map((p) => ({
     id: p.id,
     title: p.title,
-    page: `https://bestdev.co.il/#/projects/${p.id}`,
+    page: `https://bestdev.co.il/projects/${p.id}/`,
     live: p.live,
     repository: p.repository,
   })),
   caseStudies: cases.map((study) => ({
     id: study.id,
-    page: `https://bestdev.co.il/#/case-studies/${study.id}`,
+    page: `https://bestdev.co.il/case-studies/${study.id}/`,
   })),
   featuredArticles: publishedArticles.slice(0, 3),
   articles: publishedArticles,

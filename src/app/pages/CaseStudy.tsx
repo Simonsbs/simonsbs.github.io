@@ -16,6 +16,7 @@ export default function CaseStudy() {
         <PageMeta
           title="Case study not found"
           description="Explore professional delivery cases and independent engineering projects."
+          noindex
         />
         <h1>Case study not found.</h1>
         <Link className="button button-primary" to="/projects">

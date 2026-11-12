@@ -1663,7 +1663,7 @@
     display: flex;
     gap: 6px;
   }
-  .pagination button {
+  .pagination a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1677,11 +1677,11 @@
     font-size: 11px;
     color: #c3d0ba;
   }
-  .pagination button:hover:not(:disabled) {
+  .pagination a:hover:not([aria-disabled="true"]) {
     background: var(--surface-raised);
     border-color: #677c54;
   }
-  .pagination button.selected {
+  .pagination a.selected {
     background: var(--accent);
     color: var(--accent-dark);
   }
@@ -3098,13 +3098,13 @@
     .pagination > div {
       gap: 3px;
     }
-    .pagination button {
+    .pagination a {
       min-width: 27px;
       height: 30px;
       font-size: 10px;
       padding-inline: 8px;
     }
-    .pagination > button > span {
+    .pagination > a > span {
       display: none;
     }
     .empty-state {
@@ -3341,7 +3341,7 @@
       width: 28px;
       height: 28px;
     }
-    .pagination button {
+    .pagination a {
       min-width: 24px;
       padding-inline: 6px;
     }

@@ -75,7 +75,7 @@ export type StandaloneProject = {
   };
 };
 export const standaloneProjects = data as StandaloneProject[];
-export const projectPath = (id: string) => `/projects/${id}`;
+export const projectPath = (id: string) => `/projects/${id}/`;
 export function edgePath(edge: BoardEdge, nodes: BoardNode[]): string {
   const point = (id: string, port: Port) => {
     const n = nodes.find((node) => node.id === id)!;

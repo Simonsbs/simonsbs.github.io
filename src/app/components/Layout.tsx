@@ -28,7 +28,7 @@ export default function Layout() {
         "/contact",
         "/blogpreview",
         "/work",
-      ].includes(pathname)
+      ].includes(pathname.replace(/\/+$/, "") || "/")
     ) {
       window.scrollTo({ top: 0, behavior: "instant" });
     }

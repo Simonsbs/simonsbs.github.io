@@ -26,6 +26,7 @@ export default function Project() {
         <PageMeta
           title="Project not found"
           description="Explore Simon Stirling's five independent engineering demonstrators."
+          noindex
         />
         <h1>Project not found.</h1>
         <Link className="button button-primary" to="/projects">

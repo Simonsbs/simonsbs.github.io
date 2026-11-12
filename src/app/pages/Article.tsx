@@ -4,13 +4,44 @@ import {
   ArrowRight,
   ArrowUpRight,
   Clock3,
-  LoaderCircle,
   MessageSquare,
 } from "lucide-react";
 import { Linkedin } from "../components/BrandIcons";
 import { Link, useParams } from "react-router-dom";
 import { articlePath, articles, formatDate, profile } from "../data/portfolio";
 import { ArticleCard, CopyLink, PageMeta } from "../components/UI";
+import { siteOrigin } from "../seo";
+
+const articleFiles = import.meta.glob("/public/blogs/*.html", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+}) as Record<string, string>;
+
+function articleBody(html: string, title: string) {
+  let body = (html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] ?? html)
+    .replaceAll("https://bestdev.co.il/#/", "https://bestdev.co.il/")
+    .replace(/href=(["'])\/#\//g, "href=$1/");
+  body = body.replace(/^\uFEFF/, "");
+  const firstHeading = body.match(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/i);
+  if (
+    firstHeading &&
+    firstHeading[2]
+      .replace(/<[^>]*>/g, "")
+      .replace(/\s+/g, " ")
+      .trim() === title
+  )
+    body = body.replace(firstHeading[0], "");
+  const levels = [...body.matchAll(/<h([1-6])\b/gi)].map((match) =>
+    Number(match[1]),
+  );
+  const firstLevel = Math.min(...levels);
+  return body.replace(
+    /<(\/?)(h)([1-6])\b/gi,
+    (_, closing, tag, level) =>
+      `<${closing}${tag}${Math.min(6, Number(level) - firstLevel + 2)}`,
+  );
+}
 
 function Comments({ term }: { term: string }) {
   const container = useRef<HTMLDivElement>(null);
@@ -34,65 +65,16 @@ function Comments({ term }: { term: string }) {
 export default function Article() {
   const { id } = useParams();
   const article = articles.find((item) => String(item.id) === id);
-  const [content, setContent] = useState("");
-  const [error, setError] = useState(false);
-  const [retry, setRetry] = useState(0);
-  const [loadedId, setLoadedId] = useState("");
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
     if (!article) return;
-    const controller = new AbortController();
-    setContent("");
-    setError(false);
-    setLoadedId("");
     setShowComments(false);
     setCopied(false);
     setCopyError(false);
-    fetch(`/blogs/${article.content}`, { signal: controller.signal })
-      .then((response) => {
-        if (!response.ok) throw new Error("Article not found");
-        return response.text();
-      })
-      .then((html) => {
-        const document = new DOMParser().parseFromString(html, "text/html");
-        const firstHeading = document.body.querySelector("h1, h2, h3");
-        if (
-          firstHeading &&
-          firstHeading.textContent?.replace(/\s+/g, " ").trim() === article.title
-        )
-          firstHeading.remove();
-        const headings = Array.from(
-          document.body.querySelectorAll("h1, h2, h3, h4, h5, h6"),
-        );
-        const firstLevel = Math.min(
-          ...headings.map((heading) => Number(heading.tagName.slice(1))),
-        );
-        headings.forEach((heading) => {
-          const level = Math.min(
-            6,
-            Number(heading.tagName.slice(1)) - firstLevel + 2,
-          );
-          const replacement = document.createElement(`h${level}`);
-          for (const attribute of heading.attributes)
-            replacement.setAttribute(attribute.name, attribute.value);
-          replacement.innerHTML = heading.innerHTML;
-          heading.replaceWith(replacement);
-        });
-        document.body.querySelectorAll("img").forEach((image) => {
-          image.loading = "lazy";
-        });
-        setContent(document.body.innerHTML);
-        setLoadedId(String(article.id));
-      })
-      .catch((reason: unknown) => {
-        if (!(reason instanceof DOMException && reason.name === "AbortError"))
-          setError(true);
-      });
-    return () => controller.abort();
-  }, [article, retry]);
+  }, [article]);
 
   if (!article)
     return (
@@ -100,6 +82,7 @@ export default function Article() {
         <PageMeta
           title="Article not found"
           description="Explore the journal for more articles on technology and leadership."
+          noindex
         />
         <span className="section-kicker">A MISSING PAGE IN THE NOTEBOOK</span>
         <h1>
@@ -182,29 +165,15 @@ export default function Article() {
           </p>
         </aside>
         <div className="article-body">
-          {error ? (
-            <div className="article-error" role="alert">
-              <h2>This article couldn’t load.</h2>
-              <p>Please try again. The journal is still available.</p>
-              <button
-                className="button button-secondary"
-                onClick={() => setRetry(retry + 1)}
-              >
-                Try again
-                <ArrowRight size={17} />
-              </button>
-            </div>
-          ) : loadedId === String(article.id) ? (
-            <article
-              className="prose"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
-          ) : (
-            <div className="article-loading" role="status">
-              <LoaderCircle className="spin" size={22} />
-              Loading the article...
-            </div>
-          )}
+          <article
+            className="prose"
+            dangerouslySetInnerHTML={{
+              __html: articleBody(
+                articleFiles[`/public/blogs/${article.content}`],
+                article.title,
+              ),
+            }}
+          />
           <div className="article-share">
             <div>
               <span>Worth sharing?</span>
@@ -214,7 +183,7 @@ export default function Article() {
               <CopyLink copied={copied} onClick={copyUrl} />
               <a
                 className="icon-button"
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(siteOrigin + articlePath(article))}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Share article on LinkedIn"

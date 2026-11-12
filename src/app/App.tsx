@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { HashRouter, Link, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -19,6 +19,7 @@ function NotFound() {
       <PageMeta
         title="Page not found"
         description="Find your way back to Simon Stirling’s portfolio."
+        noindex
       />
       <span className="section-kicker">404 / A small detour</span>
       <h1>
@@ -37,47 +38,53 @@ function NotFound() {
   );
 }
 
+export function AppRoutes() {
+  return (
+    <Suspense
+      fallback={
+        <div className="page-loading" role="status">
+          <span className="loading-dot" />
+          Loading the next page...
+        </div>
+      }
+    >
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          {[
+            "about",
+            "services",
+            "resume",
+            "contact",
+            "blogpreview",
+            "work",
+          ].map((section) => (
+            <Route key={section} path={section} element={<Home />} />
+          ))}
+          <Route path="projects" element={<Work />} />
+          <Route path="projects/:projectId" element={<Project />} />
+          <Route path="case-studies/:caseId" element={<CaseStudy />} />
+          <Route
+            path="labs/knowledge"
+            element={<Navigate to="/projects/knowledge-lab" replace />}
+          />
+          <Route path="blog" element={<Journal />} />
+          <Route path="blog/page/:pageNumber" element={<Journal />} />
+          <Route path="blog/:id/:slug" element={<Article />} />
+          <Route path="certificates" element={<Certificates />} />
+          <Route path="privacy" element={<Legal kind="privacy" />} />
+          <Route path="terms" element={<Legal kind="terms" />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </Suspense>
+  );
+}
+
 export default function App() {
   return (
-    <HashRouter>
-      <Suspense
-        fallback={
-          <div className="page-loading" role="status">
-            <span className="loading-dot" />
-            Loading the next page...
-          </div>
-        }
-      >
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            {[
-              "about",
-              "services",
-              "resume",
-              "contact",
-              "blogpreview",
-              "work",
-            ].map((section) => (
-              <Route key={section} path={section} element={<Home />} />
-            ))}
-            <Route path="projects" element={<Work />} />
-            <Route path="projects/:projectId" element={<Project />} />
-            <Route path="case-studies/:caseId" element={<CaseStudy />} />
-            <Route
-              path="labs/knowledge"
-              element={<Navigate to="/projects/knowledge-lab" replace />}
-            />
-            <Route path="blog" element={<Journal />} />
-            <Route path="blog/page/:pageNumber" element={<Journal />} />
-            <Route path="blog/:id/:slug" element={<Article />} />
-            <Route path="certificates" element={<Certificates />} />
-            <Route path="privacy" element={<Legal kind="privacy" />} />
-            <Route path="terms" element={<Legal kind="terms" />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </Suspense>
-    </HashRouter>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }

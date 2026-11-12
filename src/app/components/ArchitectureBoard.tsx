@@ -25,12 +25,8 @@ export default function ArchitectureBoard({
   const id = useId().replaceAll(":", "");
   const [flowIndex, setFlowIndex] = useState(0);
   const [step, setStep] = useState(0);
-  const [reduced, setReduced] = useState(
-    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  );
-  const [playing, setPlaying] = useState(
-    () => !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  );
+  const [reduced, setReduced] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const [visible, setVisible] = useState(false);
   const [selectedNode, setSelectedNode] = useState<BoardNode | null>(null);
   const [fit, setFit] = useState(false);
@@ -44,6 +40,8 @@ export default function ArchitectureBoard({
   const running = playing && visible && !reduced;
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(preference.matches);
+    setPlaying(!preference.matches);
     const update = () => {
       setReduced(preference.matches);
       if (preference.matches) setPlaying(false);
@@ -146,7 +144,7 @@ export default function ArchitectureBoard({
           data-playing={running}
           data-step={step}
         >
-          <title>{project.title}: architecture and data flow</title>
+          <title>{`${project.title}: architecture and data flow`}</title>
           <desc>
             {project.board.note} Select a component or use the readable step
             list below.

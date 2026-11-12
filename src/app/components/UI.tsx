@@ -5,8 +5,9 @@ import {
   Check,
   ExternalLink,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { canonicalPath, MetadataCollector, siteOrigin } from "../seo";
 import type { ReactNode } from "react";
 import { articlePath, formatDate } from "../data/portfolio";
 import type { Article, Project } from "../data/portfolio";
@@ -14,16 +15,40 @@ import type { Article, Project } from "../data/portfolio";
 export function PageMeta({
   title,
   description,
+  noindex = false,
 }: {
   title: string;
   description: string;
+  noindex?: boolean;
 }) {
+  const { pathname } = useLocation();
+  const collect = useContext(MetadataCollector);
+  collect?.({ title, description, noindex });
   useEffect(() => {
     document.title = `${title} | Simon Stirling`;
     document
       .querySelector('meta[name="description"]')
       ?.setAttribute("content", description);
-  }, [title, description]);
+    const canonical = `${siteOrigin}${canonicalPath(pathname)}`;
+    document
+      .querySelector('link[rel="canonical"]')
+      ?.setAttribute("href", canonical);
+    for (const [property, content] of Object.entries({
+      "og:title": document.title,
+      "og:description": description,
+      "og:url": canonical,
+    })) {
+      document
+        .querySelector(`meta[property="${property}"]`)
+        ?.setAttribute("content", content);
+    }
+    document
+      .querySelector('meta[name="robots"]')
+      ?.setAttribute(
+        "content",
+        noindex ? "noindex,follow" : "index,follow,max-image-preview:large",
+      );
+  }, [title, description, pathname, noindex]);
   return null;
 }
 

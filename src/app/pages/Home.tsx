@@ -53,7 +53,7 @@ export default function Home() {
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
-      const target = anchorIds[pathname];
+      const target = anchorIds[pathname.replace(/\/+$/, "")];
       if (target)
         document.getElementById(target)?.scrollIntoView({
           behavior: window.matchMedia("(prefers-reduced-motion: reduce)")

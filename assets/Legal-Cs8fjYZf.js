@@ -1,4 +1,4 @@
-import{m as e}from"./index-CawzpRRI.js";import{E as t,a as n,b as r}from"./UI-Bo3WByDi.js";var i=`<h1 class="mb-4">Privacy Policy</h1>
+import{m as e}from"./index-Dv1kVw8X.js";import{E as t,a as n,b as r}from"./UI-9R5NGsJr.js";var i=`<h1 class="mb-4">Privacy Policy</h1>
 <p><strong>Last Updated:</strong> 12 November 2026</p>
 <p>
   <strong>1. Introduction</strong>
@@ -211,4 +211,4 @@ import{m as e}from"./index-CawzpRRI.js";import{E as t,a as n,b as r}from"./UI-Bo
   info@bestdev.co.il.
 </p>
 `,o=r();function s({kind:r}){return(0,o.jsxs)(`section`,{className:`shell legal-section`,children:[(0,o.jsx)(n,{title:r===`privacy`?`Privacy policy`:`Terms of usage`,description:`The existing ${r===`privacy`?`privacy policy`:`terms of usage`} for bestdev.co.il.`}),(0,o.jsxs)(t,{className:`text-link`,to:`/`,children:[(0,o.jsx)(e,{size:16}),`Back to the overview`]}),(0,o.jsx)(`div`,{className:`prose legal-prose`,dangerouslySetInnerHTML:{__html:r===`privacy`?i:a}})]})}export{s as default};
-//# sourceMappingURL=Legal-BbPKmNqL.js.map
+//# sourceMappingURL=Legal-Cs8fjYZf.js.map

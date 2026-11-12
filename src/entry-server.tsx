@@ -3,12 +3,14 @@ import { StaticRouter } from "react-router-dom";
 import { AppRoutes } from "./app/App";
 import { articles, articlePath, caseStudies } from "./app/data/portfolio";
 import projects from "./app/data/standalone-projects.json";
+import mobileApps from "./app/data/mobile-apps.json";
 import { MetadataCollector, homeSections, cleanPath } from "./app/seo";
 import type { PageMetadata } from "./app/seo";
 
 export const paths = [
   "/",
   "/projects/",
+  "/apps/",
   "/blog/",
   "/certificates/",
   "/privacy/",
@@ -22,6 +24,8 @@ export const paths = [
   ),
 ];
 export const aliases = homeSections.map((section) => `/${section}/`);
+// Independent static app websites are copied from public/ without the SPA or analytics.
+export const staticPaths = mobileApps.flatMap((app) => app.pages);
 
 export async function render(url: string) {
   let metadata: PageMetadata | undefined;

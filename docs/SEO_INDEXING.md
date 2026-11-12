@@ -1,6 +1,6 @@
 # Search indexing, 12 November 2026
 
-The portfolio uses real browser-history routes. The production build pre-renders all 60 canonical pages: the overview, project collection, five project guides, five delivery cases, seven journal collection pages, 38 complete articles, certificates, privacy and terms. Each URL has its own HTML file, title, description, canonical and structured data. The sitemap is generated from the same route inventory.
+The portfolio uses real browser-history routes. The production build includes all 66 canonical pages: the overview, project collection, five project guides, five delivery cases, seven journal collection pages, 38 complete articles, certificates, privacy, terms, the mobile app catalogue and five restored Math For Maya pages. The 61 portfolio pages are pre-rendered; the app's five original static pages are preserved directly. Each URL has its own HTML file, title, description, canonical and structured data. The sitemap is generated from the same route inventory.
 
 The existing about, services, resume, contact, blogpreview and work routes remain section shortcuts on the overview and point their canonical to `/`. They are excluded from the sitemap because they contain the same page. Existing `/#/` links are migrated in the browser. A dedicated `404.html` carries `noindex,follow`; unknown URLs retain the host's real HTTP 404 response. Journal pagination uses ordinary links so a crawler can reach every article without clicking a button. Article bodies are bundled with their page and present in the initial HTML.
 

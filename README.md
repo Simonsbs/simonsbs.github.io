@@ -2,7 +2,11 @@
 
 The profile leads with pre-sales, enterprise solutions architecture and post-sales implementation/support. CTO and co-owner roles remain as secondary career-history context. Featured cases cover customer discovery, enterprise delivery and ongoing service reliability.
 
-The portfolio at [bestdev.co.il](https://bestdev.co.il/) uses React 19, TypeScript and Vite 8. The homepage leads with professional delivery, a visible CV download and three selected demos. Projects contains all five independently deployed demonstrators and all delivery cases. Hash routing preserves direct case-study, project and article links on GitHub Pages.
+The portfolio at [bestdev.co.il](https://bestdev.co.il/) uses React 19, TypeScript and Vite 8. The homepage leads with professional delivery, a visible CV download and three selected demos. Projects contains all five independently deployed demonstrators, all delivery cases and the mobile app catalogue. Browser-history routes are pre-rendered for direct links on GitHub Pages; existing hash links still resolve.
+
+## Mobile apps
+
+[Mobile apps](https://bestdev.co.il/apps/) lists Math For Maya and links to its Google Play listing. Its original [app website](https://bestdev.co.il/apps/math-for-maya/), [privacy policy](https://bestdev.co.il/apps/math-for-maya/privacy/), [data safety](https://bestdev.co.il/apps/math-for-maya/data-safety/), [support](https://bestdev.co.il/apps/math-for-maya/support/) and [terms](https://bestdev.co.il/apps/math-for-maya/terms/) are restored under `public/apps/math-for-maya/`, including their original screenshots and styling. These independent static pages contain no executable scripts or portfolio analytics. The build checks their exact copied files and links, and includes all five pages in the sitemap. See [recovery sources and validation](docs/MOBILE_APPS_RECOVERY.md).
 
 ## Delivery case studies and recent writing
 

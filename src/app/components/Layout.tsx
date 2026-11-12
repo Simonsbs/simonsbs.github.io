@@ -9,6 +9,7 @@ const navigation = [
   { to: "/", label: "Overview" },
   { to: "/services", label: "Expertise" },
   { to: "/projects", label: "Projects" },
+  { to: "/apps/", label: "Apps" },
   { to: "/blog/", label: "Writing" },
   { to: "/about", label: "About" },
 ];
@@ -180,6 +181,7 @@ export default function Layout() {
             © {new Date().getFullYear()} {profile.name}
           </span>
           <div>
+            <Link to="/apps/">Mobile apps</Link>
             <Link to="/certificates">Certificates</Link>
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>

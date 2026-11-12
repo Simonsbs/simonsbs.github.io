@@ -13,7 +13,7 @@ await build({
     rollupOptions: { output: { entryFileNames: "entry-server.mjs" } },
   },
 });
-const { render, paths, aliases } = await import(
+const { render, paths, aliases, staticPaths } = await import(
   pathToFileURL(path.resolve("artifacts/seo/server/entry-server.mjs")).href
 );
 const siteOrigin = "https://bestdev.co.il";
@@ -121,14 +121,15 @@ await writeFile(
   legacy,
   '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/projects/knowledge-lab/"><link rel="canonical" href="https://bestdev.co.il/projects/knowledge-lab/"><title>Knowledge Lab</title></head><body><a href="/projects/knowledge-lab/">Open Knowledge Lab</a></body></html>',
 );
+const allPaths = [...paths, ...staticPaths];
 await writeFile(
   "dist/sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map((pathname) => `  <url><loc>${siteOrigin}${pathname}</loc></url>`).join("\n")}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allPaths.map((pathname) => `  <url><loc>${siteOrigin}${pathname}</loc></url>`).join("\n")}\n</urlset>\n`,
 );
 await writeFile(
   "artifacts/seo/routes.json",
-  JSON.stringify({ paths, aliases, articles: articles.length }, null, 2) + "\n",
+  JSON.stringify({ paths: allPaths, staticPaths, aliases, articles: articles.length }, null, 2) + "\n",
 );
 console.log(
-  `Pre-rendered ${paths.length} canonical pages, ${aliases.length} section aliases and a real 404 page.`,
+  `Pre-rendered ${paths.length} canonical pages, retained ${staticPaths.length} static app pages, ${aliases.length} section aliases and a real 404 page.`,
 );

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import { PageMeta } from "./components/UI";
 
 const Work = lazy(() => import("./pages/Work"));
+const Apps = lazy(() => import("./pages/Apps"));
 const Journal = lazy(() => import("./pages/Journal"));
 const Article = lazy(() => import("./pages/Article"));
 const Certificates = lazy(() => import("./pages/Certificates"));
@@ -62,6 +63,7 @@ export function AppRoutes() {
             <Route key={section} path={section} element={<Home />} />
           ))}
           <Route path="projects" element={<Work />} />
+          <Route path="apps" element={<Apps />} />
           <Route path="projects/:projectId" element={<Project />} />
           <Route path="case-studies/:caseId" element={<CaseStudy />} />
           <Route

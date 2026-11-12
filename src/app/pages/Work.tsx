@@ -6,6 +6,8 @@ import { caseStudies, profile } from "../data/portfolio";
 import { Eyebrow, PageMeta } from "../components/UI";
 import CaseStudyCard from "../components/CaseStudyCard";
 import StandaloneProjects from "../components/StandaloneProjects";
+import MobileAppCards from "../components/MobileAppCards";
+import "../mobile-apps.css";
 
 const filters = [
   "All work",
@@ -88,6 +90,20 @@ export default function Work() {
           ))}
         </div>
         <StandaloneProjects />
+        <section
+          className="mobile-apps-section"
+          aria-labelledby="mobile-apps-heading"
+        >
+          <div className="delivery-heading">
+            <div className="section-kicker">MOBILE APPS</div>
+            <h2 id="mobile-apps-heading">Learning on a smaller screen.</h2>
+            <p>
+              Explore Math For Maya, my maths practice app for children, with its
+              original app guide and support pages.
+            </p>
+          </div>
+          <MobileAppCards />
+        </section>
         <div className="collection-footer">
           <p>
             Looking for this mix of customer understanding and engineering

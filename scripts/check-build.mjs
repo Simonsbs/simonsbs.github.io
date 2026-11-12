@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import "./check-mobile-apps.mjs";
 const html = await readFile("dist/index.html", "utf8"),
   manifest = JSON.parse(await readFile("dist/showcase.json", "utf8"));
 assert.match(html, /Simon Stirling/);

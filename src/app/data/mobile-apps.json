@@ -1,0 +1,21 @@
+[
+  {
+    "id": "math-for-maya",
+    "name": "Math For Maya",
+    "platform": "Android",
+    "audience": "Ages 6 to 8",
+    "description": "A colourful maths practice app that helps children work through addition and subtraction, one column at a time. Clear prompts, hints and optional celebrations keep practice relaxed.",
+    "path": "/apps/math-for-maya/",
+    "icon": "/apps/math-for-maya/assets/app-icon.png",
+    "screenshot": "/apps/math-for-maya/assets/screenshot-play.png",
+    "playStore": "https://play.google.com/store/apps/details?id=com.simonsbs.mathformaya",
+    "features": ["Works offline", "No ads or purchases", "No accounts", "Step-by-step hints"],
+    "pages": [
+      "/apps/math-for-maya/",
+      "/apps/math-for-maya/privacy/",
+      "/apps/math-for-maya/data-safety/",
+      "/apps/math-for-maya/support/",
+      "/apps/math-for-maya/terms/"
+    ]
+  }
+]

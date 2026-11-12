@@ -132,7 +132,7 @@
     scroll-padding-top: 105px;
   }
   body {
-    min-width: 320px;
+    min-width: min(320px, 100%);
   }
   ::selection {
     background: var(--accent);
